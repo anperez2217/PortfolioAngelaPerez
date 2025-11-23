@@ -1,0 +1,231 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Using Inter for body copy for readability, Playfair for headings */
+  font-family: 'Inter', sans-serif;
+  background-color: #FAF9F6; /* A warm, sophisticated off-white */
+  color: #1a1a1a; /* A softer black */
+  line-height: 1.6;
+  font-size: 18px; /* Larger base font size */
+}
+
+/* Main content wrapper for consistent width and centering */
+.content-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header / Navigation */
+header {
+  position: fixed; /* Makes the nav bar stay at the top */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 2rem 0;
+  background-color: #FAF9F6; /* Solid background for the nav bar */
+  border-bottom: 1px solid #EAE0D5; /* Subtle separator line */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between; /* Distributes items evenly */
+  max-width: 960px; /* Ensures nav width matches content width */
+  margin: 0 auto; /* Centers the nav element itself */
+  padding: 0 2rem; /* Aligns with content-wrapper padding */
+}
+
+nav ul li {
+  flex: 1; /* Each item takes up an equal amount of space */
+  text-align: center; /* Center the link text within its container */
+  transition: background-color 0.3s;
+}
+
+nav ul li a {
+  color: #1a1a1a;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+
+nav ul li:hover {
+  background-color: #EAE0D5; /* Use the subtle border color for hover */
+}
+
+/* Hero Section Style for the top section of each page */
+.hero {
+  background-color: #F0EBE3; /* A warm, light tan */
+  padding: 12rem 2rem 6rem; /* More top padding to clear the fixed header */
+  text-align: center;
+}
+
+/* Sections */
+section {
+  text-align: center;
+  padding: 6rem 0; /* Increased vertical spacing for a more luxurious feel */
+}
+
+/* Add a divider line between sections for texture and flow */
+.content-wrapper > section:not(.hero) {
+  border-top: 1px solid #EAE0D5;
+}
+
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 1.5rem;
+  font-weight: 700; /* A bolder weight for strong headings */
+  letter-spacing: 0.1rem; /* Give the condensed font some breathing room */
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin-bottom: 0.75rem;
+  font-style: normal; /* Removing italics for a cleaner look */
+}
+
+/* Style for lists within the introduction section */
+.introduction ul {
+  list-style-position: inside;
+  padding-left: 1rem;
+}
+
+/* Experience Section */
+.job {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.job:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Links */
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #888;
+}
+
+.links a {
+  margin: 0 1rem;
+}
+
+/* Images */
+img {
+  max-width: 100%; /* Responsive images */
+  width: 250px;
+  height: auto;
+  margin: 1rem;
+  border: none; /* Removing border for a cleaner look */
+  transition: transform 0.3s;
+}
+
+img:hover {
+  opacity: 0.85;
+  transform: none; /* Removing scale for a more subtle hover */
+}
+
+/* Tables */
+table {
+  width: 80%;
+  margin: 0 auto 2rem;
+  border-collapse: collapse; /* Remove cell spacing */
+  text-align: left;
+}
+
+th, td {
+  border: none; /* Remove all borders */
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee; /* Use bottom borders for separation */
+}
+
+th {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  color: #888;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+label {
+  margin: 0.5rem 0 0.2rem;
+}
+
+input, textarea {
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-bottom: 1px solid #ccc; /* Underline style input */
+  background: transparent;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-bottom-color: #1a1a1a;
+}
+
+button {
+  padding: 1rem 2rem;
+  border: 1px solid #1a1a1a;
+  background: #1a1a1a;
+  color: #fdfdfd;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Footer */
+footer {
+  background-color: #F0EBE3; /* Match the warm tan of the hero section */
+  color: #1a1a1a;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+}
