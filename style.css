@@ -839,6 +839,34 @@ main {
   margin-bottom: 30px;
 }
 
+.about-summary {
+  padding: 30px 40px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-top: 3px solid #00D4FF;
+  background: linear-gradient(135deg, rgba(26, 10, 46, 0.3), rgba(10, 50, 80, 0.2));
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1), inset 0 0 20px rgba(0, 212, 255, 0.05);
+  text-align: center;
+}
+
+.about-summary h2 {
+  color: #00D4FF;
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.about-me-summary {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Facts Grid */
 .facts-grid {
   display: grid;
@@ -1018,4 +1046,65 @@ main {
   to {
     width: 200px;
   }
+}
+
+/* Projects Section */
+.projects-section {
+  background: linear-gradient(180deg, #000000 0%, #0a0f1f 25%, rgba(15, 27, 58, 0.8) 50%, rgba(26, 10, 46, 0.7) 75%, rgba(255, 0, 100, 0.15) 100%);
+  border: none;
+  padding: 40px;
+  border-radius: 0px;
+  margin: 0px;
+  box-shadow: none;
+}
+
+.projects-section h2 {
+  color: #00D4FF;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 30px;
+  font-size: 2em;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  margin-top: 0;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.video-card {
+  background: linear-gradient(135deg, #000000 0%, #0a0f1f 100%);
+  border: 2px solid rgba(0, 212, 255, 0.25);
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15), inset 0 0 20px rgba(0, 212, 255, 0.03);
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 
+    0 0 30px rgba(0, 212, 255, 0.3),
+    0 0 50px rgba(0, 212, 255, 0.15),
+    inset 0 0 20px rgba(0, 212, 255, 0.05);
+}
+
+.video-card h3 {
+  color: #FF0064;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  text-shadow: 0 0 10px rgba(255, 0, 100, 0.3);
+}
+
+.video-card p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  font-size: 0.95em;
+  margin: 0;
 }
