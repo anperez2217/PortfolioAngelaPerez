@@ -4,46 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Professional</title>
+  <link rel="stylesheet" href="tailwind-output.css">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Aboutme.html">Tech Stack</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="professional.html">Connect</a></li>
+<body class="bg-black text-white font-inter">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neon-cyan/20">
+    <nav class="max-w-6xl mx-auto px-4 py-4">
+      <ul class="flex justify-center gap-8">
+        <li><a href="index.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Home</a></li>
+        <li><a href="Aboutme.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Tech Stack</a></li>
+        <li><a href="projects.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Projects</a></li>
+        <li><a href="professional.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Connect</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="content-wrapper">
-    <section class="hero">
-      <h1>Get in Touch</h1>
-      <p>I'm looking for a role where I can help a results-driven team build impactful solutions. If you need a dedicated and collaborative developer who is focused on delivering value, I'd love to connect.</p>
+  <main class="content-wrapper min-h-screen">
+    <section class="hero max-w-4xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 text-neon-cyan font-oswald">Get in Touch</h1>
+      <p class="text-lg text-gray-300 leading-relaxed">I'm looking for a role where I can help a results-driven team build impactful solutions. If you need a dedicated and collaborative developer who is focused on delivering value, I'd love to connect.</p>
     </section>
 
-    <section class="contact-form">
-      <form action="https://formsubmit.co/anperez@icstars.org" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <section class="contact-form max-w-2xl mx-auto px-4 py-16">
+      <form action="https://formsubmit.co/anperez@icstars.org" method="POST" class="space-y-6">
+        <div class="form-group">
+          <label for="name" class="block text-lg font-semibold text-neon-cyan mb-2">Name:</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-900 border border-neon-cyan/30 rounded-lg text-white focus:border-neon-magenta outline-none transition-colors">
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <div class="form-group">
+          <label for="email" class="block text-lg font-semibold text-neon-cyan mb-2">Email:</label>
+          <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-900 border border-neon-cyan/30 rounded-lg text-white focus:border-neon-magenta outline-none transition-colors">
+        </div>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <div class="form-group">
+          <label for="message" class="block text-lg font-semibold text-neon-cyan mb-2">Message:</label>
+          <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-900 border border-neon-cyan/30 rounded-lg text-white focus:border-neon-magenta outline-none transition-colors resize-none"></textarea>
+        </div>
 
-        <button type="submit">Send</button>
+        <button type="submit" class="w-full px-6 py-3 bg-neon-magenta text-black font-bold rounded-lg hover:bg-neon-cyan transition-all transform hover:scale-105">Send</button>
       </form>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Angela Perez</p>
+  <footer class="bg-black border-t border-neon-cyan/20 py-6 px-4 text-center">
+    <p class="text-gray-500">&copy; 2025 Angela Perez</p>
   </footer>
 </body>
 </html>

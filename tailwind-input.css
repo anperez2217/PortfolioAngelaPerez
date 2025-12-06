@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Custom glitch effect styles */
+.profile-image-wrapper {
+  position: relative;
+  width: 16rem;
+  height: 16rem;
+  overflow: hidden;
+  animation: glitch-drift 0.15s infinite;
+}
+
+.profile-image {
+  width: 16rem;
+  height: 16rem;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-image-wrapper::before {
+  animation: scanline-flicker 0.4s infinite;
+  mix-blend-mode: screen;
+}
+
+.profile-image-wrapper::after {
+  animation: artifacting-shift 0.3s infinite;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
