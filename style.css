@@ -1,17 +1,13 @@
 body {
-  background: linear-gradient(180deg, 
-    #000000 0%, 
-    #000000 20%, 
-    #0a0a15 35%, 
-    #0f0f1f 50%, 
-    rgba(100, 0, 150, 0.3) 70%,
-    rgba(200, 0, 100, 0.4) 85%,
-    rgba(0, 100, 255, 0.3) 100%);
-  background-attachment: fixed;
+  background: #000000;
   color: #FFFFFF;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   position: relative;
+  min-height: 100vh;
+}
+
+main {
   min-height: 100vh;
 }
 
@@ -80,6 +76,69 @@ a:hover {
   padding: 30px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.content-wrapper.home-page {
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, 
+    #000000 0%, 
+    #000000 30%,
+    #0a0505 40%,
+    #1a0a0a 50%,
+    #2a1010 60%,
+    #3a1515 70%,
+    #4a2020 80%,
+    #5a3030 90%,
+    #6a4040 100%);
+  background-attachment: fixed;
+}
+
+.content-wrapper.aboutme-page {
+  background: linear-gradient(180deg, 
+    #000000 0%, 
+    #000000 35%,
+    #0a0505 45%,
+    #1a0a0a 55%,
+    #2a1515 65%,
+    #3a2020 75%,
+    #4a3030 85%,
+    #5a4545 95%,
+    #6a5555 100%);
+  background-attachment: fixed;
+}
+
+.content-wrapper.projects-page {
+  background: linear-gradient(180deg, 
+    #000000 0%, 
+    #000000 30%,
+    #0a0505 40%,
+    #1a0a0a 50%,
+    #2a1010 60%,
+    #3a1515 70%,
+    #4a2020 80%,
+    #5a3030 90%,
+    #6a4040 100%);
+  background-attachment: fixed;
+}
+
+.content-wrapper.professional-page {
+  background: linear-gradient(180deg, 
+    #000000 0%, 
+    #000000 30%,
+    #0a0505 40%,
+    #1a0a0a 50%,
+    #2a1010 60%,
+    #3a1515 70%,
+    #4a2020 80%,
+    #5a3030 90%,
+    #6a4040 100%);
+  background-attachment: fixed;
+}
+
+main {
+  min-height: 100vh;
 }
 
 section {
