@@ -351,59 +351,16 @@
       transform: scale(1.05);
     }
 
-    header {
-      background: linear-gradient(135deg, #0f1b3a 0%, #1a0a2e 50%, #16213e 100%);
-      backdrop-filter: blur(10px);
-      background-color: rgba(15, 27, 58, 0.8);
-      padding: 15px 0;
-      text-align: center;
-      border-bottom: 1px solid rgba(0, 168, 255, 0.3);
-      box-shadow: 0 0 20px rgba(0, 168, 255, 0.1), 0 0 40px rgba(255, 0, 100, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-
-    nav {
-      padding: 10px 0;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 60px;
-    }
-
-    nav li {
-      display: inline;
-      margin: 0;
-      position: relative;
-    }
-
-    nav a {
-      color: #00D4FF;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #FF0064;
-    }
   </style>
 </head>
 <body>
   <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neon-cyan/20 flex justify-center">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="game.html" style="color: #FF0064;">Play Game</a></li>
-        <li><a href="professional.html">Connect</a></li>
+    <nav class="py-4">
+      <ul class="flex justify-center gap-x-16">
+        <li><a href="index.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Home</a></li>
+        <li><a href="projects.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Projects</a></li>
+        <li><a href="game.html" class="text-neon-magenta hover:text-neon-magenta transition-colors font-semibold">Play Game</a></li>
+        <li><a href="professional.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Connect</a></li>
       </ul>
     </nav>
   </header>
@@ -844,24 +801,10 @@
 
     document.getElementById("startGameBtn").onclick = startGame;
     document.getElementById("nextBtn").onclick = nextQuestion;
-    docume>
-</bodynt.getEl display
-   ementBayLeaderboyrd();
-  </script>
-</body>
-</bodI>d("restartBtn").onclick = restartGame;
-    dy>
-    displaoLeaderboard();
-  </scriptcument.getElementById("dodgeContinueBtn").onclick = endBonusGame;
-    document.getElementById("restartBtn").onclick = restartGame;
+    document.getElementById("restartBtn").onclsick = restartGame;
     document.getElementById("dodgeContinueBtn").onclick = endBonusGame;
 
-</body>
     // Initial display
-    displayLeaderboard();
-  </script>
-</body>
-</body>
     displayLeaderboard();
   </script>
 </body>
