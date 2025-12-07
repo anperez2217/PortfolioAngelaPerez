@@ -693,10 +693,10 @@
       playerShield.style.left = playerPosition + 'px';
 
       // Start falling malware
-      malwareInterval = setInterval(createMalware, 600);
-
-      playerMoveInterval = setInterval(movePlayer, 20);
-
+      malwareInterval = setInterval(createMalware, 700);
+      playerMoveInterval = setInterval(movePlayer, 16); // ~60fps
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('keyup', handleKeyUp);
       // End game after 10 seconds
       setTimeout(endBonusGame, 10000);
     }
@@ -707,6 +707,8 @@
 
       clearInterval(malwareInterval);
       clearInterval(playerMoveInterval);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
 
       // Add bonus points to main score
       score += bonusScore;
@@ -758,12 +760,7 @@
     function endGame() {
       gameOverSound.play();
       document.getElementById("optionsContainer").innerHTML = "";
-      
-      if (hacked) {
-        document.getElementById("questionBox").innerHTML = `<div class="game-over" style="color: #FF0000;">🔓 SYSTEM HACKED! 🔓</div><div class="final-score" style="color: #FF0000;">${score}/${questions.length}</div><p style="color: #FF0064;">Your defenses were breached. Better luck next time!</p>`;
-      } else {
-        document.getElementById("questionBox").innerHTML = `<div class="game-over">GAME OVER!</div><div class="final-score">${score}/${questions.length}</div><p style="color: #00D4FF;">You completed the Cyber Threat Detector!</p>`;
-      }
+      document.getElementById("questionBox").innerHTML = `<div class="game-over">GAME OVER!</div><div class="final-score">${score}/${questions.length}</div><p style="color: #00D4FF;">You completed the Cyber Threat Detector!</p>`;
       
       document.getElementById("nextBtn").style.display = "none";
       document.getElementById("restartBtn").style.display = "block";
@@ -785,12 +782,9 @@
     function restartGame() {
       currentQuestion = 0;
       score = 0;
-      lives = 3;
-      hacked = false;
       answered = false;
       document.getElementById("score").textContent = "0";
       document.getElementById("restartBtn").style.display = "none";
-      updateLivesDisplay();
       
       document.getElementById("gameContainer").style.display = "none";
       document.getElementById("nameEntryContainer").style.display = "flex";
@@ -809,10 +803,6 @@
       document.getElementById("nameEntryContainer").style.display = "none";
       document.getElementById("leaderboardContainer").style.display = "none";
       document.getElementById("gameContainer").style.display = "flex";
-
-      // Add key listeners for bonus game
-      document.addEventListener('keydown', handleKeyDown);
-      document.addEventListener('keyup', handleKeyUp);
 
       shuffleArray(questions);
       loadQuestion();
@@ -854,9 +844,19 @@
 
     document.getElementById("startGameBtn").onclick = startGame;
     document.getElementById("nextBtn").onclick = nextQuestion;
+    docume>
+</bodynt.getEl display
+   ementBayLeaderboyrd();
+  </script>
+</body>
+</bodI>d("restartBtn").onclick = restartGame;
+    dy>
+    displaoLeaderboard();
+  </scriptcument.getElementById("dodgeContinueBtn").onclick = endBonusGame;
     document.getElementById("restartBtn").onclick = restartGame;
     document.getElementById("dodgeContinueBtn").onclick = endBonusGame;
 
+</body>
     // Initial display
     displayLeaderboard();
   </script>
@@ -865,3 +865,4 @@
     displayLeaderboard();
   </script>
 </body>
+</html>
