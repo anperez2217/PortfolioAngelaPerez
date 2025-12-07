@@ -82,115 +82,121 @@
     </section>
 
     <!-- Video Demos Section -->
-    <section class="video-demos max-w-6xl mx-auto px-4 py-8">
-      <h2 class="text-3xl font-bold mb-12 text-neon-cyan font-oswald">Project Demonstrations</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Video 1 -->
-        <div class="video-card group rounded-xl overflow-hidden border border-neon-cyan/20 hover:border-neon-magenta/50 transition-all duration-300 hover:shadow-lg hover:shadow-neon-magenta/10">
-          <div class="relative bg-gray-950 aspect-video">
-            <video width="100%" height="100%" controls class="w-full h-full">
-              <source src="BDCONNECT ADMIN USER.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+    <section class="video-demos max-w-6xl mx-auto px-4 py-16" style="position: relative;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.05), transparent); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <h2 class="text-4xl font-bold mb-14 text-neon-cyan font-oswald">Project Demonstrations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Video 1 -->
+          <div class="video-card group rounded-xl overflow-hidden" style="border: 2px solid rgba(0, 212, 255, 0.3); transition: all 0.4s ease; box-shadow: 0 0 20px rgba(0, 212, 255, 0.2), inset 0 0 15px rgba(0, 212, 255, 0.05); background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), transparent);" onmouseover="this.style.borderColor='rgba(0, 212, 255, 1)'; this.style.boxShadow='0 0 40px rgba(0, 212, 255, 0.6), inset 0 0 25px rgba(0, 212, 255, 0.15), 0 0 60px rgba(0, 212, 255, 0.3)';" onmouseout="this.style.borderColor='rgba(0, 212, 255, 0.3)'; this.style.boxShadow='0 0 20px rgba(0, 212, 255, 0.2), inset 0 0 15px rgba(0, 212, 255, 0.05)';">
+            <div class="relative bg-gray-950 aspect-video overflow-hidden">
+              <video width="100%" height="100%" controls class="w-full h-full">
+                <source src="BDCONNECT ADMIN USER.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="p-6" style="background: linear-gradient(to top, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.3)); border-top: 2px solid rgba(0, 212, 255, 0.2);">
+              <h3 class="text-xl font-bold mb-2 text-neon-cyan group-hover:text-neon-magenta transition-colors">B-Day Connections User & Admin Pages</h3>
+              <p class="text-sm text-gray-400">User management and database connectivity showcase</p>
+            </div>
           </div>
-          <div class="p-6 bg-gray-900/50 border-t border-gray-800/50">
-            <h3 class="text-xl font-bold mb-2 text-neon-magenta group-hover:text-neon-cyan transition-colors">B-Day Connections User & Admin Pages</h3>
-            <p class="text-sm text-gray-400">User management and database connectivity showcase</p>
-          </div>
-        </div>
 
-        <!-- Video 2 -->
-        <div class="video-card group rounded-xl overflow-hidden border border-neon-cyan/20 hover:border-neon-magenta/50 transition-all duration-300 hover:shadow-lg hover:shadow-neon-magenta/10">
-          <div class="relative bg-gray-950 aspect-video">
-            <video width="100%" height="100%" controls class="w-full h-full">
-              <source src="BD CONNECT POWERPOINT.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="p-6 bg-gray-900/50 border-t border-gray-800/50">
-            <h3 class="text-xl font-bold mb-2 text-neon-cyan group-hover:text-neon-magenta transition-colors">B-Day Connections PowerPoint</h3>
-            <p class="text-sm text-gray-400">Complete project presentation and feature walkthrough</p>
+          <!-- Video 2 -->
+          <div class="video-card group rounded-xl overflow-hidden" style="border: 2px solid rgba(255, 0, 100, 0.3); transition: all 0.4s ease; box-shadow: 0 0 20px rgba(255, 0, 100, 0.2), inset 0 0 15px rgba(255, 0, 100, 0.05); background: linear-gradient(135deg, rgba(255, 0, 100, 0.1), transparent);" onmouseover="this.style.borderColor='rgba(255, 0, 100, 1)'; this.style.boxShadow='0 0 40px rgba(255, 0, 100, 0.6), inset 0 0 25px rgba(255, 0, 100, 0.15), 0 0 60px rgba(255, 0, 100, 0.3)';" onmouseout="this.style.borderColor='rgba(255, 0, 100, 0.3)'; this.style.boxShadow='0 0 20px rgba(255, 0, 100, 0.2), inset 0 0 15px rgba(255, 0, 100, 0.05)';">
+            <div class="relative bg-gray-950 aspect-video overflow-hidden">
+              <video width="100%" height="100%" controls class="w-full h-full">
+                <source src="BD CONNECT POWERPOINT.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="p-6" style="background: linear-gradient(to top, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.3)); border-top: 2px solid rgba(255, 0, 100, 0.2);">
+              <h3 class="text-xl font-bold mb-2 text-neon-magenta group-hover:text-neon-cyan transition-colors">B-Day Connections PowerPoint</h3>
+              <p class="text-sm text-gray-400">Complete project presentation and feature walkthrough</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Tech Stack Deep Dive -->
-    <section class="tech-stack max-w-6xl mx-auto px-4 py-10">
-      <h2 class="text-3xl font-bold mb-12 text-neon-magenta font-oswald">How It Was Built</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Backend -->
-        <div class="tech-category border border-neon-cyan/20 rounded-xl p-8 bg-gradient-to-br from-gray-900/40 via-red-900/20 to-gray-950/50 hover:border-neon-cyan/50 transition-all">
-          <h3 class="text-xl font-bold text-neon-cyan mb-6 flex items-center gap-2">
-            <span class="text-2xl">⚙️</span> Backend Architecture
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
-              <div>
-                <p class="font-semibold text-white">C# ASP.NET Core 8.0</p>
-                <p class="text-sm text-gray-400">Built request handlers with async/await, implemented service layer with DI</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
-              <div>
-                <p class="font-semibold text-white">Entity Framework Core ORM</p>
-                <p class="text-sm text-gray-400">Mapped cart/order entities, wrote LINQ queries for validation</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
-              <div>
-                <p class="font-semibold text-white">SQLite Database</p>
-                <p class="text-sm text-gray-400">Designed schema for users, carts, orders, FAQs, implemented cookie sessions</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
-              <div>
-                <p class="font-semibold text-white">HtmlSanitizer Security</p>
-                <p class="text-sm text-gray-400">Sanitized admin FAQ input, implemented CSRF tokens on forms</p>
-              </div>
-            </li>
-          </ul>
-        </div>
+    <section class="tech-stack max-w-6xl mx-auto px-4 py-16" style="position: relative;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, rgba(255, 0, 100, 0.05), transparent); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <h2 class="text-4xl font-bold mb-14 text-neon-magenta font-oswald">How It Was Built</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Backend -->
+          <div class="tech-category rounded-xl p-8" style="border: 2px solid rgba(0, 212, 255, 0.2); background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.7)); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);" onmouseover="this.style.borderColor='rgba(0, 212, 255, 0.6)'; this.style.boxShadow='0 20px 40px rgba(0, 212, 255, 0.2)';" onmouseout="this.style.borderColor='rgba(0, 212, 255, 0.2)'; this.style.boxShadow='0 10px 30px rgba(0, 212, 255, 0.1)';">
+            <h3 class="text-2xl font-bold text-neon-cyan mb-8 flex items-center gap-3">
+              <span style="font-size: 1.875rem;">⚙️</span> Backend Architecture
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
+                <div>
+                  <p class="font-semibold text-white">C# ASP.NET Core 8.0</p>
+                  <p class="text-sm text-gray-400">Built request handlers with async/await, implemented service layer with DI</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
+                <div>
+                  <p class="font-semibold text-white">Entity Framework Core ORM</p>
+                  <p class="text-sm text-gray-400">Mapped cart/order entities, wrote LINQ queries for validation</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
+                <div>
+                  <p class="font-semibold text-white">SQLite Database</p>
+                  <p class="text-sm text-gray-400">Designed schema for users, carts, orders, FAQs, implemented cookie sessions</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
+                <div>
+                  <p class="font-semibold text-white">HtmlSanitizer Security</p>
+                  <p class="text-sm text-gray-400">Sanitized admin FAQ input, implemented CSRF tokens on forms</p>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-        <!-- Frontend -->
-        <div class="tech-category border border-neon-magenta/20 rounded-xl p-8 bg-gradient-to-br from-gray-900/40 via-red-900/20 to-gray-950/50 hover:border-neon-magenta/50 transition-all">
-          <h3 class="text-xl font-bold text-neon-magenta mb-6 flex items-center gap-2">
-            <span class="text-2xl">🎨</span> Frontend & UX
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
-              <div>
-                <p class="font-semibold text-white">Blazor Server</p>
-                <p class="text-sm text-gray-400">Built interactive components for cart, checkout, live notifications</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
-              <div>
-                <p class="font-semibold text-white">Razor Components</p>
-                <p class="text-sm text-gray-400">Created GiftCard, CartItem, OrderForm reusable components</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
-              <div>
-                <p class="font-semibold text-white">Tailwind CSS</p>
-                <p class="text-sm text-gray-400">Styled dark theme UI, built responsive grid layouts</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
-              <div>
-                <p class="font-semibold text-white">VS Code Debugger</p>
-                <p class="text-sm text-gray-400">Used breakpoints to debug cart logic, profiled performance</p>
-              </div>
-            </li>
-          </ul>
+          <!-- Frontend -->
+          <div class="tech-category rounded-xl p-8" style="border: 2px solid rgba(255, 0, 100, 0.2); background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.7)); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(255, 0, 100, 0.1);" onmouseover="this.style.borderColor='rgba(255, 0, 100, 0.6)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 100, 0.2)';" onmouseout="this.style.borderColor='rgba(255, 0, 100, 0.2)'; this.style.boxShadow='0 10px 30px rgba(255, 0, 100, 0.1)';">
+            <h3 class="text-2xl font-bold text-neon-magenta mb-8 flex items-center gap-3">
+              <span style="font-size: 1.875rem;">🎨</span> Frontend & UX
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
+                <div>
+                  <p class="font-semibold text-white">Blazor Server</p>
+                  <p class="text-sm text-gray-400">Built interactive components for cart, checkout, live notifications</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
+                <div>
+                  <p class="font-semibold text-white">Razor Components</p>
+                  <p class="text-sm text-gray-400">Created GiftCard, CartItem, OrderForm reusable components</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
+                <div>
+                  <p class="font-semibold text-white">Tailwind CSS</p>
+                  <p class="text-sm text-gray-400">Styled dark theme UI, built responsive grid layouts</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
+                <div>
+                  <p class="font-semibold text-white">VS Code Debugger</p>
+                  <p class="text-sm text-gray-400">Used breakpoints to debug cart logic, profiled performance</p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
