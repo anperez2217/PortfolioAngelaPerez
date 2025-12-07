@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Game</title>
+  <link rel="stylesheet" href="tailwind-output.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #000000;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .game-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .game-header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 2px solid #00D4FF;
+      padding-bottom: 20px;
+    }
+
+    .game-header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #00D4FF, #FF0064);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .game-header p {
+      color: #00D4FF;
+      font-size: 0.95rem;
+    }
+
+    .game-board {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(0, 168, 255, 0.1), rgba(255, 0, 100, 0.1));
+      border: 2px solid #00D4FF;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      margin-bottom: 30px;
+    }
+
+    .score-display {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      color: #FF0064;
+    }
+
+    .score-display span {
+      color: #00D4FF;
+    }
+
+    .question-box {
+      background: rgba(0, 20, 50, 0.8);
+      border: 2px solid #FF0064;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .options-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .option-btn {
+      padding: 15px 20px;
+      border: 2px solid #00D4FF;
+      background: rgba(0, 212, 255, 0.1);
+      color: #00D4FF;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .option-btn:hover {
+      background: rgba(0, 212, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+      transform: scale(1.05);
+    }
+
+    .option-btn:active {
+      transform: scale(0.98);
+    }
+
+    .option-btn.correct {
+      border-color: #00FF00;
+      background: rgba(0, 255, 0, 0.3);
+      color: #00FF00;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+    }
+
+    .option-btn.incorrect {
+      border-color: #FF0000;
+      background: rgba(255, 0, 0, 0.3);
+      color: #FF0000;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+
+    .feedback {
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      min-height: 25px;
+    }
+
+    .feedback.correct {
+      color: #00FF00;
+    }
+
+    .feedback.incorrect {
+      color: #FF0000;
+    }
+
+    .game-button {
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #00D4FF, #FF0064);
+      color: #000000;
+      border: none;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .game-button:hover {
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+      transform: scale(1.02);
+    }
+
+    .game-button:active {
+      transform: scale(0.98);
+    }
+
+    .game-over {
+      text-align: center;
+      font-size: 1.3rem;
+      color: #FF0064;
+      margin-bottom: 20px;
+    }
+
+    .final-score {
+      font-size: 2.5rem;
+      color: #00D4FF;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      padding: 10px 20px;
+      background: rgba(0, 212, 255, 0.2);
+      color: #00D4FF;
+      border: 1px solid #00D4FF;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .back-btn:hover {
+      background: rgba(0, 212, 255, 0.4);
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f1b3a 0%, #1a0a2e 50%, #16213e 100%);
+      backdrop-filter: blur(10px);
+      background-color: rgba(15, 27, 58, 0.8);
+      padding: 15px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 168, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0, 168, 255, 0.1), 0 0 40px rgba(255, 0, 100, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    nav {
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+    }
+
+    nav li {
+      display: inline;
+      margin: 0;
+      position: relative;
+    }
+
+    nav a {
+      color: #00D4FF;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #FF0064;
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neon-cyan/20 flex justify-center">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="professional.html">Connect</a></li>
+        <li><a href="game.html" style="color: #FF0064;">Play Game</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="game-container">
+    <div class="game-header">
+      <h1>🔐 CYBER THREAT DETECTOR</h1>
+      <p>Identify the security threats and protect the network!</p>
+    </div>
+
+    <div class="game-board">
+      <div class="score-display">
+        <div>Question: <span id="questionNumber">1</span>/10</div>
+        <div>Score: <span id="score">0</span>/10</div>
+      </div>
+
+      <div class="question-box" id="questionBox">
+        Loading...
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <div class="options-container" id="optionsContainer">
+        <!-- Options will be generated here -->
+      </div>
+
+      <button class="game-button" id="nextBtn" style="display: none;">Next Question →</button>
+      <button class="game-button" id="restartBtn" style="display: none; background: linear-gradient(135deg, #FF0064, #00D4FF);">Play Again</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "You receive an email asking you to click a link to verify your password. What should you do?",
+        options: ["Click the link immediately", "Report it as phishing", "Share it with colleagues", "Save it for later"],
+        correct: 1
+      },
+      {
+        question: "What is a strong password?",
+        options: ["password123", "ABC123def@#$", "admin", "user"],
+        correct: 1
+      },
+      {
+        question: "You see an unknown USB drive in the parking lot. What do you do?",
+        options: ["Plug it into your computer", "Give it to IT security", "Try to find the owner", "Leave it alone"],
+        correct: 1
+      },
+      {
+        question: "What does VPN stand for?",
+        options: ["Very Private Network", "Virtual Private Network", "Vital Public Network", "Virtual Personal Node"],
+        correct: 1
+      },
+      {
+        question: "A coworker asks for your password via chat. What's the right move?",
+        options: ["Send it to them", "Never share your password", "Share only the first half", "Ask them why first"],
+        correct: 1
+      },
+      {
+        question: "What is two-factor authentication (2FA)?",
+        options: ["Logging in twice", "Using two different browsers", "Two verification methods for login", "Two passwords combined"],
+        correct: 2
+      },
+      {
+        question: "You notice unusual activity on your account. What should you happen first?",
+        options: ["Ignore it", "Change your password immediately", "Post about it online", "Wait and see"],
+        correct: 1
+      },
+      {
+        question: "What is malware?",
+        options: ["Software that is old", "Malicious software designed to harm systems", "Mail that is poorly written", "Software that runs slowly"],
+        correct: 1
+      },
+      {
+        question: "How often should you update your software?",
+        options: ["Once a year", "Never", "As soon as updates are available", "When your computer feels slow"],
+        correct: 2
+      },
+      {
+        question: "What's a secure practice for public WiFi?",
+        options: ["Banking on public WiFi is fine", "Use a VPN for sensitive activities", "Turn off WiFi completely", "Use any WiFi network"],
+        correct: 1
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const question = questions[currentQuestion];
+      document.getElementById("questionBox").textContent = question.question;
+      document.getElementById("questionNumber").textContent = currentQuestion + 1;
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("feedback").className = "feedback";
+      
+      const optionsContainer = document.getElementById("optionsContainer");
+      optionsContainer.innerHTML = "";
+
+      question.options.forEach((option, index) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.textContent = option;
+        btn.onclick = () => selectAnswer(index);
+        optionsContainer.appendChild(btn);
+      });
+
+      document.getElementById("nextBtn").style.display = "none";
+      answered = false;
+    }
+
+    function selectAnswer(selectedIndex) {
+      if (answered) return;
+      
+      answered = true;
+      const question = questions[currentQuestion];
+      const correct = selectedIndex === question.correct;
+      
+      const buttons = document.querySelectorAll(".option-btn");
+      buttons.forEach((btn, index) => {
+        if (index === question.correct) {
+          btn.classList.add("correct");
+        } else if (index === selectedIndex && !correct) {
+          btn.classList.add("incorrect");
+        }
+        btn.style.pointerEvents = "none";
+      });
+
+      if (correct) {
+        score++;
+        document.getElementById("feedback").textContent = "✓ Correct!";
+        document.getElementById("feedback").className = "feedback correct";
+        document.getElementById("score").textContent = score;
+      } else {
+        document.getElementById("feedback").textContent = "✗ Incorrect!";
+        document.getElementById("feedback").className = "feedback incorrect";
+      }
+
+      if (currentQuestion < questions.length - 1) {
+        document.getElementById("nextBtn").style.display = "block";
+      } else {
+        setTimeout(endGame, 1500);
+      }
+    }
+
+    function nextQuestion() {
+      currentQuestion++;
+      loadQuestion();
+    }
+
+    function endGame() {
+      document.getElementById("optionsContainer").innerHTML = "";
+      document.getElementById("questionBox").innerHTML = `<div class="game-over">GAME OVER!</div><div class="final-score">${score}/10</div><p style="color: #00D4FF;">You completed the Cyber Threat Detector!</p>`;
+      document.getElementById("nextBtn").style.display = "none";
+      document.getElementById("restartBtn").style.display = "block";
+    }
+
+    function restartGame() {
+      currentQuestion = 0;
+      score = 0;
+      answered = false;
+      document.getElementById("score").textContent = "0";
+      document.getElementById("restartBtn").style.display = "none";
+      loadQuestion();
+    }
+
+    document.getElementById("nextBtn").onclick = nextQuestion;
+    document.getElementById("restartBtn").onclick = restartGame;
+
+    // Start the game
+    loadQuestion();
+  </script>
+</body>
+</html>
