@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-black text-white font-inter">
-  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neon-cyan/20" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 40px;">
-    <a href="index.html" style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 1.5px solid #00D4FF; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; cursor: pointer; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 100, 0.1));" onmouseover="this.style.boxShadow='0 0 20px rgba(0, 212, 255, 0.8)'; this.style.transform='scale(1.15)'" onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)'" title="Home"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes pulse-ring { 0% { r: 4; opacity: 1; } 100% { r: 8; opacity: 0; } }</style></defs><circle cx="12" cy="12" r="8" stroke="#00D4FF" stroke-width="1" opacity="0.4"/><circle cx="12" cy="12" r="6" stroke="#FF0064" stroke-width="0.8" opacity="0.6" style="animation: spin 3s linear infinite;"/><circle cx="12" cy="12" r="4" fill="none" stroke="#00D4FF" stroke-width="1.2" style="animation: pulse-ring 2s ease-out infinite;"/><circle cx="12" cy="12" r="2.5" fill="#FF0064" opacity="0.8"/><circle cx="12" cy="12" r="1.2" fill="#00D4FF"/></svg></a>
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neon-cyan/20" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+    <a href="index.html" style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 1.5px solid #00D4FF; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; cursor: pointer; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 100, 0.1)); margin-left: -10px;" onmouseover="this.style.boxShadow='0 0 20px rgba(0, 212, 255, 0.8)'; this.style.transform='scale(1.15)'" onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)'" title="Home"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes pulse-ring { 0% { r: 4; opacity: 1; } 100% { r: 8; opacity: 0; } }</style></defs><circle cx="12" cy="12" r="8" stroke="#00D4FF" stroke-width="1" opacity="0.4"/><circle cx="12" cy="12" r="6" stroke="#FF0064" stroke-width="0.8" opacity="0.6" style="animation: spin 3s linear infinite;"/><circle cx="12" cy="12" r="4" fill="none" stroke="#00D4FF" stroke-width="1.2" style="animation: pulse-ring 2s ease-out infinite;"/><circle cx="12" cy="12" r="2.5" fill="#FF0064" opacity="0.8"/><circle cx="12" cy="12" r="1.2" fill="#00D4FF"/></svg></a>
     <nav class="py-4">
       <ul class="flex gap-x-16">
         <li><a href="index.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Home</a></li>
@@ -25,20 +25,19 @@
 
   <main class="content-wrapper home-page min-h-screen pt-20">
     <section class="hero hero-home py-16 px-4">
-      <div class="hero-content max-w-6xl mx-auto flex flex-col items-center justify-center gap-8">
-        <div class="hero-with-image flex flex-row items-center gap-8">
-          <div class="flex flex-col">
-            <h1 class="hero-title text-8xl md:text-9xl lg:text-10xl font-bold text-left font-oswald leading-tight">
-              <div><span class="text-neon-cyan">Angela</span><span class="text-neon-magenta" style="margin-left: 14px;">Perez</span></div>
-            </h1>
-          </div>
-          <div class="glitch-container">
-            <div class="profile-image-wrapper">
-              <img src="IMG_4236.jpg" alt="Angela Perez" class="profile-image">
-            </div>
+      <div class="hero-content max-w-7xl mx-auto" style="display: flex; flex-direction: row; align-items: flex-start; gap: 40px;">
+        <div class="glitch-container" style="flex: 0 0 300px;">
+          <div class="profile-image-wrapper">
+            <img src="IMG_4236.jpg" alt="Angela Perez" class="profile-image">
           </div>
         </div>
-        <div class="hero-accent"></div>
+        <div style="flex: 1 1 auto;">
+          <h1 class="hero-title text-6xl md:text-7xl lg:text-8xl font-bold font-oswald leading-tight">
+            <div><span class="text-neon-cyan">Hello,</span></div>
+            <div><span class="text-neon-magenta">I'm Angela Perez</span></div>
+          </h1>
+          <div class="hero-accent" style="margin-top: 20px; margin-bottom: 0;"></div>
+        </div>
       </div>
     </section>
 
@@ -46,7 +45,7 @@
       <div class="max-w-4xl mx-auto">
         <h2 class="text-4xl font-bold mb-6 text-neon-cyan font-oswald">About Me</h2>
         <p class="about-me-summary text-lg leading-relaxed text-gray-300">
-          I'm a solutions-driven developer who uses a diverse background in project management, client relations, and data analysis to build efficient and user-centric web experiences. Through the i.c.stars program, I'm advancing my skills in full-stack development and cybersecurity, thriving in collaborative Agile environments, and using modern toolchains like Git/GitHub to bring projects to life.
+          I'm a solutions-driven developer with a diverse professional background in operations, client relations, and digital marketing. As an i.c.stars intern, I'm building full-stack applications while mastering secure coding and cybersecurity principles. I develop front-end experiences, integrate them with back-end systems, conduct code reviews, and ensure quality through automated testing. My varied experience helps me build software that truly serves users and solves real business problems.
         </p>
       </div>
     </section>
@@ -55,7 +54,7 @@
       <div class="max-w-4xl mx-auto">
         <h2 class="text-4xl font-bold mb-8 text-neon-cyan font-oswald">Continued Learning Plan</h2>
         <div class="learning-content">
-          <p class="text-lg leading-relaxed text-gray-300 mb-6">My immediate goal is to secure an entry-level position where I can be a dedicated asset in cybersecurity or data analysis. I am pursuing a Bachelor of Science in Cybersecurity and am currently deciding on schools to build a strong foundation for a long-term career path in intelligence, with the ultimate ambition of contributing to national security.</p>
+          <p class="text-lg leading-relaxed text-gray-300 mb-6">My immediate goal is to secure an entry-level position where I can contribute meaningfully to cybersecurity or data analysis initiatives. I'm pursuing a Bachelor of Science in Cybersecurity and currently evaluating universities to build a strong foundation for a long-term career in intelligence work, with the ultimate goal of contributing to national security.</p>
         </div>
       </div>
     </section>
@@ -68,16 +67,16 @@
           <div class="md:col-span-2 md:row-span-2 bg-black p-6 rounded-lg border border-neon-cyan/15 hover:border-neon-magenta/40 transition-all">
             <div class="flex flex-col items-center gap-2 text-center h-full justify-start pt-2">
               <img src="metamore-logo.jpg" alt="METAMORE band logo" class="w-32 h-32 object-contain">
-              <p class="text-gray-300">I am the lead singer, songwriter, and composer for my band, <span class="font-bold text-neon-cyan">METAMORE</span>. I am currently with an Independent Label located here in KC. I have a great team that supports me, and I love Learning from other musicians and leaders.</p>
+              <p class="text-gray-300">I'm the lead singer, songwriter, and composer for <span class="font-bold text-neon-cyan">METAMORE</span>, an indie band signed with a KC-based independent label. I handle all vocal duties and write original music that blends multiple genres to create a unique sound. I'm grateful for an amazing team that supports my vision, and I love learning from the talented musicians and leaders around me. Through METAMORE, I've developed strong skills in creative direction, collaboration, and bringing artistic visions to life.</p>
             </div>
           </div>
           <div class="bg-black p-6 rounded-lg border border-neon-cyan/15 hover:border-neon-magenta/40 transition-all">
           <div class="flex flex-col bg-black p-6 rounded-lg border border-neon-cyan/15 hover:border-neon-magenta/40 transition-all">
-            <p class="text-gray-300">I enjoy creating my own skincare products and soothing soaps. I have plans to build an e-commerce website and open my own store to share these creations with others.</p>
+            <p class="text-gray-300">I'm passionate about creating natural skincare products and therapeutic soaps. I'm building an e-commerce platform to share my creations with others and eventually open my own product line.</p>
           </div>
           <div class="bg-black p-6 rounded-lg border border-neon-cyan/15 hover:border-neon-magenta/40 transition-all">
           <div class="flex flex-col bg-black p-6 rounded-lg border border-neon-cyan/15 hover:border-neon-magenta/40 transition-all">
-            <p class="text-gray-300">I have a deep passion for Eastern medicine, including Shiatsu and herbalism, and I'm currently writing a book on herbalism and Chi energy.</p>
+            <p class="text-gray-300">I'm deeply interested in Eastern medicine, including Shiatsu and herbalism. I'm currently writing a book exploring herbalism and Chi energy to help others understand these powerful healing practices.</p>
           </div>
         </div>
       </div>
