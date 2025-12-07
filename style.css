@@ -84,14 +84,11 @@ a:hover {
   margin: 0;
   background: linear-gradient(180deg, 
     #000000 0%, 
+    #000000 15%,
+    #1a0a0a 20%,
+    #3a1515 25%,
     #000000 30%,
-    #0a0505 40%,
-    #1a0a0a 50%,
-    #2a1010 60%,
-    #3a1515 70%,
-    #4a2020 80%,
-    #5a3030 90%,
-    #6a4040 100%);
+    #000000 100%);
   background-attachment: fixed;
 }
 
@@ -279,16 +276,68 @@ h3 {
   margin: 0 10px;
 }
 
+/* Remove red background from Fun Facts section onward */
+.about-summary {
+  background-color: #000000 !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.introduction {
+  background: #000000 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.introduction * {
+  background-color: transparent !important;
+}
+
+.introduction::after {
+  display: none !important;
+}
+
+.introduction h2 {
+  box-shadow: none !important;
+}
+
+.introduction.featured-section {
+  background: #000000 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.continued-learning {
+  background-color: #000000 !important;
+  background-image: none !important;
+}
+
+.continued-learning::before,
+.continued-learning::after {
+  display: none !important;
+}
+
+.links {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.links::before,
+.links::after {
+  display: none !important;
+}
+
 /* Contact Form Styling */
 .contact-form {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 .contact-form form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .contact-form label {
@@ -1569,4 +1618,39 @@ main {
   line-height: 1.6;
   font-size: 0.95em;
   margin: 0;
+}
+
+/* Remove red from Fun Facts section */
+.introduction {
+  background-color: #000000 !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Make METAMORE logo tiny */
+img[alt="METAMORE band logo"] {
+  width: 150px !important;
+  height: 150px !important;
+  max-width: 150px !important;
+  max-height: 150px !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Better spacing for fact cards */
+.facts-grid {
+  gap: 12px !important;
+}
+
+.fact-card {
+  padding: 12px !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  min-height: auto !important;
 }

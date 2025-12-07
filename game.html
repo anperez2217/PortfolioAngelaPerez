@@ -257,7 +257,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 1);
       z-index: 1000;
       flex-direction: column;
       justify-content: center;
@@ -278,6 +278,7 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+      z-index: 10;
     }
 
     .malware {
@@ -298,8 +299,8 @@
     .player-shield {
       position: absolute;
       bottom: 10px;
+      left: 170px;
       width: 60px;
-      hidth: 60px;
       height: 15px;
       background: linear-gradient(90deg, #00FF00, #00D4FF);
       border: 2px solid #00FF00;
@@ -307,6 +308,7 @@
       box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
       cursor: pointer;
       transition: all 0.1s ease;
+      z-index: 100;
     }
 
     .dodge-title {
@@ -360,7 +362,7 @@
         <li><a href="index.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Home</a></li>
         <li><a href="projects.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Projects</a></li>
         <li><a href="game.html" class="text-neon-magenta hover:text-neon-magenta transition-colors font-semibold">Play Game</a></li>
-        <li><a href="professional.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Connect</a></li>
+        <li><a href="connect.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Connect</a></li>
       </ul>
     </nav>
   </header>
@@ -654,6 +656,9 @@
       playerMoveInterval = setInterval(movePlayer, 16); // ~60fps
       document.addEventListener('keydown', handleKeyDown);
       document.addEventListener('keyup', handleKeyUp);
+      playerShield.addEventListener('mousedown', handleShieldMouseDown);
+      document.addEventListener('mousemove', handleShieldMouseMove);
+      document.addEventListener('mouseup', handleShieldMouseUp);
       // End game after 10 seconds
       setTimeout(endBonusGame, 10000);
     }
@@ -788,6 +793,29 @@
       keysPressed[e.key.toLowerCase()] = false;
     }
 
+    let isDragging = false;
+    let dragStartX = 0;
+
+    function handleShieldMouseDown(e) {
+      isDragging = true;
+      dragStartX = e.clientX;
+    }
+
+    function handleShieldMouseMove(e) {
+      if (!isDragging || !bonusGameActive) return;
+      
+      const dodgeArena = document.getElementById('dodgeArena');
+      const arenaRect = dodgeArena.getBoundingClientRect();
+      const newX = e.clientX - arenaRect.left;
+      
+      playerPosition = Math.max(0, Math.min(newX - shieldWidth / 2, arenaWidth - shieldWidth));
+      playerShield.style.left = playerPosition + 'px';
+    }
+
+    function handleShieldMouseUp(e) {
+      isDragging = false;
+    }
+
     function movePlayer() {
       if (!bonusGameActive) return;
       if (keysPressed['a'] || keysPressed['arrowleft']) {
@@ -801,7 +829,7 @@
 
     document.getElementById("startGameBtn").onclick = startGame;
     document.getElementById("nextBtn").onclick = nextQuestion;
-    document.getElementById("restartBtn").onclsick = restartGame;
+    document.getElementById("restartBtn").onclick = restartGame;
     document.getElementById("dodgeContinueBtn").onclick = endBonusGame;
 
     // Initial display
