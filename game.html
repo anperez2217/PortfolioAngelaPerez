@@ -24,6 +24,12 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .game-wrapper {
       justify-content: center;
       align-items: center;
     }
@@ -147,6 +153,47 @@
       color: #FF0000;
     }
 
+    .name-entry-container {
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      margin-top: 5vh;
+    }
+
+    .name-input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: rgba(0, 20, 50, 0.8);
+      border: 2px solid #00D4FF;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .name-input::placeholder {
+      color: #00D4FF;
+      opacity: 0.6;
+    }
+
+    .leaderboard-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .leaderboard-list {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+    }
+
     .game-button {
       padding: 15px 30px;
       background: linear-gradient(135deg, #00D4FF, #FF0064);
@@ -201,6 +248,107 @@
     .back-btn:hover {
       background: rgba(0, 212, 255, 0.4);
       box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+
+    .bonus-game-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .bonus-game-container.active {
+      display: flex;
+    }
+
+    .dodge-arena {
+      width: 400px;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(0, 168, 255, 0.2), rgba(255, 0, 100, 0.2));
+      border: 3px solid #00D4FF;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    }
+
+    .malware {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: #FF0064;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255, 0, 100, 0.8);
+      animation: fall 3s linear;
+    }
+
+    @keyframes fall {
+      0% { top: -50px; }
+      100% { top: 300px; }
+    }
+
+    .player-shield {
+      position: absolute;
+      bottom: 10px;
+      width: 60px;
+      hidth: 60px;
+      height: 15px;
+      background: linear-gradient(90deg, #00FF00, #00D4FF);
+      border: 2px solid #00FF00;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+
+    .dodge-title {
+      font-size: 2rem;
+      color: #00D4FF;
+      font-weight: bold;
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+      margin-bottom: 10px;
+    }
+
+    .dodge-instructions {
+      color: #FF0064;
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dodge-bonus-points {
+      font-size: 1.5rem;
+      color: #00FF00;
+      font-weight: bold;
+      text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+      margin-top: 10px;
+    }
+
+    .dodge-continue-btn {
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #00D4FF, #FF0064);
+      color: #000000;
+      border: none;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .dodge-continue-btn:hover {
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+      transform: scale(1.05);
     }
 
     header {
@@ -260,16 +408,28 @@
     </nav>
   </header>
 
-  <div class="game-container">
+  <div class="game-container" id="nameEntryContainer">
+    <div class="name-entry-container">
+      <div class="game-header">
+        <h1>🔐 CYBER THREAT DETECTOR</h1>
+        <p>Enter your name to begin!</p>
+      </div>
+      <input type="text" id="playerNameInput" class="name-input" placeholder="PLAYER NAME" maxlength="15">
+      <button class="game-button" id="startGameBtn">Start Game</button>
+    </div>
+  </div>
+
+  <div class="game-container game-wrapper" id="gameContainer" style="display: none;">
     <div class="game-header">
       <h1>🔐 CYBER THREAT DETECTOR</h1>
-      <p>Identify the security threats and protect the network!</p>
     </div>
 
     <div class="game-board">
       <div class="score-display">
-        <div>Question: <span id="questionNumber">1</span>/10</div>
-        <div>Score: <span id="score">0</span>/10</div>
+        <div>Question: <span id="questionNumber">1</span>/<span id="totalQuestions">10</span></div>
+        <div>Time Left: <span id="timer">15</span>s</div>
+        <div>High Score: <span id="highScore">0</span></div>
+        <div>Score: <span id="score">0</span></div>
       </div>
 
       <div class="question-box" id="questionBox">
@@ -287,56 +447,105 @@
     </div>
   </div>
 
+  <div class="leaderboard-container" id="leaderboardContainer">
+    <div class="game-header" style="text-align: center;">
+      <h2 style="text-align: center; background: linear-gradient(135deg, #00D4FF, #FF0064); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2rem;">Leaderboard</h2>
+    </div>
+    <ol class="leaderboard-list" id="leaderboardList">
+    </ol>
+  </div>
+
+  <div class="bonus-game-container" id="bonusGameContainer">
+    <div class="dodge-title">⚡ DODGE THE MALWARE ⚡</div>
+    <div class="dodge-arena" id="dodgeArena">
+      <div class="player-shield" id="playerShield"></div>
+    </div>
+    <div class="dodge-instructions">Move the shield left/right with arrow keys or A/D!</div>
+    <div class="dodge-bonus-points" id="dodgeBonusPoints">+0 BONUS POINTS</div>
+    <button class="dodge-continue-btn" id="dodgeContinueBtn">Continue to Next Question →</button>
+  </div>
+
+  <!-- Audio elements for sound effects -->
+  <!-- Make sure you have these audio files in your project directory -->
+  <audio id="correctSound" src="correct.ogg"></audio>
+  <audio id="incorrectSound" src="incorrect.ogg"></audio>
+  <audio id="gameOverSound" src="gameover.ogg"></audio>
+
   <script>
     const questions = [
       {
+        question: "Which of the following is a common sign of a phishing attempt?",
+        options: ["An email from a known brand", "A message creating a sense of urgency", "A professionally designed email", "A request for public information"],
+        correct: 1
+      },
+      {
         question: "You receive an email asking you to click a link to verify your password. What should you do?",
-        options: ["Click the link immediately", "Report it as phishing", "Share it with colleagues", "Save it for later"],
+        options: ["Click the link and verify your password immediately", "Report it as phishing and don't click the link", "Reply to the email asking if it's legitimate", "Delete it and contact the company directly"],
         correct: 1
       },
       {
-        question: "What is a strong password?",
-        options: ["password123", "ABC123def@#$", "admin", "user"],
+        question: "What is a strong password according to security experts?",
+        options: ["A 10-character password with numbers and symbols", "A long passphrase with 12+ characters mixing upper, lower, numbers, symbols", "A common word with numbers added", "Your pet's name with your birth year"],
         correct: 1
       },
       {
-        question: "You see an unknown USB drive in the parking lot. What do you do?",
-        options: ["Plug it into your computer", "Give it to IT security", "Try to find the owner", "Leave it alone"],
+        question: "You find an unknown USB drive in a public place. What should you do?",
+        options: ["Plug it into your work computer to see what's on it", "Give it to IT security without plugging it in", "Plug it into an offline computer first", "Try to find the owner by searching its contents"],
         correct: 1
       },
       {
         question: "What does VPN stand for?",
-        options: ["Very Private Network", "Virtual Private Network", "Vital Public Network", "Virtual Personal Node"],
+        options: ["Verified Public Network", "Virtual Private Network", "Variable Protocol Network", "Virtual Personal Node"],
         correct: 1
       },
       {
         question: "A coworker asks for your password via chat. What's the right move?",
-        options: ["Send it to them", "Never share your password", "Share only the first half", "Ask them why first"],
+        options: ["Ask for their manager's approval first", "Never share your password", "Provide a temporary password", "Ask them why they need it"],
         correct: 1
       },
       {
         question: "What is two-factor authentication (2FA)?",
-        options: ["Logging in twice", "Using two different browsers", "Two verification methods for login", "Two passwords combined"],
+        options: ["A password and a security question", "Two different passwords for one account", "Something you know and something you have", "A primary and a backup email"],
         correct: 2
       },
       {
-        question: "You notice unusual activity on your account. What should you happen first?",
-        options: ["Ignore it", "Change your password immediately", "Post about it online", "Wait and see"],
+        question: "You notice unusual activity on your account. What should you do first?",
+        options: ["Wait to see if it happens again", "Change your password and enable 2FA", "Ask a friend if it's happened to them", "Run a virus scan on your computer"],
         correct: 1
       },
       {
         question: "What is malware?",
-        options: ["Software that is old", "Malicious software designed to harm systems", "Mail that is poorly written", "Software that runs slowly"],
+        options: ["Any software that shows ads", "Software intended to disrupt, damage, or gain unauthorized access", "A computer hardware component that has failed", "An email that contains a virus"],
         correct: 1
       },
       {
         question: "How often should you update your software?",
-        options: ["Once a year", "Never", "As soon as updates are available", "When your computer feels slow"],
+        options: ["Only when a major version is released", "When you have free time", "As soon as security patches are available", "When the software stops working correctly"],
         correct: 2
       },
       {
         question: "What's a secure practice for public WiFi?",
-        options: ["Banking on public WiFi is fine", "Use a VPN for sensitive activities", "Turn off WiFi completely", "Use any WiFi network"],
+        options: ["Only use networks that are password-protected", "Use a VPN to encrypt your traffic", "Check your bank account quickly", "Avoid downloading large files"],
+        correct: 1
+      },
+      {
+        question: "What is 'social engineering' in the context of cybersecurity?",
+        options: ["A technique for designing secure user interfaces", "Psychological manipulation to trick users into security mistakes", "A method for promoting security awareness on social media", "A type of network architecture"],
+        correct: 1
+      },
+      {
+        question: "Which of these helps protect your computer from malware?",
+        options: ["A firewall", "A pop-up blocker", "A high-resolution monitor", "Clearing your browser history"],
+        correct: 0
+      },
+      {
+        question: "What does 'HTTPS' at the beginning of a URL indicate?",
+        options: ["The site has passed a security audit", "The site is mobile-friendly", "The connection to the site is encrypted", "The site is an official government website"],
+        correct: 2
+      },
+      {
+        question: "If you receive a suspicious text message with a link, what is it likely to be?",
+        options: ["A misdirected marketing message", "A 'smishing' (SMS phishing) attack", "A notification from your mobile carrier", "A verification code you didn't request"],
         correct: 1
       }
     ];
@@ -344,16 +553,50 @@
     let currentQuestion = 0;
     let score = 0;
     let answered = false;
+    let timerInterval;
+    const TIME_LIMIT = 15;
+    let scores = JSON.parse(localStorage.getItem('cyberGameScores')) || [];
+    let currentPlayerName = "";
+
+    let bonusGameActive = false;
+    let bonusScore = 0;
+    let playerPosition;
+    const playerStep = 15;
+    const arenaWidth = 400;
+    const shieldWidth = 60;
+    let malwareInterval;
+    let keysPressed = {};
+    let playerMoveInterval;
+
+    const bonusGameContainer = document.getElementById('bonusGameContainer');
+    const playerShield = document.getElementById('playerShield');
+
+    // Audio Elements
+    const correctSound = document.getElementById('correctSound');
+    const incorrectSound = document.getElementById('incorrectSound');
+    const gameOverSound = document.getElementById('gameOverSound');
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
 
     function loadQuestion() {
+      clearInterval(timerInterval);
       const question = questions[currentQuestion];
       document.getElementById("questionBox").textContent = question.question;
       document.getElementById("questionNumber").textContent = currentQuestion + 1;
+      document.getElementById("totalQuestions").textContent = questions.length;
       document.getElementById("feedback").textContent = "";
+      document.getElementById("highScore").textContent = scores.length > 0 ? scores[0].score : 0;
       document.getElementById("feedback").className = "feedback";
       
       const optionsContainer = document.getElementById("optionsContainer");
       optionsContainer.innerHTML = "";
+
+      document.getElementById('timer').textContent = TIME_LIMIT;
 
       question.options.forEach((option, index) => {
         const btn = document.createElement("button");
@@ -365,11 +608,25 @@
 
       document.getElementById("nextBtn").style.display = "none";
       answered = false;
+      startTimer();
+    }
+
+    function startTimer() {
+      let timeLeft = TIME_LIMIT;
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        document.getElementById('timer').textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          handleTimeout();
+        }
+      }, 1000);
     }
 
     function selectAnswer(selectedIndex) {
       if (answered) return;
       
+      clearInterval(timerInterval);
       answered = true;
       const question = questions[currentQuestion];
       const correct = selectedIndex === question.correct;
@@ -387,12 +644,31 @@
       if (correct) {
         score++;
         document.getElementById("feedback").textContent = "✓ Correct!";
+        correctSound.play();
         document.getElementById("feedback").className = "feedback correct";
         document.getElementById("score").textContent = score;
+        setTimeout(startBonusGame, 1000); // Trigger bonus game after a short delay
       } else {
+        incorrectSound.play();
         document.getElementById("feedback").textContent = "✗ Incorrect!";
         document.getElementById("feedback").className = "feedback incorrect";
       }
+
+      if (currentQuestion < questions.length - 1) {
+        if (!correct) {
+          document.getElementById("nextBtn").style.display = "block";
+        }
+      } else {
+        setTimeout(endGame, 1500);
+      }
+    }
+
+    function handleTimeout() {
+      answered = true;
+      document.getElementById("feedback").textContent = "⌛ Time's up!";
+      incorrectSound.play();
+      document.getElementById("feedback").className = "feedback incorrect";
+      document.querySelectorAll(".option-btn").forEach(btn => btn.style.pointerEvents = "none");
 
       if (currentQuestion < questions.length - 1) {
         document.getElementById("nextBtn").style.display = "block";
@@ -406,27 +682,186 @@
       loadQuestion();
     }
 
+    function startBonusGame() {
+      bonusGameActive = true;
+      bonusScore = 0;
+      document.getElementById('dodgeBonusPoints').textContent = `+${bonusScore} BONUS POINTS`;
+      bonusGameContainer.classList.add('active');
+
+      // Reset player position
+      playerPosition = (arenaWidth - shieldWidth) / 2;
+      playerShield.style.left = playerPosition + 'px';
+
+      // Start falling malware
+      malwareInterval = setInterval(createMalware, 600);
+
+      playerMoveInterval = setInterval(movePlayer, 20);
+
+      // End game after 10 seconds
+      setTimeout(endBonusGame, 10000);
+    }
+
+    function endBonusGame() {
+      if (!bonusGameActive) return;
+      bonusGameActive = false;
+
+      clearInterval(malwareInterval);
+      clearInterval(playerMoveInterval);
+
+      // Add bonus points to main score
+      score += bonusScore;
+      document.getElementById('score').textContent = score;
+
+      // Hide bonus game and show next question button
+      bonusGameContainer.classList.remove('active');
+      if (currentQuestion < questions.length - 1) {
+        document.getElementById("nextBtn").style.display = "block";
+      } else {
+        setTimeout(endGame, 1500);
+      }
+
+      // Remove any remaining malware
+      document.querySelectorAll('.malware').forEach(m => m.remove());
+    }
+
+    function createMalware() {
+      if (!bonusGameActive) return;
+      const malware = document.createElement('div');
+      malware.className = 'malware';
+      malware.style.left = Math.random() * (arenaWidth - 40) + 'px';
+      document.getElementById('dodgeArena').appendChild(malware);
+
+      malware.addEventListener('animationend', () => {
+        malware.remove();
+      });
+
+      // Collision detection
+      const collisionCheck = setInterval(() => {
+        if (!document.body.contains(malware)) {
+          clearInterval(collisionCheck);
+          return;
+        }
+        const malwareRect = malware.getBoundingClientRect();
+        const shieldRect = playerShield.getBoundingClientRect();
+
+        if (malwareRect.bottom > shieldRect.top && malwareRect.right > shieldRect.left && malwareRect.left < shieldRect.right) {
+          malware.remove();
+          bonusScore++;
+          document.getElementById('dodgeBonusPoints').textContent = `+${bonusScore} BONUS POINTS`;
+          clearInterval(collisionCheck);
+        } else if (malwareRect.top > shieldRect.bottom + 100) { // Clean up off-screen malware
+          clearInterval(collisionCheck);
+        }
+      }, 50);
+    }
+
     function endGame() {
+      gameOverSound.play();
       document.getElementById("optionsContainer").innerHTML = "";
-      document.getElementById("questionBox").innerHTML = `<div class="game-over">GAME OVER!</div><div class="final-score">${score}/10</div><p style="color: #00D4FF;">You completed the Cyber Threat Detector!</p>`;
+      
+      if (hacked) {
+        document.getElementById("questionBox").innerHTML = `<div class="game-over" style="color: #FF0000;">🔓 SYSTEM HACKED! 🔓</div><div class="final-score" style="color: #FF0000;">${score}/${questions.length}</div><p style="color: #FF0064;">Your defenses were breached. Better luck next time!</p>`;
+      } else {
+        document.getElementById("questionBox").innerHTML = `<div class="game-over">GAME OVER!</div><div class="final-score">${score}/${questions.length}</div><p style="color: #00D4FF;">You completed the Cyber Threat Detector!</p>`;
+      }
+      
       document.getElementById("nextBtn").style.display = "none";
       document.getElementById("restartBtn").style.display = "block";
+
+      const newScore = { name: currentPlayerName, score: score };
+      scores.push(newScore);
+      scores.sort((a, b) => b.score - a.score);
+      scores = scores.slice(0, 5);
+
+      localStorage.setItem('cyberGameScores', JSON.stringify(scores));
+      displayLeaderboard();
+      document.getElementById("highScore").textContent = scores[0].score;
+      
+      setTimeout(() => {
+        document.getElementById("leaderboardContainer").style.display = "block";
+      }, 1500);
     }
 
     function restartGame() {
       currentQuestion = 0;
       score = 0;
+      lives = 3;
+      hacked = false;
       answered = false;
       document.getElementById("score").textContent = "0";
       document.getElementById("restartBtn").style.display = "none";
+      updateLivesDisplay();
+      
+      document.getElementById("gameContainer").style.display = "none";
+      document.getElementById("nameEntryContainer").style.display = "flex";
+      document.getElementById("leaderboardContainer").style.display = "block";
+    }
+
+    function startGame() {
+      const nameInput = document.getElementById("playerNameInput");
+      currentPlayerName = nameInput.value.trim();
+      if (!currentPlayerName) {
+        alert("Please enter a name to start the game!");
+        return;
+      }
+      nameInput.value = "";
+
+      document.getElementById("nameEntryContainer").style.display = "none";
+      document.getElementById("leaderboardContainer").style.display = "none";
+      document.getElementById("gameContainer").style.display = "flex";
+
+      // Add key listeners for bonus game
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('keyup', handleKeyUp);
+
+      shuffleArray(questions);
       loadQuestion();
     }
 
+    function displayLeaderboard() {
+      const leaderboardList = document.getElementById("leaderboardList");
+      leaderboardList.innerHTML = "";
+      if (scores.length === 0) {
+        leaderboardList.innerHTML = "<p style='text-align: center; color: #00D4FF;'>No scores yet. Be the first!</p>";
+      } else {
+        scores.forEach((score, index) => {
+          const li = document.createElement("li");
+          li.innerHTML = `<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #00D4FF30;"><span>#${index + 1} ${score.name}</span> <span>${score.score} pts</span></div>`;
+          leaderboardList.appendChild(li);
+        });
+      }
+    }
+
+    function handleKeyDown(e) {
+      if (!bonusGameActive) return;
+      keysPressed[e.key.toLowerCase()] = true;
+    }
+
+    function handleKeyUp(e) {
+      keysPressed[e.key.toLowerCase()] = false;
+    }
+
+    function movePlayer() {
+      if (!bonusGameActive) return;
+      if (keysPressed['a'] || keysPressed['arrowleft']) {
+        playerPosition = Math.max(0, playerPosition - playerStep);
+      }
+      if (keysPressed['d'] || keysPressed['arrowright']) {
+        playerPosition = Math.min(arenaWidth - shieldWidth, playerPosition + playerStep);
+      }
+      playerShield.style.left = playerPosition + 'px';
+    }
+
+    document.getElementById("startGameBtn").onclick = startGame;
     document.getElementById("nextBtn").onclick = nextQuestion;
     document.getElementById("restartBtn").onclick = restartGame;
+    document.getElementById("dodgeContinueBtn").onclick = endBonusGame;
 
-    // Start the game
-    loadQuestion();
+    // Initial display
+    displayLeaderboard();
   </script>
 </body>
-</html>
+</body>
+    displayLeaderboard();
+  </script>
+</body>
