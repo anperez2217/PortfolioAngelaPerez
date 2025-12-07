@@ -16,7 +16,6 @@ header, footer {
   backdrop-filter: blur(10px);
   background-color: rgba(15, 27, 58, 0.8);
   padding: 15px 0;
-  text-align: center;
   border-bottom: 1px solid rgba(0, 168, 255, 0.3);
   box-shadow: 0 0 20px rgba(0, 168, 255, 0.1), 0 0 40px rgba(255, 0, 100, 0.05);
 }
