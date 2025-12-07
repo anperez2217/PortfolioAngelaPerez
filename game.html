@@ -657,15 +657,26 @@
 
       // Start falling malware with progressive difficulty
       let gameStartTime = Date.now();
-      let spawnRate = 700;
+      let spawnRate = 1200; // Start much slower for easy beginning
+      let cyberAttackChance = 0.05; // Start with just 5% cyber attacks
       
       const malwareSpawner = () => {
-        createMalware();
-        // Gradually speed up: 700ms at start, 250ms by end of game
+        const rand = Math.random();
         const elapsed = Date.now() - gameStartTime;
-        const progress = elapsed / 10000; // 0 to 1 over 10 seconds
-        spawnRate = 700 - (progress * 450); // 700 down to 250
-        malwareInterval = setTimeout(malwareSpawner, spawnRate);
+        const progress = elapsed / 40000; // 0 to 1 over 40 seconds (2x longer)
+        
+        // Smooth curved progression: 5% at start, smoothly up to 65% by end
+        cyberAttackChance = 0.05 + (Math.pow(progress, 1.5) * 0.6);
+        
+        if (rand < cyberAttackChance) {
+          createCyberAttack();
+        } else {
+          createMalware();
+        }
+        
+        // Gradually speed up with curve: 1200ms at start, 150ms by end
+        spawnRate = 1200 - (Math.pow(progress, 1.2) * 1050);
+        malwareInterval = setTimeout(malwareSpawner, Math.max(spawnRate, 150));
       };
       
       malwareInterval = setTimeout(malwareSpawner, spawnRate);
@@ -675,8 +686,8 @@
       playerShield.addEventListener('mousedown', handleShieldMouseDown);
       document.addEventListener('mousemove', handleShieldMouseMove);
       document.addEventListener('mouseup', handleShieldMouseUp);
-      // End game after 10 seconds
-      setTimeout(endBonusGame, 10000);
+      // End game after 40 seconds
+      setTimeout(endBonusGame, 40000);
     }
 
     function endBonusGame() {
@@ -702,6 +713,46 @@
 
       // Remove any remaining malware
       document.querySelectorAll('.malware').forEach(m => m.remove());
+    }
+
+    function createCyberAttack() {
+      if (!bonusGameActive) return;
+      const attack = document.createElement('div');
+      attack.className = 'malware';
+      attack.style.left = Math.random() * (arenaWidth - 40) + 'px';
+      attack.style.background = '#FF0064';
+      attack.style.boxShadow = '0 0 10px #FF0064, inset 0 0 5px #FF0064';
+      attack.textContent = '⚠';
+      attack.style.display = 'flex';
+      attack.style.alignItems = 'center';
+      attack.style.justifyContent = 'center';
+      attack.style.fontSize = '20px';
+      attack.style.color = '#FFFFFF';
+      attack.style.fontWeight = 'bold';
+      document.getElementById('dodgeArena').appendChild(attack);
+
+      attack.addEventListener('animationend', () => {
+        attack.remove();
+      });
+
+      // Collision detection for cyber attacks (deduct points)
+      const collisionCheck = setInterval(() => {
+        if (!document.body.contains(attack)) {
+          clearInterval(collisionCheck);
+          return;
+        }
+        const attackRect = attack.getBoundingClientRect();
+        const shieldRect = playerShield.getBoundingClientRect();
+
+        if (attackRect.bottom > shieldRect.top && attackRect.right > shieldRect.left && attackRect.left < shieldRect.right) {
+          attack.remove();
+          bonusScore = Math.max(0, bonusScore - 2); // Lose 2 points
+          document.getElementById('dodgeBonusPoints').textContent = `+${bonusScore} BONUS POINTS`;
+          clearInterval(collisionCheck);
+        } else if (attackRect.top > shieldRect.bottom + 100) { // Clean up off-screen
+          clearInterval(collisionCheck);
+        }
+      }, 50);
     }
 
     function createMalware() {
