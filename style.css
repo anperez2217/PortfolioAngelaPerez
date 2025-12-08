@@ -7,6 +7,40 @@ body {
   min-height: 100vh;
 }
 
+/* New Dynamic Tech Card Styling */
+.tech-card-dynamic {
+  padding: 25px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 100, 0.15));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.tech-card-dynamic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.8s ease;
+}
+
+.tech-card-dynamic:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 212, 255, 0.5);
+  background: linear-gradient(145deg, rgba(0, 212, 255, 0.25), rgba(255, 0, 100, 0.25));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 212, 255, 0.3), 0 0 60px rgba(255, 0, 100, 0.2);
+}
+
+.tech-card-dynamic:hover::before {
+  left: 100%;
+}
+
 main {
   min-height: 100vh;
 }
