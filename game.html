@@ -498,16 +498,16 @@
     const badItems = [
       { name: "Ransomware Bomb", icon: "💣", points: -3, color: "#FF0000", message: "Ransomware Attack!" },
       { name: "Virus Blob", icon: "🦠", points: -2, color: "#FF4500", message: "Virus Detected!" },
-      { name: "Worm", icon: "🐛", points: -2, color: "#FF4500", message: "Worm spreading!" },
+      { name: "Worm", icon: "🐛", points: -2, color: "#FF4500", message: "Worm Spreading!" },
       { name: "Spyware Eye", icon: "👁️", points: -3, color: "#FF0064", message: "Spyware Found!" },
-      { name: "Phishing Email", icon: "🎣", points: -2, color: "#FF4500", message: "Phishing attempt blocked!" },
-      { name: "Suspicious Link", icon: "🔗", points: -2, color: "#FF0000", message: "Suspicious link avoided!" },
-      { name: "Infected File", icon: "💀", points: -3, color: "#FF0000", message: "Infected file quarantined!" },
+      { name: "Phishing Email", icon: "🎣", points: -2, color: "#FF4500", message: "Phishing Attempt Blocked!" },
+      { name: "Suspicious Link", icon: "🔗", points: -2, color: "#FF0000", message: "Suspicious Link Avoided!" },
+      { name: "Infected File", icon: "💀", points: -3, color: "#FF0000", message: "Infected File Quarantined!" },
       { name: "Zero-Day Attack", icon: "💥", points: -4, color: "#FF0064", message: "Zero-Day Exploit!" },
     ];
 
     const cyberFacts = [
-      "Did you know? Billions of malicious phishing emails are sent every single day, making it the most common way hackers try to steal your information.",
+      "Did you know? Billions of malicious phishing emails are sent every day, making it the most common way hackers try to steal your information.",
       "Fact: Reusing passwords is a hacker's best friend. A single leaked password can give them access to all your accounts through an attack called 'credential stuffing'.",
       "Cybersecurity Tip: Think of public Wi-Fi as a public conversation. Use a VPN to create a private, encrypted tunnel for your data, making it unreadable to anyone snooping on the network.",
       "Did you know? Enabling Multi-Factor Authentication (MFA) is like adding a deadbolt to your digital door. It's proven to block over 99.9% of attacks that try to steal your password.",
@@ -740,7 +740,7 @@
 
     function endGame() {
       gameOverSound.play();
-      document.getElementById("optionsContainer").innerHTML = "";
+      document.getElementById("optionsContainer").innerHTML = ""; // Clear options
       document.getElementById("questionBox").innerHTML = `<div class="game-over">GAME OVER!</div><div class="final-score">${score}/${questions.length}</div><p style="color: #00D4FF;">You completed the Cyber Threat Detector!</p>`;
       
       document.getElementById("nextBtn").style.display = "none";
