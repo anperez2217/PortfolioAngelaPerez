@@ -746,15 +746,22 @@
       document.getElementById("nextBtn").style.display = "none";
       document.getElementById("restartBtn").style.display = "block";
 
-      const newScore = { name: currentPlayerName, score: score };
-      scores.push(newScore);
+      // Prevent duplicate names, update score only if new score is higher
+      let existingIndex = scores.findIndex(s => s.name === currentPlayerName);
+      if (existingIndex !== -1) {
+        if (score > scores[existingIndex].score) {
+          scores[existingIndex].score = score;
+        }
+      } else {
+        scores.push({ name: currentPlayerName, score: score });
+      }
       scores.sort((a, b) => b.score - a.score);
       scores = scores.slice(0, 5);
 
       localStorage.setItem('cyberGameScores', JSON.stringify(scores));
       displayLeaderboard();
       document.getElementById("highScore").textContent = scores[0].score;
-      
+
       setTimeout(() => {
         document.getElementById("leaderboardContainer").style.display = "block";
       }, 1500);
