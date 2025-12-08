@@ -121,47 +121,49 @@
     <!-- Page Explanations Section -->
     <section class="page-explanations max-w-6xl mx-auto px-4 py-16">
       <h2 class="text-4xl font-bold mb-12 text-center text-neon-cyan font-oswald">Key Page Breakdowns</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <!-- FAQ Page -->
-        <div class="flex flex-col rounded-lg border border-neon-cyan/30 bg-gray-900/30 hover:border-neon-cyan/70 transition-colors duration-300 overflow-hidden">
-          <img src="assests/images/faq-page.png" alt="FAQ Page Screenshot" class="w-full h-48 object-cover border-b-2 border-neon-cyan/30">
-          <div class="p-6 flex-grow">
-            <h3 class="text-xl font-bold text-neon-magenta mb-3">FAQ Page</h3>
-            <p class="text-gray-300 leading-relaxed">Built as a Blazor component that displays a list of frequently asked questions from a JSON file. It subscribes to an event service, so when an admin updates the FAQs, the user page refreshes automatically in real time using an accordion UI for easy reading.</p>
+      <div class="relative flex flex-col items-center">
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-neon-cyan via-neon-magenta to-transparent opacity-40 z-0"></div>
+        <div class="space-y-16 w-full max-w-2xl z-10">
+          <!-- FAQ Page -->
+          <div class="relative group flex flex-col items-center text-center rounded-2xl border border-neon-cyan/60 bg-gradient-to-br from-gray-900/70 to-black shadow-xl hover:shadow-neon-cyan/40 hover:border-neon-magenta/80 transition-all duration-300 overflow-hidden">
+            <div class="absolute left-1/2 top-0 transform -translate-x-1/2 w-16 h-2 bg-gradient-to-r from-neon-cyan via-neon-magenta to-transparent opacity-80"></div>
+            <img src="assests/images/faq-page.png" alt="FAQ Page Screenshot" class="mx-auto w-full max-w-md h-56 object-cover border-b-2 border-neon-cyan/30">
+            <div class="p-8 flex-grow flex flex-col justify-between">
+              <h3 class="text-2xl font-bold text-neon-magenta mb-4 font-oswald group-hover:text-neon-cyan transition-colors">FAQ Page</h3>
+              <p class="text-gray-300 leading-relaxed">Built as a Blazor component that displays a list of frequently asked questions from a JSON file. It subscribes to an event service, so when an admin updates the FAQs, the user page refreshes automatically in real time using an accordion UI for easy reading.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- Users Feedback Page -->
-        <div class="flex flex-col rounded-lg border border-neon-cyan/30 bg-gray-900/30 hover:border-neon-cyan/70 transition-colors duration-300 overflow-hidden">
-          <img src="assests/images/user-feedback.png" alt="Feedback Page Screenshot" class="w-full h-48 object-cover border-b-2 border-neon-cyan/30">
-          <div class="p-6 flex-grow">
-            <h3 class="text-xl font-bold text-neon-magenta mb-3">Users Feedback Page</h3>
-            <p class="text-gray-300 leading-relaxed">Implemented as a Blazor form component where users can submit feedback. Input is validated on the client side before being saved to a JSON file via a dedicated service. After submission, users see a confirmation message.</p>
+          <!-- Users Feedback Page -->
+          <div class="relative group flex flex-col items-center text-center rounded-2xl border border-neon-magenta/60 bg-gradient-to-br from-gray-900/70 to-black shadow-xl hover:shadow-neon-magenta/40 hover:border-neon-cyan/80 transition-all duration-300 overflow-hidden">
+            <div class="absolute left-1/2 top-0 transform -translate-x-1/2 w-16 h-2 bg-gradient-to-r from-neon-magenta via-neon-cyan to-transparent opacity-80"></div>
+            <img src="assests/images/user-feedback.png" alt="Feedback Page Screenshot" class="mx-auto w-full max-w-md h-56 object-cover border-b-2 border-neon-cyan/30">
+            <div class="p-8 flex-grow flex flex-col justify-between">
+              <h3 class="text-2xl font-bold text-neon-magenta mb-4 font-oswald group-hover:text-neon-cyan transition-colors">Users Feedback Page</h3>
+              <p class="text-gray-300 leading-relaxed">Implemented as a Blazor form component where users can submit feedback. Input is validated on the client side before being saved to a JSON file via a dedicated service. After submission, users see a confirmation message.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- Admin FAQ Page -->
-        <div class="flex flex-col rounded-lg border border-neon-cyan/30 bg-gray-900/30 hover:border-neon-cyan/70 transition-colors duration-300 overflow-hidden">
-          <img src="assests/images/admin-faq.png" alt="Admin Page Screenshot" class="w-full h-48 object-cover border-b-2 border-neon-cyan/30">
-          <div class="p-6 flex-grow">
-            <h3 class="text-xl font-bold text-neon-magenta mb-3">Admin FAQ Page</h3>
-            <p class="text-gray-300 leading-relaxed">A Blazor Server page for admins to perform CRUD operations on FAQ items, with changes saved asynchronously. Event-driven updates refresh user FAQ pages instantly. It also displays user feedback for admin review, using dependency-injected services for security.</p>
+          <!-- Admin FAQ Page -->
+          <div class="relative group flex flex-col items-center text-center rounded-2xl border border-neon-cyan/60 bg-gradient-to-br from-gray-900/70 to-black shadow-xl hover:shadow-neon-cyan/40 hover:border-neon-magenta/80 transition-all duration-300 overflow-hidden">
+            <div class="absolute left-1/2 top-0 transform -translate-x-1/2 w-16 h-2 bg-gradient-to-r from-neon-cyan via-neon-magenta to-transparent opacity-80"></div>
+            <img src="assests/images/admin-faq.png" alt="Admin Page Screenshot" class="mx-auto w-full max-w-md h-56 object-cover border-b-2 border-neon-cyan/30">
+            <div class="p-8 flex-grow flex flex-col justify-between">
+              <h3 class="text-2xl font-bold text-neon-magenta mb-4 font-oswald group-hover:text-neon-cyan transition-colors">Admin FAQ Page</h3>
+              <p class="text-gray-300 leading-relaxed">A Blazor Server page for admins to perform CRUD operations on FAQ items, with changes saved asynchronously. Event-driven updates refresh user FAQ pages instantly. It also displays user feedback for admin review, using dependency-injected services for security.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- Thank You Page -->
-        <div class="flex flex-col rounded-lg border border-neon-cyan/30 bg-gray-900/30 hover:border-neon-cyan/70 transition-colors duration-300 overflow-hidden">
-          <img src="assests/images/thank-you.png" alt="Thank You Page Screenshot" class="w-full h-48 object-cover border-b-2 border-neon-cyan/30">
-          <div class="p-6 flex-grow">
-            <h3 class="text-xl font-bold text-neon-magenta mb-3">Thank You Page</h3>
-            <p class="text-gray-300 leading-relaxed">Displays after checkout to confirm the order with a logo and thank-you message, providing visual confirmation that the transaction is complete. Order details are stored in the app state, and navigation back to the cart is disabled.</p>
+          <!-- Thank You Page -->
+          <div class="relative group flex flex-col items-center text-center rounded-2xl border border-neon-magenta/60 bg-gradient-to-br from-gray-900/70 to-black shadow-xl hover:shadow-neon-magenta/40 hover:border-neon-cyan/80 transition-all duration-300 overflow-hidden">
+            <div class="absolute left-1/2 top-0 transform -translate-x-1/2 w-16 h-2 bg-gradient-to-r from-neon-magenta via-neon-cyan to-transparent opacity-80"></div>
+            <img src="assests/images/thank-you.png" alt="Thank You Page Screenshot" class="mx-auto w-full max-w-md h-56 object-cover border-b-2 border-neon-cyan/30">
+            <div class="p-8 flex-grow flex flex-col justify-between">
+              <h3 class="text-2xl font-bold text-neon-magenta mb-4 font-oswald group-hover:text-neon-cyan transition-colors">Thank You Page</h3>
+              <p class="text-gray-300 leading-relaxed">Displays after checkout to confirm the order with a logo and thank-you message, providing visual confirmation that the transaction is complete. Order details are stored in the app state, and navigation back to the cart is disabled.</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="text-center mt-12">
-        <p class="text-lg text-gray-400 max-w-3xl mx-auto p-4 rounded-lg bg-gray-900/20 border border-neon-magenta/20">
-          Each page uses Blazor’s component model, dependency injection for services, and async methods for a smooth, real-time user experience.
-        </p>
       </div>
     </section>
 
@@ -169,59 +171,61 @@
     <section class="tech-stack max-w-6xl mx-auto px-4 py-16" style="position: relative;">
       <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, rgba(255, 0, 100, 0.05), transparent); pointer-events: none;"></div>
       <div class="relative">
-        <h2 class="text-4xl font-bold mb-12 text-center text-neon-magenta font-oswald">How It Was Built</h2>
-        <div class="circuit-board-container">
+        <h2 class="text-4xl font-bold mb-6 text-center text-neon-magenta font-oswald">How It Was Built</h2>
+        <div class="circuit-board-container flex flex-row gap-6 items-start justify-center flex-wrap">
           <!-- Backend Hub -->
-          <div class="circuit-hub backend-hub">
-            <h3 class="hub-title text-neon-cyan">Backend Architecture</h3>
-            <div class="node-group">
-              <div class="circuit-node">
-                <div class="node-point"></div>
-                <div class="node-label">C# ASP.NET Core 8.0</div>
-                <div class="node-info">Built request handlers with async/await, implemented service layer with DI.</div>
-              </div>
-              <div class="circuit-node">
-                <div class="node-point"></div>
-                <div class="node-label">Entity Framework Core ORM</div>
-                <div class="node-info">Mapped cart/order entities, wrote LINQ queries for validation.</div>
-              </div>
-              <div class="circuit-node">
-                <div class="node-point"></div>
-                <div class="node-label">SQLite Database</div>
-                <div class="node-info">Designed schema for users, carts, orders, FAQs, implemented cookie sessions.</div>
-              </div>
-              <div class="circuit-node">
-                <div class="node-point"></div>
-                <div class="node-label">HtmlSanitizer Security</div>
-                <div class="node-info">Sanitized admin FAQ input, implemented CSRF tokens on forms.</div>
-              </div>
-            </div>
+          <div class="circuit-hub backend-hub flex-1 min-w-[260px]">
+              <h3 id="backend-hub-title" class="hub-title text-neon-cyan mb-2">Backend Architecture</h3>
+              <section class="node-group" role="region" aria-labelledby="backend-hub-title">
+                <ul class="node-group space-y-2">
+                  <li class="circuit-node" role="listitem" aria-label="C# ASP.NET Core 8.0" tabindex="0">
+                    <div class="node-point"></div>
+                    <div class="node-label">C# ASP.NET Core 8.0</div>
+                    <div class="node-info">Built request handlers with async/await, implemented service layer with DI.</div>
+                  </li>
+                  <li class="circuit-node" role="listitem" aria-label="Entity Framework Core ORM" tabindex="0">
+                    <div class="node-point"></div>
+                    <div class="node-label">Entity Framework Core ORM</div>
+                    <div class="node-info">Mapped cart/order entities, wrote LINQ queries for validation.</div>
+                  </li>
+                  <li class="circuit-node" role="listitem" aria-label="SQLite Database" tabindex="0">
+                    <div class="node-point"></div>
+                    <div class="node-label">SQLite Database</div>
+                    <div class="node-info">Designed schema for users, carts, orders, FAQs, implemented cookie sessions.</div>
+                  </li>
+                  <li class="circuit-node" role="listitem" aria-label="HtmlSanitizer Security" tabindex="0">
+                    <div class="node-point"></div>
+                    <div class="node-label">HtmlSanitizer Security</div>
+                    <div class="node-info">Sanitized admin FAQ input, implemented CSRF tokens on forms.</div>
+                  </li>
+                </ul>
+              </section>
           </div>
           <!-- Frontend Hub -->
-          <div class="circuit-hub frontend-hub">
-            <h3 class="hub-title text-neon-magenta">Frontend & UX</h3>
-            <div class="node-group">
-              <div class="circuit-node">
-                <div class="node-point"></div>
-                <div class="node-label">Blazor Server</div>
-                <div class="node-info">Built interactive components for cart, checkout, live notifications.</div>
+          <div class="circuit-hub frontend-hub flex-1 min-w-[260px]">
+              <h3 class="hub-title text-neon-magenta mb-2">Frontend & UX</h3>
+              <div class="node-group space-y-2">
+                <div class="circuit-node">
+                  <div class="node-point"></div>
+                  <div class="node-label">Blazor Server</div>
+                  <div class="node-info">Built interactive components for cart, checkout, live notifications.</div>
+                </div>
+                <div class="circuit-node">
+                  <div class="node-point"></div>
+                  <div class="node-label">Razor Components</div>
+                  <div class="node-info">Created GiftCard, CartItem, OrderForm reusable components.</div>
+                </div>
+                <div class="circuit-node">
+                  <div class="node-point"></div>
+                  <div class="node-label">Tailwind CSS</div>
+                  <div class="node-info">Styled dark theme UI, built responsive grid layouts.</div>
+                </div>
+                <div class="circuit-node">
+                  <div class="node-point"></div>
+                  <div class="node-label">VS Code Debugger</div>
+                  <div class="node-info">Used breakpoints to debug cart logic, profiled performance.</div>
+                </div>
               </div>
-              <div class="circuit-node">
-                <div class="node-point"></div>
-                <div class="node-label">Razor Components</div>
-                <div class="node-info">Created GiftCard, CartItem, OrderForm reusable components.</div>
-              </div>
-              <div class="circuit-node">
-                <div class="node-point"></div>
-                <div class="node-label">Tailwind CSS</div>
-                <div class="node-info">Styled dark theme UI, built responsive grid layouts.</div>
-              </div>
-              <div class="circuit-node">
-                <div class="node-point"></div>
-                <div class="node-label">VS Code Debugger</div>
-                <div class="node-info">Used breakpoints to debug cart logic, profiled performance.</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
