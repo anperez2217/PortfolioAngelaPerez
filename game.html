@@ -458,28 +458,28 @@
   <script>
     const questions = [
       {
-        question: "What is a strong password according to security experts?",
-        options: ["A 10-character password with numbers and symbols", "A long passphrase with 12+ characters mixing upper, lower, numbers, symbols", "A common word with numbers added", "Your pet's name with your birth year"],
+        question: "You enter your info on a fake website that looks exactly like the real one. What attack tricked you?",
+        options: ["DNS Timeout", "Website Spoofing", "SQL Injection", "Password Recycling"],
         correct: 1
       },
       {
-        question: "What does VPN stand for?",
-        options: ["Verified Public Network", "Virtual Private Network", "Variable Protocol Network", "Virtual Personal Node"],
+        question: "A hacker uses a fake login page to steal your username and password. What is this tactic called?",
+        options: ["Session Hijacking", "Credential Harvesting", "Cookie Poisoning", "Port Scanning"],
         correct: 1
       },
       {
-        question: "What is two-factor authentication (2FA)?",
-        options: ["A password and a security question", "Two different passwords for one account", "Something you know and something you have", "A primary and a backup email"],
-        correct: 2
-      },
-      {
-        question: "What is malware?",
-        options: ["Any software that shows ads", "Software intended to disrupt, damage, or gain unauthorized access", "A computer hardware component that has failed", "An email that contains a virus"],
+        question: "Your computer slows down because malware is secretly using it to mine cryptocurrency. What is this called?",
+        options: ["Trojan Farming", "Cryptojacking", "Coin Spoofing", "Packet Mining"],
         correct: 1
       },
       {
-        question: "What is 'social engineering' in the context of cybersecurity?",
-        options: ["A technique for designing secure user interfaces", "Psychological manipulation to trick users into security mistakes", "A method for promoting security awareness on social media", "A type of network architecture"],
+        question: "Someone sends you a file that looks like a PDF, but it installs malware when opened. What is this?",
+        options: ["Shadow File", "Corrupted Cache", "Malicious Attachment", "Data Masking"],
+        correct: 2 // "Malicious Attachment" is the 3rd option, so index is 2
+      },
+      {
+        question: "A hacker steals your WiFi password and uses your network for attacks. What danger does this create for you?",
+        options: ["Your router will shut down", "You can be traced/blamed for their activity", "Your internet will become encrypted", "Your device storage will be wiped"],
         correct: 1
       }
     ];
@@ -507,13 +507,13 @@
     ];
 
     const cyberFacts = [
-      "Did you know? Over 90% of successful cyberattacks begin with a phishing email.",
-      "Fact: Using a unique, complex password for each account is one of the most effective security habits.",
-      "Cybersecurity tip: Always keep your software and applications updated to patch security vulnerabilities.",
-      "Did you know? Public Wi-Fi is often unsecured. Using a VPN encrypts your connection and keeps your data safe from eavesdroppers.",
-      "Fact: 'Smishing' (SMS phishing) is a growing threat. Be wary of unexpected texts with urgent links.",
-      "Cybersecurity tip: Two-Factor Authentication (2FA) adds a critical layer of security, making it much harder for attackers to access your accounts.",
-      "Did you know? Ransomware can encrypt all your files, making them inaccessible until a ransom is paid. Regular backups are your best defense."
+      "Did you know? Over 90% of data breaches begin with a phishing email, making it the most common entry point for attackers.",
+      "Fact: Using a unique, complex password (or a passphrase) for each account is one of the most effective security habits you can adopt.",
+      "Cybersecurity Tip: Always keep your software and operating system updated. These updates often contain critical patches for security vulnerabilities.",
+      "Did you know? Public Wi-Fi is often unsecured. A VPN (Virtual Private Network) encrypts your connection, keeping your data safe from eavesdroppers.",
+      "Fact: 'Smishing' (phishing via SMS text message) is a growing threat. Be wary of unexpected texts with urgent requests or suspicious links.",
+      "Cybersecurity Tip: Enable Two-Factor Authentication (2FA) or Multi-Factor Authentication (MFA) whenever possible. It adds a crucial layer of security.",
+      "Did you know? Ransomware can encrypt all your files, making them inaccessible. Regular, offline backups are your best defense against losing your data."
     ];
 
 
@@ -667,26 +667,19 @@
       document.getElementById('dodgeFact').style.display = 'none';
       document.getElementById('dodgeContinueBtn').style.display = 'none';
 
-      // --- Progressive Bonus Round Duration ---
-      // Starts at 10s, gets 1s shorter each round, with a minimum of 6s.
-      const bonusGameDuration = Math.max(10000 - (currentQuestion * 1000), 6000);
+      const bonusGameDuration = 10000; // Set bonus round to 10 seconds.
 
       playerPosition = (arenaWidth - shieldWidth) / 2;
       playerShield.style.left = playerPosition + 'px';
 
-      // Start falling malware with progressive difficulty
-      let gameStartTime = Date.now();
-      let spawnRate;
-      let badItemChance;
+      // --- Progressive Difficulty Logic ---
+      // Difficulty increases based on the current question number.
+      const difficultyFactor = currentQuestion / (questions.length - 1); // A value from 0 to 1
+      const badItemChance = 0.25 + (difficultyFactor * 0.4); // Chance of a bad item: 25% -> 65%
+      const baseSpawnRate = 700 - (difficultyFactor * 450); // Spawn rate: 700ms -> 250ms
       
       const malwareSpawner = () => {
         const rand = Math.random();
-        const elapsed = Date.now() - gameStartTime;
-        const progress = Math.min(elapsed / bonusGameDuration, 1); // Progress based on current duration
-        
-        // Difficulty progression for item types and speed
-        badItemChance = 0.2 + (progress * 0.5); // Starts at 20% bad, up to 70%
-        spawnRate = 1000 - (progress * 800); // 1000ms down to 200ms
         
         if (rand < badItemChance) {
           createFallingItem(false); // Create a bad item
@@ -694,10 +687,10 @@
           createFallingItem(true); // Create a good item
         }
 
-        malwareInterval = setTimeout(malwareSpawner, spawnRate + (Math.random() * 200 - 100)); // Add randomness
+        malwareInterval = setTimeout(malwareSpawner, baseSpawnRate + (Math.random() * 150 - 75)); // Add randomness
       };
       
-      malwareInterval = setTimeout(malwareSpawner, spawnRate);
+      malwareInterval = setTimeout(malwareSpawner, baseSpawnRate);
       playerMoveInterval = setInterval(movePlayer, 16); // ~60fps
       document.addEventListener('keydown', handleKeyDown);
       document.addEventListener('keyup', handleKeyUp);

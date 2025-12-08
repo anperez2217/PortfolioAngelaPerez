@@ -121,81 +121,60 @@
     <!-- Tech Stack Deep Dive -->
     <section class="tech-stack max-w-6xl mx-auto px-4 py-16" style="position: relative;">
       <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, rgba(255, 0, 100, 0.05), transparent); pointer-events: none;"></div>
-      <div style="position: relative;">
-        <h2 class="text-4xl font-bold mb-14 text-neon-magenta font-oswald">How It Was Built</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Backend -->
-          <div class="tech-category rounded-xl p-8" style="border: 2px solid rgba(0, 212, 255, 0.2); background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.7)); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);" onmouseover="this.style.borderColor='rgba(0, 212, 255, 0.6)'; this.style.boxShadow='0 20px 40px rgba(0, 212, 255, 0.2)';" onmouseout="this.style.borderColor='rgba(0, 212, 255, 0.2)'; this.style.boxShadow='0 10px 30px rgba(0, 212, 255, 0.1)';">
-            <h3 class="text-2xl font-bold text-neon-cyan mb-8 flex items-center gap-3">
-              <span style="font-size: 1.875rem;">⚙️</span> Backend Architecture
-            </h3>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-3">
-                <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
-                <div>
-                  <p class="font-semibold text-white">C# ASP.NET Core 8.0</p>
-                  <p class="text-sm text-gray-400">Built request handlers with async/await, implemented service layer with DI</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
-                <div>
-                  <p class="font-semibold text-white">Entity Framework Core ORM</p>
-                  <p class="text-sm text-gray-400">Mapped cart/order entities, wrote LINQ queries for validation</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
-                <div>
-                  <p class="font-semibold text-white">SQLite Database</p>
-                  <p class="text-sm text-gray-400">Designed schema for users, carts, orders, FAQs, implemented cookie sessions</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-neon-magenta flex-shrink-0 mt-1">▸</span>
-                <div>
-                  <p class="font-semibold text-white">HtmlSanitizer Security</p>
-                  <p class="text-sm text-gray-400">Sanitized admin FAQ input, implemented CSRF tokens on forms</p>
-                </div>
-              </li>
-            </ul>
+      <div class="relative">
+        <h2 class="text-4xl font-bold mb-12 text-center text-neon-magenta font-oswald">How It Was Built</h2>
+        <div class="circuit-board-container">
+          <!-- Backend Hub -->
+          <div class="circuit-hub backend-hub">
+            <h3 class="hub-title text-neon-cyan">Backend Architecture</h3>
+            <div class="node-group">
+              <div class="circuit-node">
+                <div class="node-point"></div>
+                <div class="node-label">C# ASP.NET Core 8.0</div>
+                <div class="node-info">Built request handlers with async/await, implemented service layer with DI.</div>
+              </div>
+              <div class="circuit-node">
+                <div class="node-point"></div>
+                <div class="node-label">Entity Framework Core ORM</div>
+                <div class="node-info">Mapped cart/order entities, wrote LINQ queries for validation.</div>
+              </div>
+              <div class="circuit-node">
+                <div class="node-point"></div>
+                <div class="node-label">SQLite Database</div>
+                <div class="node-info">Designed schema for users, carts, orders, FAQs, implemented cookie sessions.</div>
+              </div>
+              <div class="circuit-node">
+                <div class="node-point"></div>
+                <div class="node-label">HtmlSanitizer Security</div>
+                <div class="node-info">Sanitized admin FAQ input, implemented CSRF tokens on forms.</div>
+              </div>
+            </div>
           </div>
-
-          <!-- Frontend -->
-          <div class="tech-category rounded-xl p-8" style="border: 2px solid rgba(255, 0, 100, 0.2); background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.7)); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(255, 0, 100, 0.1);" onmouseover="this.style.borderColor='rgba(255, 0, 100, 0.6)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 100, 0.2)';" onmouseout="this.style.borderColor='rgba(255, 0, 100, 0.2)'; this.style.boxShadow='0 10px 30px rgba(255, 0, 100, 0.1)';">
-            <h3 class="text-2xl font-bold text-neon-magenta mb-8 flex items-center gap-3">
-              <span style="font-size: 1.875rem;">🎨</span> Frontend & UX
-            </h3>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-3">
-                <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
-                <div>
-                  <p class="font-semibold text-white">Blazor Server</p>
-                  <p class="text-sm text-gray-400">Built interactive components for cart, checkout, live notifications</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
-                <div>
-                  <p class="font-semibold text-white">Razor Components</p>
-                  <p class="text-sm text-gray-400">Created GiftCard, CartItem, OrderForm reusable components</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
-                <div>
-                  <p class="font-semibold text-white">Tailwind CSS</p>
-                  <p class="text-sm text-gray-400">Styled dark theme UI, built responsive grid layouts</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-neon-cyan flex-shrink-0 mt-1">▸</span>
-                <div>
-                  <p class="font-semibold text-white">VS Code Debugger</p>
-                  <p class="text-sm text-gray-400">Used breakpoints to debug cart logic, profiled performance</p>
-                </div>
-              </li>
-            </ul>
+          <!-- Frontend Hub -->
+          <div class="circuit-hub frontend-hub">
+            <h3 class="hub-title text-neon-magenta">Frontend & UX</h3>
+            <div class="node-group">
+              <div class="circuit-node">
+                <div class="node-point"></div>
+                <div class="node-label">Blazor Server</div>
+                <div class="node-info">Built interactive components for cart, checkout, live notifications.</div>
+              </div>
+              <div class="circuit-node">
+                <div class="node-point"></div>
+                <div class="node-label">Razor Components</div>
+                <div class="node-info">Created GiftCard, CartItem, OrderForm reusable components.</div>
+              </div>
+              <div class="circuit-node">
+                <div class="node-point"></div>
+                <div class="node-label">Tailwind CSS</div>
+                <div class="node-info">Styled dark theme UI, built responsive grid layouts.</div>
+              </div>
+              <div class="circuit-node">
+                <div class="node-point"></div>
+                <div class="node-label">VS Code Debugger</div>
+                <div class="node-info">Used breakpoints to debug cart logic, profiled performance.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -41,6 +41,154 @@ body {
   left: 100%;
 }
 
+/* New Circuit Board Layout */
+.circuit-board-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.circuit-hub {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hub-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  background: rgba(15, 27, 58, 0.7);
+  border: 2px solid;
+  box-shadow: 0 0 15px, inset 0 0 10px;
+}
+
+.backend-hub .hub-title {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3), inset 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.frontend-hub .hub-title {
+  border-color: rgba(255, 0, 100, 0.5);
+  box-shadow: 0 0 15px rgba(255, 0, 100, 0.3), inset 0 0 10px rgba(255, 0, 100, 0.2);
+}
+
+.node-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.circuit-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.backend-hub .circuit-node:nth-child(odd),
+.frontend-hub .circuit-node:nth-child(odd) {
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+
+.backend-hub .circuit-node:nth-child(even),
+.frontend-hub .circuit-node:nth-child(even) {
+  justify-content: flex-end;
+  padding-right: 30px;
+}
+
+.node-point {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.backend-hub .node-point { background-color: #00D4FF; border: 2px solid #00D4FF; }
+.frontend-hub .node-point { background-color: #FF0064; border: 2px solid #FF0064; }
+
+.backend-hub .circuit-node:nth-child(odd) .node-point { left: 0; }
+.backend-hub .circuit-node:nth-child(even) .node-point { right: 0; }
+.frontend-hub .circuit-node:nth-child(odd) .node-point { left: 0; }
+.frontend-hub .circuit-node:nth-child(even) .node-point { right: 0; }
+
+.node-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  cursor: default;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: rgba(30, 41, 59, 0.6);
+  transition: all 0.3s ease;
+}
+
+.node-info {
+  position: absolute;
+  bottom: 120%;
+  width: 250px;
+  padding: 0.75rem;
+  background: #0a0a14;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #a0aec0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+.circuit-node:hover .node-info { opacity: 1; visibility: visible; }
+.circuit-node:hover .node-label { transform: scale(1.05); }
+.circuit-node:hover .node-point { transform: scale(1.5); }
+
+.backend-hub .circuit-node:hover .node-label { color: #00D4FF; background: rgba(0, 212, 255, 0.1); }
+.backend-hub .circuit-node:hover .node-point { box-shadow: 0 0 15px #00D4FF; }
+.backend-hub .node-info { border-color: #00D4FF; }
+
+.frontend-hub .circuit-node:hover .node-label { color: #FF0064; background: rgba(255, 0, 100, 0.1); }
+.frontend-hub .circuit-node:hover .node-point { box-shadow: 0 0 15px #FF0064; }
+.frontend-hub .node-info { border-color: #FF0064; }
+
+.circuit-node:nth-child(odd) .node-info { left: 30px; }
+.circuit-node:nth-child(even) .node-info { right: 30px; }
+
+/* Circuit lines */
+.circuit-node::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 30px;
+  transition: all 0.3s ease;
+}
+
+.circuit-node:nth-child(odd)::before { left: 0; }
+.circuit-node:nth-child(even)::before { right: 0; }
+
+.backend-hub .circuit-node::before { background: rgba(0, 212, 255, 0.4); }
+.frontend-hub .circuit-node::before { background: rgba(255, 0, 100, 0.4); }
+
+.backend-hub .circuit-node:hover::before { background: #00D4FF; box-shadow: 0 0 10px #00D4FF; }
+.frontend-hub .circuit-node:hover::before { background: #FF0064; box-shadow: 0 0 10px #FF0064; }
+
+@media (max-width: 768px) {
+  .circuit-node:nth-child(even) { justify-content: flex-start; padding-left: 30px; padding-right: 0; }
+  .circuit-node:nth-child(even) .node-point { right: auto; left: 0; }
+  .circuit-node:nth-child(even)::before { right: auto; left: 0; }
+  .circuit-node:nth-child(even) .node-info { right: auto; left: 30px; }
+}
+
 main {
   min-height: 100vh;
 }
