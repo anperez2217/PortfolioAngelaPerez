@@ -507,13 +507,11 @@
     ];
 
     const cyberFacts = [
-      "Did you know? Over 90% of data breaches begin with a phishing email, making it the most common entry point for attackers.",
-      "Fact: Using a unique, complex password (or a passphrase) for each account is one of the most effective security habits you can adopt.",
-      "Cybersecurity Tip: Always keep your software and operating system updated. These updates often contain critical patches for security vulnerabilities.",
-      "Did you know? Public Wi-Fi is often unsecured. A VPN (Virtual Private Network) encrypts your connection, keeping your data safe from eavesdroppers.",
-      "Fact: 'Smishing' (phishing via SMS text message) is a growing threat. Be wary of unexpected texts with urgent requests or suspicious links.",
-      "Cybersecurity Tip: Enable Two-Factor Authentication (2FA) or Multi-Factor Authentication (MFA) whenever possible. It adds a crucial layer of security.",
-      "Did you know? Ransomware can encrypt all your files, making them inaccessible. Regular, offline backups are your best defense against losing your data."
+      "Did you know? Billions of malicious phishing emails are sent every single day, making it the most common way hackers try to steal your information.",
+      "Fact: Reusing passwords is a hacker's best friend. A single leaked password can give them access to all your accounts through an attack called 'credential stuffing'.",
+      "Cybersecurity Tip: Think of public Wi-Fi as a public conversation. Use a VPN to create a private, encrypted tunnel for your data, making it unreadable to anyone snooping on the network.",
+      "Did you know? Enabling Multi-Factor Authentication (MFA) is like adding a deadbolt to your digital door. It's proven to block over 99.9% of attacks that try to steal your password.",
+      "Fact: Hackers are now in your text messages! This is called 'Smishing'. Always be suspicious of unexpected texts demanding urgent action or containing strange links."
     ];
 
 
@@ -522,13 +520,13 @@
     let answered = false;
     let timerInterval;
     const TIME_LIMIT = 15;
-    let scores = JSON.parse(localStorage.getItem('cyberGameScores')) || [];
+    let scores = []; // Reset leaderboard on each page load
     let currentPlayerName = ""; 
 
     let bonusGameActive = false;
     let bonusScore = 0;
     let playerPosition;
-    const playerStep = 15;
+    const playerStep = 20; // Slightly increased for better responsiveness
     const arenaWidth = 600;
     const shieldWidth = 60;
     let malwareInterval;
@@ -662,7 +660,7 @@
     function startBonusGame() {
       bonusGameActive = true;
       bonusScore = 0;
-      document.getElementById('dodgeBonusPoints').textContent = `System Health: +${bonusScore}`;
+      document.getElementById('dodgeBonusPoints').textContent = `Security Strength: +${bonusScore}`;
       bonusGameContainer.classList.add('active');
       document.getElementById('dodgeFact').style.display = 'none';
       document.getElementById('dodgeContinueBtn').style.display = 'none';
@@ -891,9 +889,10 @@
 
         if (itemRect.bottom > shieldRect.top && itemRect.right > shieldRect.left && itemRect.left < shieldRect.right) {
           itemElement.remove();
+          const message = `${itemData.name} ${itemData.points > 0 ? '+' : ''}${itemData.points}`;
           bonusScore += itemData.points;
-          document.getElementById('dodgeBonusPoints').textContent = `System Health: +${bonusScore}`;
-          showActionMessage(itemData.message, isGood);
+          document.getElementById('dodgeBonusPoints').textContent = `Security Strength: +${bonusScore}`;
+          showActionMessage(message, isGood);
           clearInterval(collisionCheck);
         } else if (itemRect.top > shieldRect.bottom + 100) {
           clearInterval(collisionCheck);
