@@ -391,8 +391,8 @@
       <div class="score-display">
         <div>Question: <span id="questionNumber">1</span>/<span id="totalQuestions">10</span></div>
         <div>Time Left: <span id="timer">15</span>s</div>
-        <div>Max Strength: <span id="highScore">0</span></div>
-        <div>System Health: <span id="score">0</span></div>
+        <div>High Score: <span id="highScore">0</span></div>
+        <div>Score: <span id="score">0</span></div>
       </div>
 
       <div class="question-box" id="questionBox">
@@ -424,7 +424,7 @@
       <div class="player-shield" id="playerShield"></div>
     </div>
     <div class="dodge-instructions">Move the shield left/right with arrow keys or A/D!</div>
-    <div class="dodge-bonus-points" id="dodgeBonusPoints">System Health: 100%</div>
+    <div class="dodge-bonus-points" id="dodgeBonusPoints">+0 BONUS POINTS</div>
     <button class="dodge-continue-btn" id="dodgeContinueBtn">Continue to Next Question →</button>
   </div>
 
@@ -437,28 +437,78 @@
   <script>
     const questions = [
       {
-        question: "What kind of cyberattack encrypts your files and demands a payment to get them back?",
-        options: ["DDoS Attack", "Spyware", "Ransomware", "Adware"],
-        correct: 2
-      },
-      {
-        question: "What does a 'DDoS' attack attempt to do?",
-        options: ["Steal your data", "Install a virus", "Overwhelm a server with traffic to make it unavailable", "Guess your password"],
-        correct: 2
-      },
-      {
-        question: "What type of malware can spread between computers on its own, without needing to attach to a file?",
-        options: ["Virus", "Worm", "Trojan", "Spyware"],
+        question: "Which of the following is a common sign of a phishing attempt?",
+        options: ["An email from a known brand", "A message creating a sense of urgency", "A professionally designed email", "A request for public information"],
         correct: 1
       },
       {
-        question: "An attacker calls you pretending to be from IT support to trick you into giving up your password. What is this specific social engineering tactic called?",
-        options: ["Phishing", "Baiting", "Pretexting", "Tailgating"],
+        question: "You receive an email asking you to click a link to verify your password. What should you do?",
+        options: ["Click the link and verify your password immediately", "Report it as phishing and don't click the link", "Reply to the email asking if it's legitimate", "Delete it and contact the company directly"],
+        correct: 1
+      },
+      {
+        question: "What is a strong password according to security experts?",
+        options: ["A 10-character password with numbers and symbols", "A long passphrase with 12+ characters mixing upper, lower, numbers, symbols", "A common word with numbers added", "Your pet's name with your birth year"],
+        correct: 1
+      },
+      {
+        question: "You find an unknown USB drive in a public place. What should you do?",
+        options: ["Plug it into your work computer to see what's on it", "Give it to IT security without plugging it in", "Plug it into an offline computer first", "Try to find the owner by searching its contents"],
+        correct: 1
+      },
+      {
+        question: "What does VPN stand for?",
+        options: ["Verified Public Network", "Virtual Private Network", "Variable Protocol Network", "Virtual Personal Node"],
+        correct: 1
+      },
+      {
+        question: "A coworker asks for your password via chat. What's the right move?",
+        options: ["Ask for their manager's approval first", "Never share your password", "Provide a temporary password", "Ask them why they need it"],
+        correct: 1
+      },
+      {
+        question: "What is two-factor authentication (2FA)?",
+        options: ["A password and a security question", "Two different passwords for one account", "Something you know and something you have", "A primary and a backup email"],
         correct: 2
       },
       {
-        question: "Which of these is a characteristic of a 'Zero-Day' exploit?",
-        options: ["It only works on the first day of a software's release", "It is a vulnerability unknown to the vendor with no patch available", "It causes zero damage to the system", "It can be stopped by any antivirus"],
+        question: "You notice unusual activity on your account. What should you do first?",
+        options: ["Wait to see if it happens again", "Change your password and enable 2FA", "Ask a friend if it's happened to them", "Run a virus scan on your computer"],
+        correct: 1
+      },
+      {
+        question: "What is malware?",
+        options: ["Any software that shows ads", "Software intended to disrupt, damage, or gain unauthorized access", "A computer hardware component that has failed", "An email that contains a virus"],
+        correct: 1
+      },
+      {
+        question: "How often should you update your software?",
+        options: ["Only when a major version is released", "When you have free time", "As soon as security patches are available", "When the software stops working correctly"],
+        correct: 2
+      },
+      {
+        question: "What's a secure practice for public WiFi?",
+        options: ["Only use networks that are password-protected", "Use a VPN to encrypt your traffic", "Check your bank account quickly", "Avoid downloading large files"],
+        correct: 1
+      },
+      {
+        question: "What is 'social engineering' in the context of cybersecurity?",
+        options: ["A technique for designing secure user interfaces", "Psychological manipulation to trick users into security mistakes", "A method for promoting security awareness on social media", "A type of network architecture"],
+        correct: 1
+      },
+      {
+        question: "Which of these helps protect your computer from malware?",
+        options: ["A firewall", "A pop-up blocker", "A high-resolution monitor", "Clearing your browser history"],
+        correct: 0
+      },
+      {
+        question: "What does 'HTTPS' at the beginning of a URL indicate?",
+        options: ["The site has passed a security audit", "The site is mobile-friendly", "The connection to the site is encrypted", "The site is an official government website"],
+        correct: 2
+      },
+      {
+        question: "If you receive a suspicious text message with a link, what is it likely to be?",
+        options: ["A misdirected marketing message", "A 'smishing' (SMS phishing) attack", "A notification from your mobile carrier", "A verification code you didn't request"],
         correct: 1
       }
     ];
@@ -468,7 +518,6 @@
     let answered = false;
     let timerInterval;
     const TIME_LIMIT = 15;
-    let shuffledQuestions = [];
     let scores = JSON.parse(localStorage.getItem('cyberGameScores')) || [];
     let currentPlayerName = "";
 
@@ -481,33 +530,6 @@
     let malwareInterval;
     let keysPressed = {};
     let playerMoveInterval;
-    let arenaRectCache; // Cache for performance
-
-    const goodItems = [
-      { symbol: '🔑', color: '#FFD700', name: 'Key', points: 10, message: "Encryption key secured! Data safe." },
-      { symbol: '🧩', color: '#4CAF50', name: 'Patch', points: 10, message: "Security patch applied! Vulnerability fixed." },
-      { symbol: '🚀', color: '#2196F3', name: 'Boost', points: 5, message: "Firewall boost activated!" },
-      { symbol: '🛡️', color: '#9C27B0', name: 'AV Sig', points: 10, message: "Antivirus signature updated!" },
-      { symbol: '📄', color: '#FFFFFF', name: 'File', points: 5, message: "Clean file downloaded." },
-      { symbol: '📱', color: '#00BCD4', name: 'MFA', points: 10, message: "MFA code verified! Access granted." },
-      { symbol: '☁️', color: '#B0BEC5', name: 'Backup', points: 5, message: "Cloud backup successful!" },
-      { symbol: '💎', color: '#E91E63', name: 'Crystal', points: 10, message: "System integrity confirmed!" },
-      { symbol: '🚫', color: '#F44336', name: 'AdBlock', points: 5, message: "Ad blocker enabled. Pop-ups blocked." },
-      { symbol: '🆔', color: '#FF9800', name: 'Badge', points: 10, message: "Security clearance granted!" }
-    ];
-
-    const badItems = [
-      { symbol: '', color: '#FF4500', name: 'Ransomware', points: 8, message: "System Encrypted! Ransomware Attack!" },
-      { symbol: '☣️', color: '#FF0000', name: 'Virus', points: 8, message: "System Infected! Virus Detected!" },
-      { symbol: '☠️', color: '#DC143C', name: 'Worm', points: 8, message: "Network Breach! Worm Spreading!" },
-      { symbol: '👁️', color: '#FF6347', name: 'Spyware', points: 8, message: "Data Compromised! Spyware Active!" },
-      { symbol: '🚨', color: '#FF8C00', name: 'Alert', points: 8, message: "System Alert! Adware Installed!" },
-      { symbol: '🎣', color: '#FF4500', name: 'Phishing', points: 8, message: "Credentials Stolen! Phishing Attack!" },
-      { symbol: '🔗', color: '#FF0000', name: 'Bad Link', points: 8, message: "Malicious Redirect! Link Clicked!" },
-      { symbol: '💀', color: '#DC143C', name: 'Infected', points: 8, message: "Execution Error! Infected File Ran!" },
-      { symbol: '👾', color: '#FF6347', name: 'Rogue App', points: 8, message: "Unauthorized Access! Rogue App!" },
-      { symbol: '💥', color: '#FF8C00', name: 'Zero-Day', points: 8, message: "System Vulnerable! Zero-Day Exploited!" }
-    ];
 
     const bonusGameContainer = document.getElementById('bonusGameContainer');
     const playerShield = document.getElementById('playerShield');
@@ -526,7 +548,7 @@
 
     function loadQuestion() {
       clearInterval(timerInterval);
-      const question = shuffledQuestions[currentQuestion];
+      const question = questions[currentQuestion];
       document.getElementById("questionBox").textContent = question.question;
       document.getElementById("questionNumber").textContent = currentQuestion + 1;
       document.getElementById("totalQuestions").textContent = questions.length;
@@ -537,20 +559,12 @@
       const optionsContainer = document.getElementById("optionsContainer");
       optionsContainer.innerHTML = "";
 
-      // --- Randomize answer order ---
-      const correctAnswer = question.options[question.correct];
-      const shuffledOptions = [...question.options];
-      shuffleArray(shuffledOptions);
-      const newCorrectIndex = shuffledOptions.indexOf(correctAnswer);
-      // ---
-
       document.getElementById('timer').textContent = TIME_LIMIT;
 
-      shuffledOptions.forEach((option, index) => {
+      question.options.forEach((option, index) => {
         const btn = document.createElement("button");
         btn.className = "option-btn";
         btn.textContent = option;
-        btn.dataset.isCorrect = (index === newCorrectIndex);
         btn.onclick = () => selectAnswer(index);
         optionsContainer.appendChild(btn);
       });
@@ -577,14 +591,14 @@
       
       clearInterval(timerInterval);
       answered = true;
-      const selectedButton = document.querySelectorAll(".option-btn")[selectedIndex];
-      const correct = selectedButton.dataset.isCorrect === 'true';
+      const question = questions[currentQuestion];
+      const correct = selectedIndex === question.correct;
       
       const buttons = document.querySelectorAll(".option-btn");
-      buttons.forEach(btn => {
-        if (btn.dataset.isCorrect === 'true') {
+      buttons.forEach((btn, index) => {
+        if (index === question.correct) {
           btn.classList.add("correct");
-        } else if (btn === selectedButton && !correct) {
+        } else if (index === selectedIndex && !correct) {
           btn.classList.add("incorrect");
         }
         btn.style.pointerEvents = "none";
@@ -634,32 +648,22 @@
     function startBonusGame() {
       bonusGameActive = true;
       bonusScore = 0;
-      document.getElementById('dodgeBonusPoints').textContent = `System Health: 100%`;
+      document.getElementById('dodgeBonusPoints').textContent = `+${bonusScore} BONUS POINTS`;
       bonusGameContainer.classList.add('active');
 
       // Reset player position
       playerPosition = (arenaWidth - shieldWidth) / 2;
       playerShield.style.left = playerPosition + 'px';
 
-      // Cache the arena's position to avoid recalculating on every mouse move
-      arenaRectCache = document.getElementById('dodgeArena').getBoundingClientRect();
-
-      // --- Progressive Time Limit ---
-      const bonusRoundDuration = 15000 - (currentQuestion * 2000); // Starts at 15s, gets 2s shorter each round
-
       // Start falling malware with progressive difficulty
-      const roundProgress = currentQuestion / (questions.length - 1); // Progress from 0 (Q1) to 1 (Q5)
-      const initialSpawnRate = 1200 - (roundProgress * 800); // Starts at 1200ms, gets as fast as 400ms
-      const initialAttackChance = 0.10 + (roundProgress * 0.40); // Starts at 10% threats, goes up to 50%
-
       let gameStartTime = Date.now();
-      let spawnRate = initialSpawnRate;
-      let cyberAttackChance = initialAttackChance;
+      let spawnRate = 1200; // Start much slower for easy beginning
+      let cyberAttackChance = 0.05; // Start with just 5% cyber attacks
       
       const malwareSpawner = () => {
         const rand = Math.random();
         const elapsed = Date.now() - gameStartTime;
-        const progress = elapsed / bonusRoundDuration; // Scale difficulty over the current round's duration
+        const progress = elapsed / 40000; // 0 to 1 over 40 seconds (2x longer)
         
         // Smooth curved progression: 5% at start, smoothly up to 65% by end
         cyberAttackChance = 0.05 + (Math.pow(progress, 1.5) * 0.6);
@@ -667,11 +671,11 @@
         if (rand < cyberAttackChance) {
           createCyberAttack();
         } else {
-          createGoodItem();
+          createMalware();
         }
         
         // Gradually speed up with curve: 1200ms at start, 150ms by end
-        spawnRate = initialSpawnRate - (Math.pow(progress, 1.2) * (initialSpawnRate - 150));
+        spawnRate = 1200 - (Math.pow(progress, 1.2) * 1050);
         malwareInterval = setTimeout(malwareSpawner, Math.max(spawnRate, 150));
       };
       
@@ -679,10 +683,11 @@
       playerMoveInterval = setInterval(movePlayer, 16); // ~60fps
       document.addEventListener('keydown', handleKeyDown);
       document.addEventListener('keyup', handleKeyUp);
-      const dodgeArena = document.getElementById('dodgeArena');
-      dodgeArena.addEventListener('mousemove', handleShieldMouseMove);
-      // End game after the calculated duration
-      setTimeout(endBonusGame, bonusRoundDuration);
+      playerShield.addEventListener('mousedown', handleShieldMouseDown);
+      document.addEventListener('mousemove', handleShieldMouseMove);
+      document.addEventListener('mouseup', handleShieldMouseUp);
+      // End game after 40 seconds
+      setTimeout(endBonusGame, 40000);
     }
 
     function endBonusGame() {
@@ -693,9 +698,6 @@
       clearInterval(playerMoveInterval);
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('keyup', handleKeyUp);
-      const dodgeArena = document.getElementById('dodgeArena');
-      dodgeArena.removeEventListener('mousemove', handleShieldMouseMove);
-      arenaRectCache = null; // Clear the cache
 
       // Add bonus points to main score
       score += bonusScore;
@@ -715,25 +717,18 @@
 
     function createCyberAttack() {
       if (!bonusGameActive) return;
-      const attackData = badItems[Math.floor(Math.random() * badItems.length)];
       const attack = document.createElement('div');
-      attack.className = 'malware bad-item';
+      attack.className = 'malware';
       attack.style.left = Math.random() * (arenaWidth - 40) + 'px';
-      attack.style.background = 'transparent';
-      attack.style.border = `2px solid ${attackData.color}`;
-      attack.style.borderRadius = '20% 80% 70% 30% / 30% 40% 60% 70%'; // Jagged shape
-      attack.style.setProperty('--glow-color', attackData.color);
-
-      // Randomize fall speed for surprise
-      const fallDuration = 1.5 + Math.random() * 2; // Random duration between 1.5s (fast) and 3.5s (slow)
-      attack.style.animationDuration = `${fallDuration}s, 1s`;
-
-      attack.textContent = attackData.symbol;
+      attack.style.background = '#FF0064';
+      attack.style.boxShadow = '0 0 10px #FF0064, inset 0 0 5px #FF0064';
+      attack.textContent = '⚠';
       attack.style.display = 'flex';
       attack.style.alignItems = 'center';
       attack.style.justifyContent = 'center';
       attack.style.fontSize = '20px';
-      attack.style.color = attackData.color;
+      attack.style.color = '#FFFFFF';
+      attack.style.fontWeight = 'bold';
       document.getElementById('dodgeArena').appendChild(attack);
 
       attack.addEventListener('animationend', () => {
@@ -751,9 +746,8 @@
 
         if (attackRect.bottom > shieldRect.top && attackRect.right > shieldRect.left && attackRect.left < shieldRect.right) {
           attack.remove();
-          const points = attackData.points || 8;
-          bonusScore -= points;
-          document.getElementById('dodgeBonusPoints').textContent = attackData.message;
+          bonusScore = Math.max(0, bonusScore - 2); // Lose 2 points
+          document.getElementById('dodgeBonusPoints').textContent = `+${bonusScore} BONUS POINTS`;
           clearInterval(collisionCheck);
         } else if (attackRect.top > shieldRect.bottom + 100) { // Clean up off-screen
           clearInterval(collisionCheck);
@@ -761,45 +755,32 @@
       }, 50);
     }
 
-    function createGoodItem() {
+    function createMalware() {
       if (!bonusGameActive) return;
-      
-      const itemData = goodItems[Math.floor(Math.random() * goodItems.length)];
-      const item = document.createElement('div');
-      item.className = 'malware'; // Re-use malware class for falling animation
-      item.style.left = Math.random() * (arenaWidth - 40) + 'px';
-      item.style.background = 'transparent';
-      item.style.border = `2px solid ${itemData.color}`;
-      item.style.boxShadow = `0 0 15px ${itemData.color}`;
-      item.style.color = itemData.color;
-      item.style.display = 'flex';
-      item.style.alignItems = 'center';
-      item.style.justifyContent = 'center';
-      item.style.fontSize = '20px';
-      item.textContent = itemData.symbol;
+      const malware = document.createElement('div');
+      malware.className = 'malware';
+      malware.style.left = Math.random() * (arenaWidth - 40) + 'px';
+      document.getElementById('dodgeArena').appendChild(malware);
 
-      document.getElementById('dodgeArena').appendChild(item);
-
-      item.addEventListener('animationend', () => {
-        item.remove();
+      malware.addEventListener('animationend', () => {
+        malware.remove();
       });
 
       // Collision detection
       const collisionCheck = setInterval(() => {
-        if (!document.body.contains(item)) {
+        if (!document.body.contains(malware)) {
           clearInterval(collisionCheck);
           return;
         }
-        const itemRect = item.getBoundingClientRect();
+        const malwareRect = malware.getBoundingClientRect();
         const shieldRect = playerShield.getBoundingClientRect();
 
-        if (itemRect.bottom > shieldRect.top && itemRect.right > shieldRect.left && itemRect.left < shieldRect.right) {
-          item.remove();
-          const points = itemData.points || 5;
-          bonusScore += points;
-          document.getElementById('dodgeBonusPoints').textContent = itemData.message;
+        if (malwareRect.bottom > shieldRect.top && malwareRect.right > shieldRect.left && malwareRect.left < shieldRect.right) {
+          malware.remove();
+          bonusScore++;
+          document.getElementById('dodgeBonusPoints').textContent = `+${bonusScore} BONUS POINTS`;
           clearInterval(collisionCheck);
-        } else if (itemRect.top > shieldRect.bottom + 100) { // Clean up off-screen items
+        } else if (malwareRect.top > shieldRect.bottom + 100) { // Clean up off-screen malware
           clearInterval(collisionCheck);
         }
       }, 50);
@@ -852,8 +833,7 @@
       document.getElementById("leaderboardContainer").style.display = "none";
       document.getElementById("gameContainer").style.display = "flex";
 
-      shuffledQuestions = [...questions];
-      shuffleArray(shuffledQuestions);
+      shuffleArray(questions);
       loadQuestion();
     }
 
@@ -880,14 +860,27 @@
       keysPressed[e.key.toLowerCase()] = false;
     }
 
+    let isDragging = false;
+    let dragStartX = 0;
+
+    function handleShieldMouseDown(e) {
+      isDragging = true;
+      dragStartX = e.clientX;
+    }
+
     function handleShieldMouseMove(e) {
-      if (!bonusGameActive) return;
+      if (!isDragging || !bonusGameActive) return;
       
-      // Use the cached rectangle for much better performance
-      const newX = e.clientX - arenaRectCache.left;
+      const dodgeArena = document.getElementById('dodgeArena');
+      const arenaRect = dodgeArena.getBoundingClientRect();
+      const newX = e.clientX - arenaRect.left;
       
-      playerPosition = Math.max(0, Math.min(newX - (shieldWidth / 2), arenaWidth - shieldWidth));
+      playerPosition = Math.max(0, Math.min(newX - shieldWidth / 2, arenaWidth - shieldWidth));
       playerShield.style.left = playerPosition + 'px';
+    }
+
+    function handleShieldMouseUp(e) {
+      isDragging = false;
     }
 
     function movePlayer() {
