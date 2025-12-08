@@ -520,7 +520,7 @@
     let answered = false;
     let timerInterval;
     const TIME_LIMIT = 15;
-    let scores = []; // Reset leaderboard on each page load
+    let scores = JSON.parse(localStorage.getItem('cyberGameScores')) || [];
     let currentPlayerName = ""; 
 
     let bonusGameActive = false;
