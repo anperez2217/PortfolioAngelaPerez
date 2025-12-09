@@ -388,6 +388,7 @@
         <li><a href="techstack.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Tech Stack</a></li>
         <li><a href="game.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Cyber Game</a></li>
         <li><a href="connect.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Connect</a></li>
+        <li><a href="index.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Home</a></li>
       </ul>
     </nav>
   </header>
@@ -404,56 +405,50 @@
   </div>
 
   <div class="game-container game-wrapper" id="gameContainer" style="display: none;">
+
     <div class="game-header">
       <h1>🔐 CYBER THREAT DETECTOR</h1>
     </div>
 
-    <div class="game-board">
-      <div class="score-display">
-        <div>Question: <span id="questionNumber">1</span>/<span id="totalQuestions">10</span></div>
-        <div>Time Left: <span id="timer">15</span>s</div>
-        <div>High Score: <span id="highScore">0</span></div>
-        <div>Score: <span id="score">0</span></div>
-      </div>
-
-      <div class="question-box" id="questionBox">
-        Loading...
-      </div>
-
-      <div class="feedback" id="feedback"></div>
-
-      <div class="options-container" id="optionsContainer">
-        <!-- Options will be generated here -->
-      </div>
-
-      <button class="game-button" id="nextBtn" style="display: none;">Next Question →</button>
-      <button class="game-button" id="restartBtn" style="display: none; background: linear-gradient(135deg, #FF0064, #00D4FF);">Play Again</button>
+    <div class="score-display">
+      <div>Score: <span id="score">0</span></div>
+      <div>High Score: <span id="highScore">0</span></div>
     </div>
-  </div>
+    <div class="game-board">
+      <div class="question-box" id="questionBox">Question will appear here</div>
+      <div class="options-container" id="optionsContainer"></div>
+      <div class="feedback" id="feedback"></div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 18px;">
+        <div>Question <span id="questionNumber">1</span> of <span id="totalQuestions">5</span></div>
+        <div>⏰ <span id="timer">15</span>s</div>
+      </div>
+      <button class="game-button" id="nextBtn" style="display: none; margin-top: 24px;">Next Question</button>
+    </div>
+
+    <!-- Bonus Game Modal -->
+    <div class="bonus-game-container" id="bonusGameContainer">
+      <div class="dodge-title">DODGE THE MALWARE!</div>
+      <div class="dodge-instructions">Move the shield (A/D or drag) to catch good items and dodge malware!</div>
+      <div class="dodge-arena" id="dodgeArena" style="position: relative;">
+        <div class="player-shield" id="playerShield"></div>
+      </div>
+      <div class="dodge-bonus-points" id="dodgeBonusPoints">Security Strength: +0</div>
+      <div class="dodge-fact" id="dodgeFact" style="display: none;"></div>
+      <button class="dodge-continue-btn" id="dodgeContinueBtn" style="display: none;">Continue</button>
+    </div>
+
+    <!-- Audio feedback elements -->
+    <audio id="correctSound" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae0b2.mp3" preload="auto"></audio>
+    <audio id="incorrectSound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_a8047ddc3c.mp3" preload="auto"></audio>
+    <audio id="gameOverSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_ad43b469c2.mp3" preload="auto"></audio>
+    </div>
 
   <div class="leaderboard-container" id="leaderboardContainer">
-    <div class="game-header" style="text-align: center;">
-      <h2 style="text-align: center; background: linear-gradient(135deg, #00D4FF, #FF0064); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2rem;">Leaderboard</h2>
-    </div>
-    <ol class="leaderboard-list" id="leaderboardList">
-    </ol>
+    <h2 class="text-3xl font-bold text-center text-neon-cyan font-oswald mb-6">Leaderboard</h2>
+    <div class="leaderboard-list" id="leaderboardList" style="width: 100%; max-width: 500px;"></div>
+    <button class="game-button" id="restartBtn" style="display: none; max-width: 500px;">Play Again</button>
   </div>
 
-  <div class="bonus-game-container" id="bonusGameContainer">
-    <div class="dodge-title">🔐 FIREWALL DEFENSE 🔐</div>
-    <div class="dodge-arena" id="dodgeArena">
-      <div class="player-shield" id="playerShield" style="transition: left 0.05s linear;"></div>
-    </div>
-    <div class="dodge-bonus-points" id="dodgeBonusPoints">System Health: +0</div>
-    <div class="dodge-fact" id="dodgeFact" style="display: none;"></div>
-    <button class="dodge-continue-btn" id="dodgeContinueBtn">Continue to Next Question →</button>
-  </div>
-
-  <!-- Audio elements for sound effects -->
-  <!-- Make sure you have these audio files in your project directory -->
-  <audio id="correctSound" src="correct.ogg"></audio>
-  <audio id="incorrectSound" src="incorrect.ogg"></audio>
-  <audio id="gameOverSound" src="gameover.ogg"></audio>
 
   <script>
     const questions = [
@@ -551,7 +546,7 @@
     let bonusGameActive = false;
     let bonusScore = 0;
     let playerPosition;
-    const playerStep = 20; // Slightly increased for better responsiveness
+    const playerStep = 32; // Increased for snappier shield movement
     const arenaWidth = 600;
     const shieldWidth = 60;
     let malwareInterval;
@@ -810,7 +805,7 @@
       const nameInput = document.getElementById("playerNameInput");
       currentPlayerName = nameInput.value.trim();
       if (!currentPlayerName) {
-        alert("Please enter a name to start the game!");
+        // alert removed per user request
         return;
       }
       nameInput.value = "";
@@ -927,37 +922,12 @@
           bonusScore += itemData.points;
           document.getElementById('dodgeBonusPoints').textContent = `Security Strength: +${bonusScore}`;
           showActionMessage(message, isGood);
-          // Show educational alert with item name and message
-          showEducationalAlert(itemData.name, itemData.message);
+          // Removed educational alert per user request
           clearInterval(collisionCheck);
         } else if (itemRect.top > shieldRect.bottom + 100) {
           clearInterval(collisionCheck);
         }
       }, 50);
-        // Show an educational alert for caught items
-        function showEducationalAlert(name, message) {
-          const alertDiv = document.createElement('div');
-          alertDiv.className = 'educational-alert';
-          alertDiv.textContent = `${name}: ${message}`;
-          alertDiv.style.position = 'fixed';
-          alertDiv.style.top = '24px';
-          alertDiv.style.right = '0px';
-          alertDiv.style.left = 'auto';
-          alertDiv.style.transform = 'none';
-          alertDiv.style.background = 'rgba(0,0,0,0.85)';
-          alertDiv.style.color = '#00D4FF';
-          alertDiv.style.padding = '12px 28px';
-          alertDiv.style.borderRadius = '8px';
-          alertDiv.style.fontSize = '1.1rem';
-          alertDiv.style.fontWeight = 'bold';
-          alertDiv.style.zIndex = '2000';
-          alertDiv.style.boxShadow = '0 0 18px #00D4FF88';
-          document.body.appendChild(alertDiv);
-          setTimeout(() => {
-            alertDiv.style.opacity = '0';
-            setTimeout(() => alertDiv.remove(), 600);
-          }, 1800);
-        }
     }
 
     function showActionMessage(message, isGood) {
@@ -982,4 +952,5 @@
     displayLeaderboard();
   </script>
 </body>
+</html>
 </html>
