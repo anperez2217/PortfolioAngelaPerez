@@ -458,29 +458,54 @@
   <script>
     const questions = [
       {
-        question: "You enter your info on a fake website that looks exactly like the real one. What attack tricked you?",
-        options: ["DNS Timeout", "Website Spoofing", "SQL Injection", "Password Recycling"],
+        question: "You get a message from 'Alfred' asking for your Wayne Enterprises login to 'update the Batcomputer.' The sender’s email looks suspicious. What’s the smart move?",
+        options: [
+          "Ignore or report it",
+          "Click the link and enter your info",
+          "Forward it to Bruce Wayne",
+          "Reply with your login details"
+        ],
+        correct: 0
+      },
+      {
+        question: "Which password would take the longest for a hacker to crack?",
+        options: [
+          "QwErTy!",
+          "$tR0ng!P@ss2025",
+          "123456",
+          "mypassword"
+        ],
         correct: 1
       },
       {
-        question: "A hacker uses a fake login page to steal your username and password. What is this tactic called?",
-        options: ["Session Hijacking", "Credential Harvesting", "Cookie Poisoning", "Port Scanning"],
+        question: "What’s the main reason to use two-factor authentication?",
+        options: [
+          "It makes logging in faster",
+          "It adds an extra layer of protection",
+          "It lets you use your phone as a password",
+          "It’s required for social media"
+        ],
         correct: 1
       },
       {
-        question: "Your computer slows down because malware is secretly using it to mine cryptocurrency. What is this called?",
-        options: ["Trojan Farming", "Cryptojacking", "Coin Spoofing", "Packet Mining"],
-        correct: 1
+        question: "You see a website with a padlock icon and 'https' in the address bar. What does this mean?",
+        options: [
+          "The site is encrypted and safer to use",
+          "The site loads faster",
+          "The site is government-approved",
+          "The site has free games"
+        ],
+        correct: 0
       },
       {
-        question: "Someone sends you a file that looks like a PDF, but it installs malware when opened. What is this?",
-        options: ["Shadow File", "Corrupted Cache", "Malicious Attachment", "Data Masking"],
-        correct: 2 // "Malicious Attachment" is the 3rd option, so index is 2
-      },
-      {
-        question: "A hacker steals your WiFi password and uses your network for attacks. What danger does this create for you?",
-        options: ["Your router will shut down", "You can be traced/blamed for their activity", "Your internet will become encrypted", "Your device storage will be wiped"],
-        correct: 1
+        question: "What’s the best way to avoid malware when downloading apps?",
+        options: [
+          "Download only from official app stores",
+          "Use any site with lots of downloads",
+          "Click on pop-up ads for apps",
+          "Ask friends for random links"
+        ],
+        correct: 0
       }
     ];
 
@@ -705,6 +730,8 @@
 
       clearInterval(malwareInterval);
       clearInterval(playerMoveInterval);
+      // Remove all falling items immediately so they stop affecting score
+      document.querySelectorAll('.malware').forEach(m => m.remove());
 
       const randomFact = cyberFacts[Math.floor(Math.random() * cyberFacts.length)];
       const factElement = document.getElementById('dodgeFact');
@@ -900,11 +927,37 @@
           bonusScore += itemData.points;
           document.getElementById('dodgeBonusPoints').textContent = `Security Strength: +${bonusScore}`;
           showActionMessage(message, isGood);
+          // Show educational alert with item name and message
+          showEducationalAlert(itemData.name, itemData.message);
           clearInterval(collisionCheck);
         } else if (itemRect.top > shieldRect.bottom + 100) {
           clearInterval(collisionCheck);
         }
       }, 50);
+        // Show an educational alert for caught items
+        function showEducationalAlert(name, message) {
+          const alertDiv = document.createElement('div');
+          alertDiv.className = 'educational-alert';
+          alertDiv.textContent = `${name}: ${message}`;
+          alertDiv.style.position = 'fixed';
+          alertDiv.style.top = '24px';
+          alertDiv.style.right = '0px';
+          alertDiv.style.left = 'auto';
+          alertDiv.style.transform = 'none';
+          alertDiv.style.background = 'rgba(0,0,0,0.85)';
+          alertDiv.style.color = '#00D4FF';
+          alertDiv.style.padding = '12px 28px';
+          alertDiv.style.borderRadius = '8px';
+          alertDiv.style.fontSize = '1.1rem';
+          alertDiv.style.fontWeight = 'bold';
+          alertDiv.style.zIndex = '2000';
+          alertDiv.style.boxShadow = '0 0 18px #00D4FF88';
+          document.body.appendChild(alertDiv);
+          setTimeout(() => {
+            alertDiv.style.opacity = '0';
+            setTimeout(() => alertDiv.remove(), 600);
+          }, 1800);
+        }
     }
 
     function showActionMessage(message, isGood) {
