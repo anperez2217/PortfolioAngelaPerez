@@ -777,7 +777,7 @@
         scores.push({ name: currentPlayerName, score: score });
       }
       scores.sort((a, b) => b.score - a.score);
-      scores = scores.slice(0, 5);
+      scores = scores.slice(0, 10);
 
       localStorage.setItem('cyberGameScores', JSON.stringify(scores));
       displayLeaderboard();
