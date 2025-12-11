@@ -376,6 +376,28 @@
       transition: opacity 0.5s ease-out, bottom 0.5s ease-out;
       white-space: nowrap;
     }
+
+    /* --- Infected Item Styling --- */
+    .bad-item-infected {
+      /* This animation makes the bad items pulse and glow to look dangerous */
+      /* We combine the fall animation with the pulse animation */
+      animation-name: fall, pulse-infected;
+      animation-timing-function: linear, ease-in-out;
+      animation-iteration-count: 1, infinite;
+      animation-duration: 3s, 1.2s; /* Default fall duration */
+    }
+
+    @keyframes pulse-infected {
+      0% {
+        filter: drop-shadow(0 0 4px rgba(255, 20, 20, 0.6)) brightness(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 14px rgba(255, 0, 0, 1)) brightness(1.5);
+      }
+      100% {
+        filter: drop-shadow(0 0 4px rgba(255, 20, 20, 0.6)) brightness(1);
+      }
+    }
   </style>
 </head>
 <body>
@@ -890,8 +912,11 @@
       const itemData = itemPool[Math.floor(Math.random() * itemPool.length)];
 
       const itemElement = document.createElement('div');
-      itemElement.className = 'malware'; // Re-using class for falling animation
+      itemElement.className = 'malware';
+
+      // --- Randomize horizontal start position ---
       itemElement.style.left = Math.random() * (arenaWidth - 40) + 'px';
+
       itemElement.textContent = itemData.icon;
       itemElement.style.background = 'transparent';
       itemElement.style.fontSize = '28px';
@@ -899,7 +924,23 @@
       itemElement.style.color = itemData.color;
       itemElement.style.display = 'flex';
       itemElement.style.alignItems = 'center';
+
       itemElement.style.justifyContent = 'center';
+
+      // --- Progressive Difficulty for Fall Speed ---
+      const difficultyFactor = currentQuestion / (questions.length - 1);
+      const fallDuration = 3.5 - (difficultyFactor * 2.2); // Fall duration from 3.5s down to 1.3s
+      itemElement.style.animationDuration = `${fallDuration}s`;
+
+      if (!isGood) {
+        // If the item is bad, add the 'infected' class for special styling
+        itemElement.classList.add('bad-item-infected');
+        itemElement.style.animationDuration = `${fallDuration}s, 1.2s`; // Apply fall duration and keep pulse duration
+      } else {
+        // If the item is good, it only needs the fall animation
+        itemElement.style.animationName = 'fall';
+        itemElement.style.animationTimingFunction = 'linear';
+      }
 
       document.getElementById('dodgeArena').appendChild(itemElement);
 
