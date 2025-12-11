@@ -182,8 +182,7 @@
     }
 
     .leaderboard-container {
-      width: 100%;
-      max-width: 800px;
+      max-width: 500px;
       margin: 40px auto;
       padding: 20px;
       display: flex;
@@ -207,8 +206,8 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
-      width: 100%;
-      margin-top: 10px;
+      max-width: 500px;
+      margin: 10px auto 0 auto;
     }
 
     .game-button:hover {
@@ -464,10 +463,10 @@
     <audio id="gameOverSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_ad43b469c2.mp3" preload="auto"></audio>
     </div>
 
-  <div class="leaderboard-container" id="leaderboardContainer">
+  <div class="leaderboard-container" id="leaderboardContainer" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <h2 class="text-3xl font-bold text-center text-neon-cyan font-oswald mb-6">Leaderboard</h2>
-    <div class="leaderboard-list" id="leaderboardList" style="width: 100%; max-width: 500px;"></div>
-    <button class="game-button" id="restartBtn" style="display: none; max-width: 500px;">Play Again</button>
+    <div class="leaderboard-list" id="leaderboardList" style="max-width: 500px; margin: 0 auto;"></div>
+    <button class="game-button" id="restartBtn" style="display: none; max-width: 500px; margin: 0 auto;">Play Again</button>
   </div>
 
 
