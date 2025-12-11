@@ -693,6 +693,8 @@
     }
 
     function nextQuestion() {
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("feedback").className = "feedback";
       currentQuestion++;
       loadQuestion();
     }
@@ -784,7 +786,8 @@
       gameOverSound.play();
       document.getElementById("optionsContainer").innerHTML = ""; // Clear options
       document.getElementById("questionBox").innerHTML = `<div class="game-over">GAME OVER!</div><div class="final-score">${score}/${questions.length}</div><p style="color: #00D4FF;">You completed the Cyber Threat Detector!</p>`;
-      
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("feedback").className = "feedback";
       document.getElementById("nextBtn").style.display = "none";
       document.getElementById("restartBtn").style.display = "block";
 
@@ -846,7 +849,10 @@
       } else {
         scores.forEach((score, index) => {
           const li = document.createElement("li");
-          li.innerHTML = `<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #00D4FF30;"><span>#${index + 1} ${score.name}</span> <span>${score.score} pts</span></div>`;
+          li.innerHTML = `<div style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 12px 0; border-bottom: 1px solid #00D4FF30; font-size: 1.1em; letter-spacing: 0.5px;">
+            <span style="min-width: 120px; text-align: left;">#${index + 1} <strong>${score.name.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</strong></span>
+            <span style="min-width: 80px; text-align: right;">${score.score} <span style='font-weight: 500;'>pts</span></span>
+          </div>`;
           leaderboardList.appendChild(li);
         });
       }
