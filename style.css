@@ -1,5 +1,29 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                              /* Highest specificity: override by id for mobile game buttons */
+                              button#startGameBtn.game-button,
+                              button#nextBtn.game-button,
+                              button#restartBtn.game-button,
+                              button#startGameBtn.game-button.micro-interact,
+                              button#nextBtn.game-button.micro-interact,
+                              button#restartBtn.game-button.micro-interact {
+                                background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                                color: #000 !important;
+                                border: none !important;
+                                box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                font-weight: bold !important;
+                              }
+                        /* Absolute mobile override for game buttons using attribute selector and highest specificity */
+                        button.game-button,
+                        button.game-button.micro-interact,
+                        .game-button[style],
+                        .game-button.micro-interact[style] {
+                          background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                          color: #000 !important;
+                          border: none !important;
+                          box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                          font-weight: bold !important;
+                        }
                   /* Ensure game buttons are vibrant and visible on mobile */
       /* Force mobile game button color to override all inline and style tag rules */
       html body .game-button,
