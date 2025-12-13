@@ -1,3 +1,81 @@
+/* Footer blend for Connect.html (neon parallax background) */
+body:has(.professional-page) footer, body.professional-page footer, body:has(.connect-page) footer, body.connect-page footer {
+  background: linear-gradient(to top, rgba(10,10,20,0.95) 85%, rgba(0,212,255,0.10) 100%) !important;
+  box-shadow: 0 -2px 18px 0 rgba(0,212,255,0.13), 0 -1.5px 10px 0 rgba(255,0,100,0.10);
+}
+body:has(.professional-page) footer::before, body.professional-page footer::before, body:has(.connect-page) footer::before, body.connect-page footer::before {
+  background: linear-gradient(to top, #00D4FF33 0%, rgba(10,10,20,0.95) 100%);
+  box-shadow: 0 6px 18px 0 #00D4FF33;
+}
+
+/* Footer blend for techstack.html (dark blue-black background) */
+body:has(.techstack-page) footer, body.techstack-page footer {
+  background: linear-gradient(to top, #0a0a14 85%, #00D4FF0D 100%) !important;
+  box-shadow: 0 -2px 18px 0 rgba(0,212,255,0.12), 0 -1.5px 10px 0 rgba(255,0,100,0.09);
+}
+body:has(.techstack-page) footer::before, body.techstack-page footer::before {
+  background: linear-gradient(to top, #00D4FF22 0%, #0a0a14 100%);
+  box-shadow: 0 6px 18px 0 #00D4FF22;
+}
+/* Navbar blend for Connect.html (neon parallax background) */
+body:has(.professional-page), body.professional-page, body:has(.connect-page), body.connect-page {
+}
+body:has(.professional-page) header.sticky[style], body.professional-page header.sticky[style], body:has(.connect-page) header.sticky[style], body.connect-page header.sticky[style] {
+  background: linear-gradient(to bottom, rgba(10,10,20,0.95) 85%, rgba(0,212,255,0.10) 100%);
+  box-shadow: 0 2px 18px 0 rgba(0,212,255,0.13), 0 1.5px 10px 0 rgba(255,0,100,0.10);
+}
+body:has(.professional-page) header.sticky[style]::before, body.professional-page header.sticky[style]::before, body:has(.connect-page) header.sticky[style]::before, body.connect-page header.sticky[style]::before {
+  background: linear-gradient(to bottom, #00D4FF33 0%, rgba(10,10,20,0.95) 100%);
+  box-shadow: 0 -6px 18px 0 #00D4FF33;
+}
+body:has(.professional-page) header.sticky[style]::after, body.professional-page header.sticky[style]::after, body:has(.connect-page) header.sticky[style]::after, body.connect-page header.sticky[style]::after {
+  background: linear-gradient(to top, #FF006433 0%, rgba(10,10,20,0.95) 100%);
+  box-shadow: 0 6px 18px 0 #FF006433;
+}
+
+/* Navbar blend for techstack.html (dark blue-black background) */
+body:has(.techstack-page), body.techstack-page {
+}
+body:has(.techstack-page) header.sticky[style], body.techstack-page header.sticky[style] {
+  background: linear-gradient(to bottom, #0a0a14 85%, #00D4FF0D 100%);
+  box-shadow: 0 2px 18px 0 rgba(0,212,255,0.12), 0 1.5px 10px 0 rgba(255,0,100,0.09);
+}
+body:has(.techstack-page) header.sticky[style]::before, body.techstack-page header.sticky[style]::before {
+  background: linear-gradient(to bottom, #00D4FF22 0%, #0a0a14 100%);
+  box-shadow: 0 -6px 18px 0 #00D4FF22;
+}
+body:has(.techstack-page) header.sticky[style]::after, body.techstack-page header.sticky[style]::after {
+  background: linear-gradient(to top, #FF006422 0%, #0a0a14 100%);
+  box-shadow: 0 6px 18px 0 #FF006422;
+}
+/* Modern blend for navbar: seamless with black and neon accent */
+header.sticky[style] {
+  position: relative;
+  box-shadow: 0 2px 18px 0 rgba(0,212,255,0.10), 0 1.5px 10px 0 rgba(255,0,100,0.09);
+  background: linear-gradient(to bottom, #000 85%, #0a0a0a 100%);
+}
+header.sticky[style]::before, header.sticky[style]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 51;
+}
+header.sticky[style]::before {
+  top: -14px;
+  height: 14px;
+  background: linear-gradient(to bottom, #00D4FF22 0%, #000 100%);
+  box-shadow: 0 -6px 18px 0 #00D4FF22;
+  border-radius: 12px 12px 0 0;
+}
+header.sticky[style]::after {
+  bottom: -14px;
+  height: 14px;
+  background: linear-gradient(to top, #FF006422 0%, #000 100%);
+  box-shadow: 0 6px 18px 0 #FF006422;
+  border-radius: 0 0 12px 12px;
+}
 /* Key Page Breakdowns Custom Grid & Card */
 .key-breakdowns-grid {
   gap: 5rem 5rem !important;
