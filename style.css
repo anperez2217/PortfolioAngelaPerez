@@ -1,5 +1,41 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+    /* --- MOBILE VISUAL ENHANCEMENTS --- */
+    /* Ensure neon glows and backgrounds are not lost on mobile */
+    .navbar-home-icon {
+      box-shadow: 0 0 18px #00D4FF88, 0 0 32px #FF006488;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.13), rgba(255, 0, 100, 0.13));
+    }
+    header.sticky[style], header {
+      box-shadow: 0 2px 18px 0 rgba(0,212,255,0.13), 0 1.5px 10px 0 rgba(255,0,100,0.13) !important;
+      background: linear-gradient(to bottom, #000 85%, #0a0a0a 100%) !important;
+    }
+    footer {
+      box-shadow: 0 -2px 18px 0 rgba(0,212,255,0.13), 0 -1.5px 10px 0 rgba(255,0,100,0.13) !important;
+      background: linear-gradient(to top, #000 85%, #00D4FF0D 100%) !important;
+    }
+    .micro-interact, .project-card-featured, .project-card, .tech-card-dynamic {
+      box-shadow: 0 0 24px 0 #00D4FF55, 0 0 32px 0 #FF006455, 0 2px 12px 0 rgba(0,212,255,0.10), 0 1.5px 8px 0 rgba(255,0,100,0.10) !important;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.07), rgba(255, 0, 100, 0.07), transparent) !important;
+    }
+    .profile-image-wrapper, .profile-image {
+      box-shadow: 0 0 24px #00D4FF44, 0 0 32px #FF006444 !important;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 100, 0.08), transparent) !important;
+    }
+    .parallax-bg, .parallax-layer, .parallax-animated-gradient {
+      opacity: 0.9 !important;
+      filter: blur(2.5px) saturate(1.2) !important;
+    }
+    /* Ensure all cards and sections retain border radius and spacing */
+    .project-card-featured, .project-card, .tech-card-dynamic, .contact-form, .social-links, .hero, .fade-section {
+      border-radius: 1.25rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+    /* Prevent squashing of neon effects by allowing overflow */
+    .content-wrapper, main, .projects-showcase, .techstack-page, .home-page, .professional-page {
+      overflow: visible !important;
+    }
+    /* --- END MOBILE VISUAL ENHANCEMENTS --- */
   header.sticky[style] {
     padding: 0 10px !important; /* Adjusted padding for mobile header */
     height: auto !important; /* Allow header to grow with stacked nav items */
