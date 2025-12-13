@@ -1,3 +1,14 @@
+/* Footer blend for Index.html (pure black background) */
+body:has(.home-page), body.home-page {
+}
+body:has(.home-page) footer, body.home-page footer {
+  background: linear-gradient(to top, #000 85%, #00D4FF0D 100%) !important;
+  box-shadow: 0 -2px 18px 0 rgba(0,212,255,0.11), 0 -1.5px 10px 0 rgba(255,0,100,0.08);
+}
+body:has(.home-page) footer::before, body.home-page footer::before {
+  background: linear-gradient(to top, #00D4FF22 0%, #000 100%);
+  box-shadow: 0 6px 18px 0 #00D4FF22;
+}
 /* Footer blend for Connect.html (neon parallax background) */
 body:has(.professional-page) footer, body.professional-page footer, body:has(.connect-page) footer, body.connect-page footer {
   background: linear-gradient(to top, rgba(10,10,20,0.95) 85%, rgba(0,212,255,0.10) 100%) !important;
