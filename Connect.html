@@ -94,16 +94,42 @@
     <div class="parallax-animated-gradient"></div>
   </div>
   <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neon-cyan/20" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
-    <a href="index.html" style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 1.5px solid #00D4FF; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; cursor: pointer; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 100, 0.1));" onmouseover="this.style.boxShadow='0 0 20px rgba(0, 212, 255, 0.8)'; this.style.transform='scale(1.15)'" onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)'"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes pulse-ring { 0% { r: 4; opacity: 1; } 100% { r: 8; opacity: 0; } }</style></defs><circle cx="12" cy="12" r="8" stroke="#00D4FF" stroke-width="1" opacity="0.4"/><circle cx="12" cy="12" r="6" stroke="#FF0064" stroke-width="0.8" opacity="0.6" style="animation: spin 3s linear infinite;"/><circle cx="12" cy="12" r="4" fill="none" stroke="#00D4FF" stroke-width="1.2" style="animation: pulse-ring 2s ease-out infinite;"/><circle cx="12" cy="12" r="2.5" fill="#FF0064" opacity="0.8"/><circle cx="12" cy="12" r="1.2" fill="#00D4FF"/></svg></a>
-    <nav class="py-4">
-      <ul class="flex gap-x-16">
-        <li><a href="projects.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Projects</a></li>
-        <li><a href="techstack.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Tech Stack</a></li>
-        <li><a href="game.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Cyber Game</a></li>
-        <li><a href="connect.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Connect</a></li>
-        <li><a href="index.html" class="text-neon-cyan hover:text-neon-magenta transition-colors font-semibold">Home</a></li>
-      </ul>
-    </nav>
+    <a href="index.html" style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 1.5px solid #00D4FF; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; cursor: pointer; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 100, 0.1)); margin-left: -10px;" onmouseover="this.style.boxShadow='0 0 20px rgba(0, 212, 255, 0.8)'; this.style.transform='scale(1.15)'" onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)'" title="Home"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes pulse-ring { 0% { r: 4; opacity: 1; } 100% { r: 8; opacity: 0; } }</style></defs><circle cx="12" cy="12" r="8" stroke="#00D4FF" stroke-width="1" opacity="0.4"/><circle cx="12" cy="12" r="6" stroke="#FF0064" stroke-width="0.8" opacity="0.6" style="animation: spin 3s linear infinite;"/><circle cx="12" cy="12" r="4" fill="none" stroke="#00D4FF" stroke-width="1.2" style="animation: pulse-ring 2s ease-out infinite;"/><circle cx="12" cy="12" r="2.5" fill="#FF0064" opacity="0.8"/><circle cx="12" cy="12" r="1.2" fill="#00D4FF"/></svg></a>
+      <nav class="py-2">
+        <ul class="flex gap-x-10 md:gap-x-16 items-center">
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="techstack.html" class="nav-link">Tech Stack</a></li>
+          <li><a href="game.html" class="nav-link">Cyber Game</a></li>
+          <li><a href="connect.html" class="nav-link">Connect</a></li>
+          <li><a href="index.html" class="nav-link nav-active">Home</a></li>
+        </ul>
+        <style>
+          .nav-link {
+            position: relative;
+            color: #00D4FF;
+            font-weight: 600;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            letter-spacing: 0.04em;
+            transition: color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
+            background: transparent;
+            outline: none;
+          }
+          .nav-link:hover, .nav-link:focus {
+            color: #FF0064;
+            background: linear-gradient(90deg, rgba(0,212,255,0.12) 0%, rgba(255,0,100,0.10) 100%);
+            box-shadow: 0 2px 12px 0 rgba(0,212,255,0.10), 0 1.5px 8px 0 rgba(255,0,100,0.10);
+            transform: translateY(-2px) scale(1.06);
+          }
+          .nav-active {
+            color: #fff;
+            background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%);
+            box-shadow: 0 2px 16px 0 rgba(0,212,255,0.18), 0 1.5px 12px 0 rgba(255,0,100,0.13);
+            font-weight: 700;
+            border-radius: 9999px;
+          }
+        </style>
+      </nav>
   </header>
 
   <main class="content-wrapper professional-page min-h-screen">
