@@ -1,5 +1,32 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+            /* Universal mobile section spacing and stacking fix */
+            .hero, .about-summary, .featured-section, .introduction, .projects-showcase, .techstack-page, .professional-page, .fade-section, .contact-form, .home-page, .content-wrapper, main {
+              width: 100vw !important;
+              max-width: 100vw !important;
+              margin-left: 0 !important;
+              margin-right: 0 !important;
+              padding-left: 0.5rem !important;
+              padding-right: 0.5rem !important;
+              box-sizing: border-box !important;
+              display: block !important;
+              position: relative !important;
+            }
+            .hero-content, .about-summary > div, .featured-section > div, .introduction > div, .projects-showcase > div, .techstack-page > div, .professional-page > div {
+              display: flex !important;
+              flex-direction: column !important;
+              align-items: center !important;
+              gap: 32px !important;
+              width: 100% !important;
+              max-width: 100vw !important;
+              margin: 0 auto !important;
+              position: relative !important;
+            }
+            /* Add extra margin between stacked sections */
+            .hero, .about-summary, .featured-section, .introduction, .projects-showcase, .techstack-page, .professional-page, .fade-section {
+              margin-bottom: 2.2rem !important;
+              margin-top: 1.2rem !important;
+            }
       /* Stack hero image and text vertically on mobile, with strong separation */
       .hero-content {
         flex-direction: column !important;
@@ -39,6 +66,7 @@
         border-radius: 18px !important;
       }
       .hero-title {
+        display: block !important;
         text-align: center !important;
         font-size: 2.1rem !important;
         line-height: 1.15 !important;
@@ -46,7 +74,36 @@
         margin-bottom: 1.7rem !important;
         z-index: 2;
         position: relative;
+        color: #00D4FF !important;
         background: none !important;
+        font-weight: bold !important;
+        text-shadow: 0 0 12px #00D4FF99, 0 0 18px #FF006499;
+      }
+
+      /* Make sure game buttons and option buttons are vibrant and readable on mobile */
+      .option-btn {
+        background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+        color: #000 !important;
+        border: 2px solid #00D4FF !important;
+        box-shadow: 0 0 12px #00D4FF55, 0 0 18px #FF006455 !important;
+      }
+      .option-btn.correct {
+        background: linear-gradient(135deg, #00FF00 60%, #00D4FF 100%) !important;
+        color: #000 !important;
+        border-color: #00FF00 !important;
+        box-shadow: 0 0 20px #00FF0099 !important;
+      }
+      .option-btn.incorrect {
+        background: linear-gradient(135deg, #FF0000 60%, #FF0064 100%) !important;
+        color: #fff !important;
+        border-color: #FF0000 !important;
+        box-shadow: 0 0 20px #FF000099 !important;
+      }
+      .game-button {
+        background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+        color: #000 !important;
+        border: none !important;
+        box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
       }
     /* --- MOBILE VISUAL ENHANCEMENTS --- */
     /* Ensure neon glows and backgrounds are not lost on mobile */
