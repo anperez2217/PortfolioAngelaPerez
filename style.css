@@ -433,6 +433,16 @@ header, footer {
   margin-top: 60px;
 }
 
+header {
+  overflow: visible !important;
+}
+
+.navbar-home-icon {
+  z-index: 1002 !important;
+  position: relative !important;
+}
+}
+
   footer {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.08rem;
