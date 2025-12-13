@@ -1,5 +1,13 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                  /* Ensure game buttons are vibrant and visible on mobile */
+                  .game-button {
+                    background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                    color: #000 !important;
+                    border: none !important;
+                    box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                    font-weight: bold !important;
+                  }
             /* Universal mobile section spacing and stacking fix */
             .hero, .about-summary, .featured-section, .introduction, .projects-showcase, .techstack-page, .professional-page, .fade-section, .contact-form, .home-page, .content-wrapper, main {
               width: 100vw !important;
