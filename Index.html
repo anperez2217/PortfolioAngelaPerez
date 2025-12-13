@@ -10,6 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+  <style>
+    /* Tasteful micro-interactions for Index page */
+    .micro-interact {
+      transition: transform 0.18s cubic-bezier(0.4,0,0.2,1), box-shadow 0.18s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform, box-shadow;
+    }
+    .micro-interact:hover, .micro-interact:focus {
+      transform: scale(1.045);
+      box-shadow: 0 4px 24px 0 rgba(0,212,255,0.13), 0 2px 12px 0 rgba(255,0,100,0.10);
+      z-index: 2;
+    }
+    .micro-interact:active {
+      transform: scale(0.97);
+    }
+  </style>
 <style>
   .fade-section {
     opacity: 0;
@@ -67,7 +82,7 @@
       <div class="hero-content max-w-7xl mx-auto" style="display: flex; flex-direction: row; align-items: center; gap: 40px;">
         <div class="glitch-container" style="flex: 0 0 300px;">
           <div class="profile-image-wrapper">
-            <img src="IMG_4236.jpg" alt="Angela Perez" class="profile-image">
+            <img src="IMG_4236.jpg" alt="Angela Perez" class="profile-image micro-interact">
           </div>
         </div>
         <div style="flex: 1 1 auto;">
@@ -112,19 +127,19 @@
         <h2 class="text-4xl font-bold mb-8 text-neon-magenta font-oswald">Fun Facts</h2>
         <div class="facts-grid grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- New Fun Fact about the band - Larger -->
-          <div class="md:col-span-2 md:row-span-2" style="border: 3px solid transparent; border-image: linear-gradient(135deg, rgba(255, 0, 100, 0.4), rgba(0, 212, 255, 0.4)) 1; border-radius: 12px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent); padding: 24px; transition: all 0.4s ease; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02);" onmouseover="this.style.borderImage='linear-gradient(135deg, rgba(255, 0, 100, 1), rgba(0, 212, 255, 1)) 1'; this.style.boxShadow='0 0 40px rgba(255, 0, 100, 0.3), 0 0 40px rgba(0, 212, 255, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.08)';" onmouseout="this.style.borderImage='linear-gradient(135deg, rgba(255, 0, 100, 0.4), rgba(0, 212, 255, 0.4)) 1'; this.style.boxShadow='0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02)';">
+          <div class="md:col-span-2 md:row-span-2 micro-interact" style="border: 3px solid transparent; border-image: linear-gradient(135deg, rgba(255, 0, 100, 0.4), rgba(0, 212, 255, 0.4)) 1; border-radius: 12px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent); padding: 24px; transition: all 0.4s ease; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02);" onmouseover="this.style.borderImage='linear-gradient(135deg, rgba(255, 0, 100, 1), rgba(0, 212, 255, 1)) 1'; this.style.boxShadow='0 0 40px rgba(255, 0, 100, 0.3), 0 0 40px rgba(0, 212, 255, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.08)';" onmouseout="this.style.borderImage='linear-gradient(135deg, rgba(255, 0, 100, 0.4), rgba(0, 212, 255, 0.4)) 1'; this.style.boxShadow='0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02)';">
             <div class="flex flex-col items-center gap-2 text-center h-full justify-start pt-2">
               <img src="metamore-logo.jpg" alt="METAMORE band logo" class="w-32 h-32 object-contain">
               <p class="text-gray-300 mb-4">I'm a songwriter and composer for <span class="font-bold text-white">METAMORE</span>, an indie band signed with <span class="font-bold text-white">ASR Records Group</span>, a Kansas City-based label founded by legendary saxophonist Ahmad Aladeen. I create music to impact and bring joy to people's lives. I'm grateful for an amazing team that supports my vision, and I love learning from the talented musicians and leaders around me.</p>
               <p class="text-gray-300">The label continues its legacy of artistic excellence under the leadership of Richard White, bringing independent music to global audiences while nurturing new talent.</p>
             </div>
           </div>
-          <div style="border: 3px solid transparent; border-image: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(255, 255, 255, 0.2)) 1; border-radius: 12px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent); padding: 24px; transition: all 0.4s ease; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02);" onmouseover="this.style.borderImage='linear-gradient(135deg, rgba(0, 212, 255, 1), rgba(255, 255, 255, 0.5)) 1'; this.style.boxShadow='0 0 40px rgba(0, 212, 255, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.08)';" onmouseout="this.style.borderImage='linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(255, 255, 255, 0.2)) 1'; this.style.boxShadow='0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02)';">
+          <div class="micro-interact" style="border: 3px solid transparent; border-image: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(255, 255, 255, 0.2)) 1; border-radius: 12px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent); padding: 24px; transition: all 0.4s ease; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02);" onmouseover="this.style.borderImage='linear-gradient(135deg, rgba(0, 212, 255, 1), rgba(255, 255, 255, 0.5)) 1'; this.style.boxShadow='0 0 40px rgba(0, 212, 255, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.08)';" onmouseout="this.style.borderImage='linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(255, 255, 255, 0.2)) 1'; this.style.boxShadow='0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02)';">
             <div class="flex flex-col h-full">
               <p class="text-gray-300">I combine my passion for Eastern medicine and herbalism with creating natural skincare and therapeutic soaps, and I'm building an e-commerce platform to share these wellness products.</p>
             </div>
           </div>
-          <div style="border: 3px solid transparent; border-image: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(255, 255, 255, 0.2)) 1; border-radius: 12px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent); padding: 24px; transition: all 0.4s ease; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02);" onmouseover="this.style.borderImage='linear-gradient(135deg, rgba(0, 212, 255, 1), rgba(255, 255, 255, 0.5)) 1'; this.style.boxShadow='0 0 40px rgba(0, 212, 255, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.08)';" onmouseout="this.style.borderImage='linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(255, 255, 255, 0.2)) 1'; this.style.boxShadow='0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02)';">
+          <div class="micro-interact" style="border: 3px solid transparent; border-image: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(255, 255, 255, 0.2)) 1; border-radius: 12px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent); padding: 24px; transition: all 0.4s ease; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02);" onmouseover="this.style.borderImage='linear-gradient(135deg, rgba(0, 212, 255, 1), rgba(255, 255, 255, 0.5)) 1'; this.style.boxShadow='0 0 40px rgba(0, 212, 255, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.08)';" onmouseout="this.style.borderImage='linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(255, 255, 255, 0.2)) 1'; this.style.boxShadow='0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02)';">
             <div class="flex flex-col h-full">
               <p class="text-gray-300">My next big goal is to create a video game app with friends, possibly an MMO, combining creativity, teamwork, and technology.</p>
             </div>

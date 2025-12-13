@@ -32,6 +32,21 @@
     }
   </style>
 </head>
+  <style>
+    /* Tasteful micro-interactions for Tech Stack page */
+    .micro-interact {
+      transition: transform 0.18s cubic-bezier(0.4,0,0.2,1), box-shadow 0.18s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform, box-shadow;
+    }
+    .micro-interact:hover, .micro-interact:focus {
+      transform: scale(1.045);
+      box-shadow: 0 4px 24px 0 rgba(0,212,255,0.13), 0 2px 12px 0 rgba(255,0,100,0.10);
+      z-index: 2;
+    }
+    .micro-interact:active {
+      transform: scale(0.97);
+    }
+  </style>
 <body class="bg-black text-white font-inter">
   <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neon-cyan/20" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 40px;">
     <a href="index.html" style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 1.5px solid #00D4FF; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; cursor: pointer; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 100, 0.1));" onmouseover="this.style.boxShadow='0 0 20px rgba(0, 212, 255, 0.8)'; this.style.transform='scale(1.15)'" onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)'"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes pulse-ring { 0% { r: 4; opacity: 1; } 100% { r: 8; opacity: 0; } }</style></defs><circle cx="12" cy="12" r="8" stroke="#00D4FF" stroke-width="1" opacity="0.4"/><circle cx="12" cy="12" r="6" stroke="#FF0064" stroke-width="0.8" opacity="0.6" style="animation: spin 3s linear infinite;"/><circle cx="12" cy="12" r="4" fill="none" stroke="#00D4FF" stroke-width="1.2" style="animation: pulse-ring 2s ease-out infinite;"/><circle cx="12" cy="12" r="2.5" fill="#FF0064" opacity="0.8"/><circle cx="12" cy="12" r="1.2" fill="#00D4FF"/></svg></a>
@@ -61,11 +76,11 @@
             <h4 class="text-xl font-bold text-neon-magenta mb-2">C# & .NET</h4>
             <p class="text-gray-400">Building robust, scalable backend services and APIs using ASP.NET Core with a focus on clean, object-oriented code.</p>
           </div>
-          <div class="tech-card-dynamic">
+          <div class="tech-card-dynamic micro-interact">
             <h4 class="text-xl font-bold text-neon-magenta mb-2">Database Management</h4>
             <p class="text-gray-400">Designing schemas and managing data persistence with Entity Framework Core and lightweight databases like SQLite.</p>
           </div>
-          <div class="tech-card-dynamic">
+          <div class="tech-card-dynamic micro-interact">
             <h4 class="text-xl font-bold text-neon-magenta mb-2">RESTful API Development</h4>
             <p class="text-gray-400">Building and consuming secure, efficient RESTful APIs to facilitate seamless client-server communication.</p>
           </div>
@@ -76,15 +91,15 @@
       <section class="mb-16 fade-section">
         <h2 class="text-4xl font-bold mb-10 text-neon-magenta font-oswald">Frontend & Design</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="tech-card-dynamic">
+          <div class="tech-card-dynamic micro-interact">
             <h4 class="text-xl font-bold text-neon-cyan mb-2">Blazor Server</h4>
             <p class="text-gray-400">Developing interactive, real-time UIs with a component-based architecture for a seamless user experience.</p>
           </div>
-          <div class="tech-card-dynamic">
+          <div class="tech-card-dynamic micro-interact">
             <h4 class="text-xl font-bold text-neon-cyan mb-2">HTML, CSS & JavaScript</h4>
             <p class="text-gray-400">Crafting semantic, accessible markup and styling, enhanced with client-side interactivity for dynamic content.</p>
           </div>
-          <div class="tech-card-dynamic">
+          <div class="tech-card-dynamic micro-interact">
             <h4 class="text-xl font-bold text-neon-cyan mb-2">Tailwind CSS</h4>
             <p class="text-gray-400">Utilizing a utility-first CSS framework to rapidly design and build custom, responsive, and consistent user interfaces.</p>
           </div>
@@ -95,11 +110,11 @@
       <section class="fade-section">
         <h2 class="text-4xl font-bold mb-10 text-neon-cyan font-oswald">Practices & Tools</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="tech-card-dynamic">
+          <div class="tech-card-dynamic micro-interact">
             <h4 class="text-xl font-bold text-neon-magenta mb-2">Git & GitHub</h4>
             <p class="text-gray-400">Managing source code with version control, collaborating on feature branches, and conducting pull request reviews.</p>
           </div>
-          <div class="tech-card-dynamic">
+          <div class="tech-card-dynamic micro-interact">
             <h4 class="text-xl font-bold text-neon-magenta mb-2">Agile & Secure Coding</h4>
             <p class="text-gray-400">Working in iterative cycles and integrating security best practices, like input validation and XSS prevention, into the development lifecycle.</p>
           </div>

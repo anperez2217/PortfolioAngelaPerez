@@ -8,6 +8,21 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Tasteful micro-interactions for Game page */
+    .micro-interact {
+      transition: transform 0.18s cubic-bezier(0.4,0,0.2,1), box-shadow 0.18s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform, box-shadow;
+    }
+    .micro-interact:hover, .micro-interact:focus {
+      transform: scale(1.045);
+      box-shadow: 0 4px 24px 0 rgba(0,212,255,0.13), 0 2px 12px 0 rgba(255,0,100,0.10);
+      z-index: 2;
+    }
+    .micro-interact:active {
+      transform: scale(0.97);
+    }
+  </style>
+  <style>
     body {
       background: #000000;
       color: #FFFFFF;
@@ -420,7 +435,7 @@
         <p>Enter your name to begin!</p>
       </div>
       <input type="text" id="playerNameInput" class="name-input" placeholder="PLAYER NAME" maxlength="15">
-      <button class="game-button" id="startGameBtn">Start Game</button>
+      <button class="game-button micro-interact" id="startGameBtn">Start Game</button>
     </div>
   </div>
 
@@ -442,7 +457,7 @@
         <div>Question <span id="questionNumber">1</span> of <span id="totalQuestions">5</span></div>
         <div>⏰ <span id="timer">15</span>s</div>
       </div>
-      <button class="game-button" id="nextBtn" style="display: none; margin-top: 24px;">Next Question</button>
+      <button class="game-button micro-interact" id="nextBtn" style="display: none; margin-top: 24px;">Next Question</button>
     </div>
 
     <!-- Bonus Game Modal -->
@@ -454,7 +469,7 @@
       </div>
       <div class="dodge-bonus-points" id="dodgeBonusPoints">Security Strength: +0</div>
       <div class="dodge-fact" id="dodgeFact" style="display: none;"></div>
-      <button class="dodge-continue-btn" id="dodgeContinueBtn" style="display: none;">Continue</button>
+      <button class="dodge-continue-btn micro-interact" id="dodgeContinueBtn" style="display: none;">Continue</button>
     </div>
 
     <!-- Audio feedback elements -->
