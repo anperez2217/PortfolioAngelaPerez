@@ -1,5 +1,14 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                    /* Ensure all .game-button inside #gameContainer are colored on mobile */
+                                    #gameContainer .game-button,
+                                    #gameContainer .game-button.micro-interact {
+                                      background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                                      color: #000 !important;
+                                      border: none !important;
+                                      box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                      font-weight: bold !important;
+                                    }
                               /* Highest specificity: override by id for mobile game buttons */
                               button#startGameBtn.game-button,
                               button#nextBtn.game-button,
