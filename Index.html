@@ -148,6 +148,28 @@
       </div>
     </section>
   </main>
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" aria-label="Back to top" style="position: fixed; bottom: 88px; right: 32px; z-index: 100; display: none; background: linear-gradient(135deg, #00D4FF, #FF0064); color: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; box-shadow: 0 4px 24px 0 rgba(0,212,255,0.13), 0 2px 12px 0 rgba(255,0,100,0.10); font-size: 2rem; cursor: pointer; transition: opacity 0.3s, transform 0.2s; opacity: 0.85;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="display:block;margin:auto;" xmlns="http://www.w3.org/2000/svg"><path d="M12 19V5M12 5l-7 7M12 5l7 7" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <script>
+    // Show/hide back-to-top button
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 220) {
+        backToTopBtn.style.display = 'block';
+        backToTopBtn.style.opacity = '0.85';
+        backToTopBtn.style.transform = 'scale(1)';
+      } else {
+        backToTopBtn.style.opacity = '0';
+        backToTopBtn.style.transform = 'scale(0.85)';
+        setTimeout(() => { if (window.scrollY <= 220) backToTopBtn.style.display = 'none'; }, 250);
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
   <footer class="bg-black border-t border-neon-cyan/20 py-6 px-4 text-center">
     <script>
