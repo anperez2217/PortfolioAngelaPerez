@@ -1,5 +1,38 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+      /* Stack hero image and text vertically on mobile, with spacing */
+      .hero-content {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+        max-width: 100vw !important;
+        padding: 0 1rem !important;
+      }
+      .glitch-container {
+        flex: none !important;
+        width: 80vw !important;
+        max-width: 320px !important;
+        margin: 0 auto 0.5rem auto !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+      .profile-image-wrapper {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+      }
+      .profile-image {
+        width: 100% !important;
+        max-width: 320px !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
+      .hero-title {
+        text-align: center !important;
+        font-size: 2.1rem !important;
+        line-height: 1.15 !important;
+        margin-top: 0.5rem !important;
+      }
     /* --- MOBILE VISUAL ENHANCEMENTS --- */
     /* Ensure neon glows and backgrounds are not lost on mobile */
     .navbar-home-icon {
