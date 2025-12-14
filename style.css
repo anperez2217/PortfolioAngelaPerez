@@ -1,5 +1,30 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+  /* Mobile: Stack hero text below image and fix spacing */
+  .hero-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  .glitch-container {
+    margin-bottom: 0.5rem !important;
+  }
+  .hero-title {
+    text-align: center !important;
+    font-size: 2.2rem !important;
+    line-height: 1.1 !important;
+    margin-top: 0 !important;
+  }
+  /* Remove blur/opacity from About Me and Continued Learning Plan on mobile */
+  .about-summary, .about-me-summary, .featured-section {
+    opacity: 1 !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .about-summary .about-me-summary, .featured-section {
+    background: linear-gradient(90deg, #0a0a14 60%, #00D4FF0D 100%) !important;
+    color: #e0eaff !important;
+  }
                                                                         /* Mobile polish for project/tech cards and footer */
                                                                         .project-card-featured, .project-card, .tech-card-dynamic {
                                                                           background: linear-gradient(135deg, #0a0a14 80%, #00D4FF0D 100%) !important;
