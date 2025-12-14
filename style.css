@@ -66,14 +66,11 @@
                                                                     transform: translateY(2.5rem) !important;
                                                                     margin-bottom: -1.5rem !important;
                                                                   }
-                                                                  /* On mobile, prevent the "Continued Learning" h2 from overlapping the text below it */
+                                                                  /* On mobile, move the "Continued Learning" heading up and add space below it to prevent overlap */
                                                                   .introduction.featured-section h2 {
                                                                     transform: none !important; /* Reset the transform that pushes it down */
-                                                                    margin-bottom: 1rem !important; /* Add a small space below the heading */
-                                                                  }
-                                                                  /* Add significant space above the paragraph to push it down */
-                                                                  .introduction.featured-section p {
-                                                                    margin-top: 3rem !important;
+                                                                    margin-top: 0 !important; /* Remove any inherited top margin */
+                                                                    margin-bottom: 2.5rem !important; /* Add significant space below the heading to push the paragraph down */
                                                                   }
                                                                   .about-summary h2 .absolute, .featured-section h2 .absolute {
                                                                     background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
