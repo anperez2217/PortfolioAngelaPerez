@@ -200,7 +200,7 @@
       }
             /* Universal mobile section spacing and stacking fix */
             .hero, .about-summary, .featured-section, .introduction, .projects-showcase, .techstack-page, .professional-page, .fade-section, .contact-form, .home-page, .content-wrapper, main {
-              width: 100vw !important;
+              width: 100% !important; /* Changed from 100vw to 100% to prevent overflow */
               max-width: 100vw !important;
               margin-left: 0 !important;
               margin-right: 0 !important;
@@ -488,6 +488,14 @@
   .bonus-game-container .game-board {
     width: 100% !important;
     height: 80vh !important; /* Set a height relative to the viewport height for consistent gameplay area */
+    position: relative !important; /* Ensure positioning context is correct */
+    left: 0 !important;
+    top: 0 !important;
+  }
+
+  /* Ensure the game itself does not overflow its container */
+  #malware-game {
+    width: 100% !important;
   }
 }
 /* Neon glow for featured project card on projects.html */
