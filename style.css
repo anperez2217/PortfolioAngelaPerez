@@ -1,5 +1,26 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                                                                          /* --- FORCE REMOVE BLUR/FILTER/OPACITY FOR ALL SECTION TITLES ON MOBILE --- */
+                                                                                          h2, .text-4xl, .font-oswald, .text-neon-cyan, .text-neon-magenta, .featured-section h2 {
+                                                                                            filter: none !important;
+                                                                                            opacity: 1 !important;
+                                                                                            text-shadow: none !important;
+                                                                                            color: #e0eaff !important;
+                                                                                            background: none !important;
+                                                                                          }
+                                                                                          .featured-section h2, .about-summary h2, .text-4xl {
+                                                                                            color: #00D4FF !important;
+                                                                                            text-shadow: none !important;
+                                                                                            font-weight: 700 !important;
+                                                                                            font-family: 'Oswald', 'Inter', sans-serif !important;
+                                                                                            letter-spacing: 0.01em !important;
+                                                                                            font-size: 1.5rem !important;
+                                                                                            margin-top: 1.3rem !important;
+                                                                                            margin-bottom: 0.8rem !important;
+                                                                                            text-align: center !important;
+                                                                                            width: 100% !important;
+                                                                                            max-width: 100vw !important;
+                                                                                          }
                                                                                         /* --- FORCE REMOVE BLUR, OPACITY, AND OVERLAP FOR HOMEPAGE HERO & ABOUT ON MOBILE --- */
                                                                                         .hero-title, .hero-title *, .about-summary, .about-summary *, .about-me-summary, .about-me-summary *, .about-summary h2, .about-summary .text-4xl, .about-summary p {
                                                                                           filter: none !important;
