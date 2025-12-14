@@ -1,5 +1,34 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                                      /* Absolute override for Continue button in bonus game on mobile */
+                                                      #dodgeContinueBtn,
+                                                      #dodgeContinueBtn[style],
+                                                      #dodgeContinueBtn.micro-interact,
+                                                      #dodgeContinueBtn.micro-interact[style] {
+                                                        background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                                                        color: #000 !important;
+                                                        border: none !important;
+                                                        box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                        font-weight: bold !important;
+                                                      }
+                                                /* Absolute override for Next Question button on mobile, even if inline style is present */
+                                                #nextBtn.game-button[style],
+                                                #nextBtn.game-button.micro-interact[style] {
+                                                  background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                                                  color: #000 !important;
+                                                  border: none !important;
+                                                  box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                  font-weight: bold !important;
+                                                }
+                                          /* Absolute override for Next Question button on mobile */
+                                          #nextBtn.game-button,
+                                          #nextBtn.game-button.micro-interact {
+                                            background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                                            color: #000 !important;
+                                            border: none !important;
+                                            box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                            font-weight: bold !important;
+                                          }
                                     /* Ensure all .game-button inside #gameContainer are colored on mobile */
                                     #gameContainer .game-button,
                                     #gameContainer .game-button.micro-interact {
