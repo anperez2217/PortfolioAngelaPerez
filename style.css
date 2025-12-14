@@ -503,6 +503,13 @@
   box-shadow: 0 0 32px 0 #00D4FF55, 0 0 48px 0 #FF006455, 0 4px 32px 0 rgba(0,212,255,0.10), 0 2px 16px 0 rgba(255,0,100,0.10);
   transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
 }
+
+/* Apply navbar home icon hover effect globally */
+.navbar-home-icon:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 0 24px #00D4FF, 0 0 48px #FF0064 !important;
+}
+
 .projects-showcase .project-card-featured:hover {
   box-shadow: 0 0 48px 0 #00D4FFAA, 0 0 64px 0 #FF0064AA, 0 8px 48px 0 rgba(0,212,255,0.18), 0 4px 24px 0 rgba(255,0,100,0.13);
 }
