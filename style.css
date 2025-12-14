@@ -1,5 +1,27 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                                                        /* Mobile polish for project/tech cards and footer */
+                                                                        .project-card-featured, .project-card, .tech-card-dynamic {
+                                                                          background: linear-gradient(135deg, #0a0a14 80%, #00D4FF0D 100%) !important;
+                                                                          border-radius: 1.1rem !important;
+                                                                          box-shadow: 0 0 24px #00D4FF55, 0 0 32px #FF006455, 0 2px 12px #00D4FF22, 0 1.5px 8px #FF006422 !important;
+                                                                          color: #e0eaff !important;
+                                                                          margin-bottom: 1.3rem !important;
+                                                                          border: 2.5px solid #00D4FF33 !important;
+                                                                          padding: 1.1rem !important;
+                                                                        }
+                                                                        .project-card-featured {
+                                                                          border: 2.5px solid #FF006433 !important;
+                                                                          box-shadow: 0 0 32px #FF006455, 0 0 48px #00D4FF55 !important;
+                                                                        }
+                                                                        .footer, footer {
+                                                                          background: linear-gradient(to top, #000 85%, #00D4FF0D 100%) !important;
+                                                                          box-shadow: 0 -2px 18px 0 #00D4FF33, 0 -1.5px 10px 0 #FF006433 !important;
+                                                                          color: #e0eaff !important;
+                                                                          padding: 1.2rem 0.7rem !important;
+                                                                          border-radius: 1.1rem 1.1rem 0 0 !important;
+                                                                          margin-top: 2.2rem !important;
+                                                                        }
                                                                   /* Mobile About Me and Featured Section visual polish */
                                                                   .about-summary {
                                                                     background: linear-gradient(180deg, #000 80%, #00D4FF0D 100%) !important;
