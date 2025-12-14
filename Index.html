@@ -26,6 +26,28 @@
     }
   </style>
 <style>
+  /* 
+    ** Mobile-Only Overrides **
+    This block ONLY applies to screens 767px wide or smaller.
+    It uses '!important' to safely override the desktop-specific inline styles 
+    without affecting the desktop layout at all.
+  */
+  @media (max-width: 767px) {
+    .hero-content {
+      flex-direction: column !important; /* Stack image and text vertically */
+      gap: 30px !important;             /* Adjust space for mobile */
+    }
+    .glitch-container {
+      flex-basis: auto !important; /* Allow image to resize */
+      width: 80%;
+      max-width: 250px;
+    }
+    .hero-title {
+      text-align: center; /* Center text on mobile */
+    }
+  }
+</style>
+<style>
   .fade-section {
     opacity: 0;
     transform: translateY(40px);
