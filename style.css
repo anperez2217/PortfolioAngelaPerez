@@ -303,6 +303,21 @@
        filter: none !important;
        opacity: 0.5 !important; /* Reduce background intensity to help text stand out */
     }
+    /* --- DEFINITIVE BLUR FIX for About Me / Continued Learning on Mobile Homepage --- */
+    /* This rule specifically targets the sections that are blurry and removes the filter. */
+    body.home-page .about-summary,
+    body.home-page .featured-section {
+      filter: none !important;
+      backdrop-filter: none !important;
+    }
+
+    /* --- DEFINITIVE BLUR FIX for About Me / Continued Learning on Mobile Homepage --- */
+    /* This rule specifically targets the sections that are blurry and removes the filter. */
+    body.home-page .about-summary,
+    body.home-page .featured-section {
+      backdrop-filter: none !important;
+    }
+
     /* --- END MOBILE VISUAL ENHANCEMENTS --- */
   header.sticky[style] {
     padding: 0 10px !important; /* Adjusted padding for mobile header */
