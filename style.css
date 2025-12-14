@@ -439,6 +439,39 @@
     overflow-x: hidden !important;
     max-width: 100vw !important;
   }
+
+  /* --- MOBILE-ONLY MALWARE GAME SHIELD PERFORMANCE FIX --- */
+  /* This block is carefully targeted to ONLY affect the shield inside the game on mobile. */
+  /* It leaves the homepage hero image styling completely untouched. */
+  .bonus-game-container .profile-image-wrapper {
+    overflow: hidden !important;
+    border-radius: 18px !important;
+    /* Replace the expensive glitch effect with a performant box-shadow animation */
+    animation: mobile-shield-glitch 0.15s infinite !important;
+    /* The original box-shadow and background are cleared to allow the animation to be the only effect */
+    box-shadow: none !important;
+    background: none !important;
+  }
+  /* We also simplify the pseudo-elements ONLY for the game shield */
+  .bonus-game-container .profile-image-wrapper::before {
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.25) 0px, rgba(0,0,0,0.25) 1px, transparent 1px, transparent 3px) !important;
+  }
+  .bonus-game-container .profile-image-wrapper::after {
+    background: linear-gradient(45deg, rgba(255,0,0,0.35) 45%, transparent 52%) !important;
+  }
+
+  /* --- High-Performance Mobile Shield Animation (for game only) --- */
+  @keyframes mobile-shield-glitch {
+    0% {
+      box-shadow: 0 0 10px #00d4ff, inset 0 0 10px #00d4ff, 0 0 20px #ff0064;
+    }
+    50% {
+      box-shadow: 0 0 15px #ff0064, inset 0 0 12px #ff0064, 0 0 10px #00d4ff;
+    }
+    100% {
+      box-shadow: 0 0 12px #00d4ff, inset 0 0 12px #00d4ff, 0 0 22px #ff0064;
+    }
+  }
 }
 /* Neon glow for featured project card on projects.html */
 .projects-showcase .project-card-featured {
