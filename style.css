@@ -1,5 +1,75 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                                                                      /* --- HOMEPAGE HERO TITLE: Fix overlap, spacing, and clarity --- */
+                                                                                      .hero-title {
+                                                                                        font-size: 2.2rem !important;
+                                                                                        line-height: 1.22 !important;
+                                                                                        margin-top: 2.5rem !important;
+                                                                                        margin-bottom: 1.2rem !important;
+                                                                                        letter-spacing: 0.01em !important;
+                                                                                        text-shadow: 0 0 8px #00D4FFcc, 0 0 12px #FF0064cc !important;
+                                                                                        filter: none !important;
+                                                                                        opacity: 1 !important;
+                                                                                        background: none !important;
+                                                                                        z-index: 2 !important;
+                                                                                        position: relative !important;
+                                                                                        white-space: normal !important;
+                                                                                        word-break: break-word !important;
+                                                                                      }
+                                                                                      .hero-title .text-neon-cyan, .hero-title .text-neon-magenta {
+                                                                                        filter: none !important;
+                                                                                        opacity: 1 !important;
+                                                                                        text-shadow: 0 0 8px #00D4FFcc, 0 0 12px #FF0064cc !important;
+                                                                                        background: none !important;
+                                                                                        color: inherit !important;
+                                                                                      }
+                                                                                      /* --- ABOUT ME & CONTINUED LEARNING: Remove blur, improve spacing --- */
+                                                                                      .about-summary, .about-me-summary, .about-summary h2, .about-summary p, .about-summary .about-me-summary, .about-summary .text-4xl {
+                                                                                        filter: none !important;
+                                                                                        opacity: 1 !important;
+                                                                                        background: none !important;
+                                                                                        color: #e0eaff !important;
+                                                                                        text-shadow: 0 0 6px #00D4FF55, 0 0 10px #FF006455 !important;
+                                                                                        margin-bottom: 1.1rem !important;
+                                                                                        line-height: 1.5 !important;
+                                                                                        letter-spacing: 0.01em !important;
+                                                                                        font-weight: 500 !important;
+                                                                                      }
+                                                                                      .about-summary h2, .about-summary .text-4xl {
+                                                                                        font-size: 1.45rem !important;
+                                                                                        margin-top: 1.2rem !important;
+                                                                                        margin-bottom: 0.7rem !important;
+                                                                                        color: #00D4FF !important;
+                                                                                        text-shadow: 0 0 8px #00D4FFcc !important;
+                                                                                      }
+                                                                                      /* Prevent overlap for hero and about sections */
+                                                                                      .hero-content, .about-summary {
+                                                                                        display: flex !important;
+                                                                                        flex-direction: column !important;
+                                                                                        align-items: center !important;
+                                                                                        justify-content: flex-start !important;
+                                                                                        gap: 0.7rem !important;
+                                                                                        width: 100% !important;
+                                                                                        padding-left: 0.5rem !important;
+                                                                                        padding-right: 0.5rem !important;
+                                                                                        box-sizing: border-box !important;
+                                                                                      }
+                                                                                      /* Ensure no blur on any homepage text */
+                                                                                      .hero-title *, .about-summary *, .about-me-summary *, .about-summary h2, .about-summary p {
+                                                                                        filter: none !important;
+                                                                                        opacity: 1 !important;
+                                                                                        text-shadow: none !important;
+                                                                                        background: none !important;
+                                                                                      }
+                                                                                      /* Restore neon text for hero only */
+                                                                                      .hero-title .text-neon-cyan {
+                                                                                        color: #00D4FF !important;
+                                                                                        text-shadow: 0 0 8px #00D4FFcc !important;
+                                                                                      }
+                                                                                      .hero-title .text-neon-magenta {
+                                                                                        color: #FF0064 !important;
+                                                                                        text-shadow: 0 0 8px #FF0064cc !important;
+                                                                                      }
                                                                                     /* Mobile polish for headings, text, and forms */
                                                                                     h1, .hero-title, h2, .text-3xl, .text-4xl, .text-6xl, .text-7xl, .text-8xl {
                                                                                       font-size: 2rem !important;
