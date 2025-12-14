@@ -333,6 +333,9 @@
     .parallax-bg, .parallax-layer, .parallax-animated-gradient {
       opacity: 0.8 !important; /* Reduced opacity */
       filter: blur(1.5px) saturate(1.1) !important; /* Reduced blur and saturate */
+      /* This filter was causing blurriness on all child elements, including text. Removing it. */
+      opacity: 0.8 !important;
+      filter: none !important;
     }
     /* Ensure all cards and sections retain border radius and spacing */
     .project-card-featured, .project-card, .tech-card-dynamic, .contact-form, .social-links, .hero, .fade-section {
