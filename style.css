@@ -1,5 +1,33 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                                            /* Mobile neon text and accent fixes for hero section */
+                                                            .text-neon-cyan {
+                                                              color: #00D4FF !important;
+                                                              background: linear-gradient(90deg, #00D4FF 40%, #00FFF0 100%) !important;
+                                                              -webkit-background-clip: text !important;
+                                                              -webkit-text-fill-color: transparent !important;
+                                                              background-clip: text !important;
+                                                              text-fill-color: transparent !important;
+                                                              text-shadow: 0 0 12px #00D4FF99, 0 0 18px #00FFF099 !important;
+                                                            }
+                                                            .text-neon-magenta {
+                                                              color: #FF0064 !important;
+                                                              background: linear-gradient(90deg, #FF0064 40%, #FF80BF 100%) !important;
+                                                              -webkit-background-clip: text !important;
+                                                              -webkit-text-fill-color: transparent !important;
+                                                              background-clip: text !important;
+                                                              text-fill-color: transparent !important;
+                                                              text-shadow: 0 0 12px #FF006499, 0 0 18px #FF80BF99 !important;
+                                                            }
+                                                            .hero-accent {
+                                                              width: 80px !important;
+                                                              height: 6px !important;
+                                                              margin: 0.5rem auto 0 auto !important;
+                                                              border-radius: 8px !important;
+                                                              background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
+                                                              box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                              display: block !important;
+                                                            }
                                                       /* Absolute override for Continue button in bonus game on mobile */
                                                       #dodgeContinueBtn,
                                                       #dodgeContinueBtn[style],
