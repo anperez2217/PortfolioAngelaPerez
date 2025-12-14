@@ -29,15 +29,15 @@
                                                                         .project-card-featured, .project-card, .tech-card-dynamic {
                                                                           background: linear-gradient(135deg, #0a0a14 80%, #00D4FF0D 100%) !important;
                                                                           border-radius: 1.1rem !important;
-                                                                          box-shadow: 0 0 24px #00D4FF55, 0 0 32px #FF006455, 0 2px 12px #00D4FF22, 0 1.5px 8px #FF006422 !important;
+                                                                          box-shadow: 0 2px 12px #00D4FF33, 0 2px 8px #FF006422 !important; /* Simplified shadow */
                                                                           color: #e0eaff !important;
                                                                           margin-bottom: 1.3rem !important;
                                                                           border: 2.5px solid #00D4FF33 !important;
                                                                           padding: 1.1rem !important;
                                                                         }
                                                                         .project-card-featured {
-                                                                          border: 2.5px solid #FF006433 !important;
-                                                                          box-shadow: 0 0 32px #FF006455, 0 0 48px #00D4FF55 !important;
+                                                                          border: 2.5px solid #FF00644D !important; /* Increased border opacity */
+                                                                          box-shadow: 0 0 24px #FF006455, 0 0 32px #00D4FF55 !important; /* Reduced shadow intensity */
                                                                         }
                                                                         .footer, footer {
                                                                           background: linear-gradient(to top, #000 85%, #00D4FF0D 100%) !important;
@@ -51,7 +51,7 @@
                                                                   .about-summary {
                                                                     background: linear-gradient(180deg, #000 80%, #00D4FF0D 100%) !important;
                                                                     border-radius: 1.25rem !important;
-                                                                    box-shadow: 0 0 24px #00D4FF33, 0 0 32px #FF006433 !important;
+                                                                    box-shadow: 0 4px 24px #00D4FF22, 0 4px 24px #FF006422 !important; /* Simplified shadow */
                                                                     padding: 1.2rem 0.7rem !important;
                                                                     margin-bottom: 2.2rem !important;
                                                                   }
@@ -59,13 +59,13 @@
                                                                     background: linear-gradient(90deg, #0a0a14 60%, #00D4FF0D 100%) !important;
                                                                     border-left: 3.5px solid #00D4FF !important;
                                                                     border-radius: 0.9rem !important;
-                                                                    color: #e0eaff !important;
-                                                                    box-shadow: 0 0 12px #00D4FF33 !important;
+                                                                    color: #e0eaff !important;                                                                    
+                                                                    box-shadow: 0 2px 8px #00D4FF33 !important; /* Simplified shadow */
                                                                     margin-bottom: 1.1rem !important;
                                                                   }
                                                                   .about-summary .about-me-summary:last-child {
                                                                     border-left: 3.5px solid #FF0064 !important;
-                                                                    box-shadow: 0 0 12px #FF006433 !important;
+                                                                    box-shadow: 0 2px 8px #FF006433 !important; /* Simplified shadow */
                                                                   }
                                                                   .about-summary h2, .featured-section h2 {
                                                                     color: #00D4FF !important;
@@ -77,20 +77,20 @@
                                                                   .about-summary h2 .absolute, .featured-section h2 .absolute {
                                                                     background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
                                                                     height: 5px !important;
-                                                                    border-radius: 8px !important;
-                                                                    box-shadow: 0 0 12px #00D4FF55, 0 0 18px #FF006455 !important;
+                                                                    border-radius: 8px !important;                                                                    
+                                                                    box-shadow: 0 0 8px #00D4FF55, 0 0 12px #FF006455 !important; /* Reduced shadow */
                                                                   }
                                                                   .featured-section {
                                                                     background: linear-gradient(180deg, #000 80%, #FF00640D 100%) !important;
                                                                     border-radius: 1.25rem !important;
-                                                                    box-shadow: 0 0 24px #FF006433, 0 0 32px #00D4FF33 !important;
+                                                                    box-shadow: 0 4px 24px #FF006422, 0 4px 24px #00D4FF22 !important; /* Simplified shadow */
                                                                     padding: 1.2rem 0.7rem !important;
                                                                     margin-bottom: 2.2rem !important;
                                                                   }
                                                                   .facts-grid .micro-interact {
                                                                     background: linear-gradient(135deg, #0a0a14 80%, #00D4FF0D 100%) !important;
                                                                     border-radius: 1rem !important;
-                                                                    box-shadow: 0 0 16px #00D4FF33, 0 0 24px #FF006433 !important;
+                                                                    box-shadow: 0 2px 12px #00D4FF33, 0 2px 12px #FF006433 !important; /* Simplified shadow */
                                                                     color: #e0eaff !important;
                                                                     margin-bottom: 1.1rem !important;
                                                                     border: 2.5px solid #00D4FF33 !important;
@@ -105,17 +105,17 @@
                                                               -webkit-background-clip: text !important;
                                                               -webkit-text-fill-color: transparent !important;
                                                               background-clip: text !important;
-                                                              text-fill-color: transparent !important;
-                                                              text-shadow: 0 0 12px #00D4FF99, 0 0 18px #00FFF099 !important;
+                                                              text-fill-color: transparent !important;                                                              
+                                                              text-shadow: 0 0 8px #00D4FF99 !important; /* Simplified shadow */
                                                             }
                                                             .text-neon-magenta {
                                                               color: #FF0064 !important;
                                                               background: linear-gradient(90deg, #FF0064 40%, #FF80BF 100%) !important;
                                                               -webkit-background-clip: text !important;
                                                               -webkit-text-fill-color: transparent !important;
-                                                              background-clip: text !important;
-                                                              text-fill-color: transparent !important;
-                                                              text-shadow: 0 0 12px #FF006499, 0 0 18px #FF80BF99 !important;
+                                                              background-clip: text !important;                                                              
+                                                              text-fill-color: transparent !important;                                                              
+                                                              text-shadow: 0 0 8px #FF006499 !important; /* Simplified shadow */
                                                             }
                                                             .hero-accent {
                                                               width: 80px !important;
@@ -123,7 +123,7 @@
                                                               margin: 0.5rem auto 0 auto !important;
                                                               border-radius: 8px !important;
                                                               background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
-                                                              box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                              box-shadow: 0 0 12px #00D4FF55, 0 0 16px #FF006455 !important; /* Reduced shadow */
                                                               display: block !important;
                                                             }
                                                       /* Absolute override for Continue button in bonus game on mobile */
@@ -134,7 +134,7 @@
                                                         background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
                                                         color: #000 !important;
                                                         border: none !important;
-                                                        box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                        box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
                                                         font-weight: bold !important;
                                                       }
                                                 /* Absolute override for Next Question button on mobile, even if inline style is present */
@@ -143,7 +143,7 @@
                                                   background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
                                                   color: #000 !important;
                                                   border: none !important;
-                                                  box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                  box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
                                                   font-weight: bold !important;
                                                 }
                                           /* Absolute override for Next Question button on mobile */
@@ -152,7 +152,7 @@
                                             background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
                                             color: #000 !important;
                                             border: none !important;
-                                            box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                            box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
                                             font-weight: bold !important;
                                           }
                                     /* Ensure all .game-button inside #gameContainer are colored on mobile */
@@ -161,7 +161,7 @@
                                       background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
                                       color: #000 !important;
                                       border: none !important;
-                                      box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                      box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
                                       font-weight: bold !important;
                                     }
                               /* Highest specificity: override by id for mobile game buttons */
@@ -174,7 +174,7 @@
                                 background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
                                 color: #000 !important;
                                 border: none !important;
-                                box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
                                 font-weight: bold !important;
                               }
                         /* Absolute mobile override for game buttons using attribute selector and highest specificity */
@@ -185,7 +185,7 @@
                           background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
                           color: #000 !important;
                           border: none !important;
-                          box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                          box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
                           font-weight: bold !important;
                         }
                   /* Ensure game buttons are vibrant and visible on mobile */
@@ -195,7 +195,7 @@
         background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
         color: #000 !important;
         border: none !important;
-        box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+        box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
         font-weight: bold !important;
       }
             /* Universal mobile section spacing and stacking fix */
@@ -260,7 +260,7 @@
         min-width: 0 !important;
         display: block !important;
         margin: 0 auto !important;
-        box-shadow: 0 0 24px #00D4FF44, 0 0 32px #FF006444 !important;
+        box-shadow: 0 4px 18px #00D4FF44, 0 4px 18px #FF006444 !important; /* Simplified shadow */
         border-radius: 18px !important;
       }
       .hero-title {
@@ -274,8 +274,8 @@
         position: relative;
         color: #00D4FF !important;
         background: none !important;
-        font-weight: bold !important;
-        text-shadow: 0 0 12px #00D4FF99, 0 0 18px #FF006499;
+        font-weight: bold !important;        
+        text-shadow: 0 0 10px #00D4FF99, 0 0 10px #FF006499; /* Reduced shadow */
       }
 
       /* Make sure game buttons and option buttons are vibrant and readable on mobile */
@@ -283,7 +283,7 @@
         background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
         color: #000 !important;
         border: 2px solid #00D4FF !important;
-        box-shadow: 0 0 12px #00D4FF55, 0 0 18px #FF006455 !important;
+        box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
       }
       .option-btn.correct {
         background: linear-gradient(135deg, #00FF00 60%, #00D4FF 100%) !important;
@@ -300,8 +300,8 @@
       .game-button {
         background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
         color: #000 !important;
-        border: none !important;
-        box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+        border: none !important;        
+        box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
       }
     /* --- MOBILE VISUAL ENHANCEMENTS --- */
     /* Ensure neon glows and backgrounds are not lost on mobile */
@@ -318,16 +318,16 @@
       background: linear-gradient(to top, #000 85%, #00D4FF0D 100%) !important;
     }
     .micro-interact, .project-card-featured, .project-card, .tech-card-dynamic {
-      box-shadow: 0 0 24px 0 #00D4FF55, 0 0 32px 0 #FF006455, 0 2px 12px 0 rgba(0,212,255,0.10), 0 1.5px 8px 0 rgba(255,0,100,0.10) !important;
+      box-shadow: 0 4px 18px #00D4FF44, 0 4px 18px #FF006444 !important; /* Simplified shadow */
       background: linear-gradient(135deg, rgba(0, 212, 255, 0.07), rgba(255, 0, 100, 0.07), transparent) !important;
     }
     .profile-image-wrapper, .profile-image {
-      box-shadow: 0 0 24px #00D4FF44, 0 0 32px #FF006444 !important;
+      box-shadow: 0 4px 18px #00D4FF44, 0 4px 18px #FF006444 !important; /* Simplified shadow */
       background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 100, 0.08), transparent) !important;
     }
     .parallax-bg, .parallax-layer, .parallax-animated-gradient {
-      opacity: 0.9 !important;
-      filter: blur(2.5px) saturate(1.2) !important;
+      opacity: 0.8 !important; /* Reduced opacity */
+      filter: blur(1.5px) saturate(1.1) !important; /* Reduced blur and saturate */
     }
     /* Ensure all cards and sections retain border radius and spacing */
     .project-card-featured, .project-card, .tech-card-dynamic, .contact-form, .social-links, .hero, .fade-section {
