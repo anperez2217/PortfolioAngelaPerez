@@ -255,13 +255,13 @@
         position: relative !important;
       }
       .profile-image {
-        width: 96vw !important;
+        width: 85vw !important; /* Reduced image width for more breathing room */
         max-width: 400px !important;
         min-width: 0 !important;
         display: block !important;
         margin: 0 auto !important;
         box-shadow: 0 4px 18px #00D4FF44, 0 4px 18px #FF006444 !important; /* Simplified shadow */
-        border-radius: 18px !important;
+        border-radius: 24px !important; /* Increased border radius for a softer look */
       }
       .hero-title {
         display: block !important;
@@ -269,7 +269,7 @@
         font-size: 2.1rem !important;
         line-height: 1.15 !important;
         margin-top: 2.2rem !important;
-        margin-bottom: 1.7rem !important;
+        margin-bottom: 2.5rem !important; /* Increased bottom margin for more separation */
         z-index: 2;
         position: relative;
         color: #00D4FF !important;
@@ -2145,6 +2145,13 @@ main {
   text-shadow: 0 0 10px rgba(255, 0, 100, 0.5);
   white-space: nowrap;
   letter-spacing: 2px;
+}
+/* Hide the decorative code snippets on mobile to reduce clutter */
+@media (max-width: 640px) {
+  .glitch-container::before,
+  .glitch-container::after {
+    display: none !important;
+  }
 }
 
 .profile-image-wrapper {
