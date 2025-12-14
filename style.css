@@ -284,6 +284,11 @@
         color: #000 !important;
         border: 2px solid #00D4FF !important;
         box-shadow: 0 2px 12px #00D4FF55, 0 2px 12px #FF006455 !important; /* Simplified shadow */
+        /* --- Responsive Font Size for Mobile Buttons --- */
+        /* Use clamp() to create a fluid font size that scales with the viewport width (vw). */
+        /* It will not go smaller than 0.8rem or larger than 1rem. */
+        /* 3.5vw is a starting point that scales well on most mobile devices. */
+        font-size: clamp(0.8rem, 3.5vw, 1rem) !important;
       }
       .option-btn.correct {
         background: linear-gradient(135deg, #00FF00 60%, #00D4FF 100%) !important;
