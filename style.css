@@ -472,6 +472,23 @@
       box-shadow: 0 0 12px #00d4ff, inset 0 0 12px #00d4ff, 0 0 22px #ff0064;
     }
   }
+
+  /* --- MOBILE-ONLY MALWARE GAME SCREEN FIT FIX --- */
+  /* This block specifically targets the malware game container on mobile to ensure it fits the screen. */
+  .bonus-game-container {
+    width: 100% !important; /* Use 100% instead of 100vw to respect parent padding */
+    max-width: 100% !important;
+    box-sizing: border-box !important; /* Ensure padding is included in the width */
+    padding: 0.5rem !important; /* Add some padding so the game doesn't touch the edges */
+    margin: 0 auto !important;
+    overflow: hidden !important; /* Prevent any accidental overflow */
+  }
+
+  /* Ensure the game board itself also respects the container boundaries */
+  .bonus-game-container .game-board {
+    width: 100% !important;
+    height: 80vh !important; /* Set a height relative to the viewport height for consistent gameplay area */
+  }
 }
 /* Neon glow for featured project card on projects.html */
 .projects-showcase .project-card-featured {
