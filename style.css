@@ -1,5 +1,56 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                                                  /* Mobile About Me and Featured Section visual polish */
+                                                                  .about-summary {
+                                                                    background: linear-gradient(180deg, #000 80%, #00D4FF0D 100%) !important;
+                                                                    border-radius: 1.25rem !important;
+                                                                    box-shadow: 0 0 24px #00D4FF33, 0 0 32px #FF006433 !important;
+                                                                    padding: 1.2rem 0.7rem !important;
+                                                                    margin-bottom: 2.2rem !important;
+                                                                  }
+                                                                  .about-summary .about-me-summary {
+                                                                    background: linear-gradient(90deg, #0a0a14 60%, #00D4FF0D 100%) !important;
+                                                                    border-left: 3.5px solid #00D4FF !important;
+                                                                    border-radius: 0.9rem !important;
+                                                                    color: #e0eaff !important;
+                                                                    box-shadow: 0 0 12px #00D4FF33 !important;
+                                                                    margin-bottom: 1.1rem !important;
+                                                                  }
+                                                                  .about-summary .about-me-summary:last-child {
+                                                                    border-left: 3.5px solid #FF0064 !important;
+                                                                    box-shadow: 0 0 12px #FF006433 !important;
+                                                                  }
+                                                                  .about-summary h2, .featured-section h2 {
+                                                                    color: #00D4FF !important;
+                                                                    background: none !important;
+                                                                    text-shadow: 0 0 12px #00D4FF99 !important;
+                                                                    font-size: 2rem !important;
+                                                                    margin-bottom: 1.2rem !important;
+                                                                  }
+                                                                  .about-summary h2 .absolute, .featured-section h2 .absolute {
+                                                                    background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
+                                                                    height: 5px !important;
+                                                                    border-radius: 8px !important;
+                                                                    box-shadow: 0 0 12px #00D4FF55, 0 0 18px #FF006455 !important;
+                                                                  }
+                                                                  .featured-section {
+                                                                    background: linear-gradient(180deg, #000 80%, #FF00640D 100%) !important;
+                                                                    border-radius: 1.25rem !important;
+                                                                    box-shadow: 0 0 24px #FF006433, 0 0 32px #00D4FF33 !important;
+                                                                    padding: 1.2rem 0.7rem !important;
+                                                                    margin-bottom: 2.2rem !important;
+                                                                  }
+                                                                  .facts-grid .micro-interact {
+                                                                    background: linear-gradient(135deg, #0a0a14 80%, #00D4FF0D 100%) !important;
+                                                                    border-radius: 1rem !important;
+                                                                    box-shadow: 0 0 16px #00D4FF33, 0 0 24px #FF006433 !important;
+                                                                    color: #e0eaff !important;
+                                                                    margin-bottom: 1.1rem !important;
+                                                                    border: 2.5px solid #00D4FF33 !important;
+                                                                  }
+                                                                  .facts-grid .micro-interact:last-child {
+                                                                    border: 2.5px solid #FF006433 !important;
+                                                                  }
                                                             /* Mobile neon text and accent fixes for hero section */
                                                             .text-neon-cyan {
                                                               color: #00D4FF !important;
