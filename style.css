@@ -331,8 +331,6 @@
       background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 100, 0.08), transparent) !important;
     }
     .parallax-bg, .parallax-layer, .parallax-animated-gradient {
-      opacity: 0.8 !important; /* Reduced opacity */
-      filter: blur(1.5px) saturate(1.1) !important; /* Reduced blur and saturate */
       /* This filter was causing blurriness on all child elements, including text. Removing it. */
       opacity: 0.8 !important;
       filter: none !important;
@@ -373,12 +371,6 @@
     padding-right: 0 !important;
     max-width: 100vw !important;
     box-sizing: border-box;
-  }
-  .hero-content {
-    flex-direction: column !important;
-    gap: 18px !important;
-    max-width: 100vw !important;
-    padding: 0 1rem !important; /* Add some horizontal padding */
   }
   .project-card-featured, .project-card, .tech-card-dynamic, .circuit-board-container {
     padding: 1rem !important;
