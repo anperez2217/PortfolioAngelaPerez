@@ -68,9 +68,6 @@
                                                                   }
                                                                   /* On mobile, prevent the "Continued Learning" h2 from overlapping the text below it */
                                                                   .introduction.featured-section h2 {
-                                                                  transform: translateY(-1.5rem) !important; /* Move heading UP */
-                                                                  margin-bottom: 1.5rem !important; /* Add space below heading */
-                                                                  margin-top: 0 !important;
                                                                     transform: none !important; /* Reset the transform that pushes it down */
                                                                     margin-top: 1rem !important; /* Add space above the heading */
                                                                     margin-bottom: 1.5rem !important; /* Add space between heading and paragraph */
