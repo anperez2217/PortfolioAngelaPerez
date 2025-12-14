@@ -318,6 +318,13 @@
       backdrop-filter: none !important;
     }
 
+    /* --- DEFINITIVE BLUR REMOVAL FROM MOBILE HOMEPAGE --- */
+    /* This completely removes the backdrop-filter from the header and footer ONLY on the mobile homepage,
+       which was the root cause of the blur on the content sections. */
+    body.home-page header,
+    body.home-page footer {
+      backdrop-filter: none !important;
+    }
     /* --- END MOBILE VISUAL ENHANCEMENTS --- */
   header.sticky[style] {
     padding: 0 10px !important; /* Adjusted padding for mobile header */
