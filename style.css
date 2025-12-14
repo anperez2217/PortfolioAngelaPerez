@@ -1,6 +1,11 @@
-}
 
   footer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.08rem;
+    color: #b6eaff;
+    letter-spacing: 0.04em;
+    background: rgba(20, 30, 60, 0.65);
+footer {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.08rem;
     color: #b6eaff;
