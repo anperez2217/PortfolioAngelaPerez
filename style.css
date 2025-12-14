@@ -1,5 +1,62 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                                                              /* Mobile navbar and interactive element polish */
+                                                                              header.sticky[style], header {
+                                                                                box-shadow: 0 2px 18px 0 #00D4FF33, 0 1.5px 10px 0 #FF006433 !important;
+                                                                                background: linear-gradient(to bottom, #000 85%, #0a0a0a 100%) !important;
+                                                                                border-bottom: 2px solid #00D4FF33 !important;
+                                                                                padding: 0.7rem 0.7rem !important;
+                                                                              }
+                                                                              .navbar-home-icon {
+                                                                                box-shadow: 0 0 18px #00D4FF88, 0 0 32px #FF006488 !important;
+                                                                                background: linear-gradient(135deg, rgba(0, 212, 255, 0.13), rgba(255, 0, 100, 0.13)) !important;
+                                                                                border: 2.5px solid #00D4FF !important;
+                                                                                border-radius: 50% !important;
+                                                                                width: 54px !important;
+                                                                                height: 54px !important;
+                                                                                margin-left: 0 !important;
+                                                                                margin-right: 0.7rem !important;
+                                                                                display: flex !important;
+                                                                                align-items: center !important;
+                                                                                justify-content: center !important;
+                                                                              }
+                                                                              header nav ul {
+                                                                                flex-direction: column !important;
+                                                                                gap: 16px !important;
+                                                                                align-items: flex-start !important;
+                                                                                padding: 0 !important;
+                                                                                margin: 0 !important;
+                                                                              }
+                                                                              .nav-link {
+                                                                                display: block !important;
+                                                                                width: 100% !important;
+                                                                                text-align: left !important;
+                                                                                font-size: 1.12rem !important;
+                                                                                padding: 0.8rem 1.2rem !important;
+                                                                                color: #00D4FF !important;
+                                                                                background: none !important;
+                                                                                border-radius: 9999px !important;
+                                                                                margin: 0 !important;
+                                                                                box-shadow: none !important;
+                                                                                transition: color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s !important;
+                                                                              }
+                                                                              .nav-link.nav-active {
+                                                                                color: #fff !important;
+                                                                                background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
+                                                                                box-shadow: 0 2px 16px 0 #00D4FF55, 0 1.5px 12px 0 #FF006455 !important;
+                                                                                font-weight: 700 !important;
+                                                                              }
+                                                                              .social-links a, .contact-form button {
+                                                                                background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                                                                                color: #000 !important;
+                                                                                border-radius: 9999px !important;
+                                                                                box-shadow: 0 0 12px #00D4FF55, 0 0 18px #FF006455 !important;
+                                                                                font-weight: bold !important;
+                                                                                padding: 0.7rem 1.2rem !important;
+                                                                                margin-bottom: 0.7rem !important;
+                                                                                display: inline-block !important;
+                                                                                font-size: 1.08rem !important;
+                                                                              }
                                                                         /* Mobile polish for project/tech cards and footer */
                                                                         .project-card-featured, .project-card, .tech-card-dynamic {
                                                                           background: linear-gradient(135deg, #0a0a14 80%, #00D4FF0D 100%) !important;
