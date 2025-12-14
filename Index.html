@@ -49,6 +49,11 @@
     .fade-section.visible {
       transform: translate3d(0, 0, 0) !important;
     }
+    /* Add a 3D transform to headings inside fade-sections to prevent text blurriness on mobile after animation */
+    .fade-section.visible h2,
+    .fade-section.visible h3 {
+      transform: translateZ(0);
+    }
   }
 </style>
 <style>
