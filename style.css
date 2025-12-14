@@ -71,6 +71,11 @@
                                                                     transform: none !important; /* Reset the transform that pushes it down */
                                                                     margin-top: 1rem !important; /* Add space above the heading */
                                                                     margin-bottom: 2.5rem !important; /* Increased space to push paragraph down */
+                                                                    margin-bottom: 1rem !important; /* Add a small space below the heading */
+                                                                  }
+                                                                  /* Add significant space above the paragraph to push it down */
+                                                                  .introduction.featured-section p {
+                                                                    margin-top: 3rem !important;
                                                                   }
                                                                   .about-summary h2 .absolute, .featured-section h2 .absolute {
                                                                     background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
