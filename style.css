@@ -1,5 +1,51 @@
 /* --- MOBILE RESPONSIVE POLISH --- */
 @media (max-width: 640px) {
+                                                                                    /* Mobile polish for headings, text, and forms */
+                                                                                    h1, .hero-title, h2, .text-3xl, .text-4xl, .text-6xl, .text-7xl, .text-8xl {
+                                                                                      font-size: 2rem !important;
+                                                                                      line-height: 1.15 !important;
+                                                                                      margin-bottom: 1.1rem !important;
+                                                                                      word-break: break-word !important;
+                                                                                      letter-spacing: 0.01em !important;
+                                                                                    }
+                                                                                    p, .about-me-summary, .learning-content p, .facts-grid p {
+                                                                                      font-size: 1.08rem !important;
+                                                                                      line-height: 1.6 !important;
+                                                                                      color: #e0eaff !important;
+                                                                                      margin-bottom: 1rem !important;
+                                                                                      word-break: break-word !important;
+                                                                                    }
+                                                                                    input, textarea, select, .name-input {
+                                                                                      font-size: 1.08rem !important;
+                                                                                      padding: 0.9rem 1.1rem !important;
+                                                                                      border-radius: 0.7rem !important;
+                                                                                      border: 2px solid #00D4FF !important;
+                                                                                      background: #0a0a14 !important;
+                                                                                      color: #e0eaff !important;
+                                                                                      margin-bottom: 1.1rem !important;
+                                                                                      width: 100% !important;
+                                                                                      box-sizing: border-box !important;
+                                                                                    }
+                                                                                    input::placeholder, textarea::placeholder {
+                                                                                      color: #00D4FF !important;
+                                                                                      opacity: 0.7 !important;
+                                                                                    }
+                                                                                    .contact-form button {
+                                                                                      min-width: 120px !important;
+                                                                                      font-size: 1.08rem !important;
+                                                                                      padding: 0.8rem 1.2rem !important;
+                                                                                    }
+                                                                                    html, body {
+                                                                                      overflow-x: hidden !important;
+                                                                                      max-width: 100vw !important;
+                                                                                    }
+                                                                                    .content-wrapper, main, section, .fade-section {
+                                                                                      box-sizing: border-box !important;
+                                                                                      width: 100vw !important;
+                                                                                      max-width: 100vw !important;
+                                                                                      padding-left: 0.5rem !important;
+                                                                                      padding-right: 0.5rem !important;
+                                                                                    }
                                                                               /* Mobile navbar and interactive element polish */
                                                                               header.sticky[style], header {
                                                                                 box-shadow: 0 2px 18px 0 #00D4FF33, 0 1.5px 10px 0 #FF006433 !important;
@@ -953,12 +999,6 @@ a:hover {
     #5a3030 90%,
     #6a4040 100%);
   background-attachment: fixed;
-}
-
-    inset 0 0 20px rgba(0, 168, 255, 0.05);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
 section::before {
@@ -2445,4 +2485,3 @@ img[alt="METAMORE band logo"] {
   align-items: flex-start !important;
   min-height: auto !important;
 }
-ont og
