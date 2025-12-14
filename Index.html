@@ -53,6 +53,11 @@
     .fade-section.visible h2,
     .fade-section.visible h3 {
       transform: translateZ(0);
+      /* Force sharp text rendering on mobile */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+
     }
   }
 </style>
