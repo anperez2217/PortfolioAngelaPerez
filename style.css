@@ -66,6 +66,12 @@
                                                                     transform: translateY(2.5rem) !important;
                                                                     margin-bottom: -1.5rem !important;
                                                                   }
+                                                                  /* On mobile, prevent the "Continued Learning" h2 from overlapping the text below it */
+                                                                  .introduction.featured-section h2 {
+                                                                    transform: none !important;
+                                                                    margin-bottom: 1rem !important;
+                                                                    margin-top: 1rem !important;
+                                                                  }
                                                                   .about-summary h2 .absolute, .featured-section h2 .absolute {
                                                                     background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
                                                                     margin-top: 0.5rem !important;
