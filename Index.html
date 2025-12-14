@@ -233,8 +233,15 @@
         const observer = new window.IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
+            const section = entry.target;
+            section.classList.add('visible');
+
+            // After the animation finishes, remove the transform to fix the blur.
+            section.addEventListener('transitionend', () => {
+              section.style.transform = ''; 
+            }, { once: true }); // Ensure this runs only once.
+
+            observer.unobserve(section);
             }
           });
         }, { threshold: 0.18 });
