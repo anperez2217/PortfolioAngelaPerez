@@ -12,7 +12,128 @@ footer {
     letter-spacing: 0.04em;
     background: rgba(20, 30, 60, 0.65);
 /* --- MOBILE RESPONSIVE POLISH --- */
-/* (All mobile and desktop overrides from the last hour have been removed. This restores the file to its original state.) */
+@media (max-width: 640px) {
+                                                                        /* Mobile polish for project/tech cards and footer */
+                                                                        .project-card-featured, .project-card, .tech-card-dynamic {
+                                                                          background: linear-gradient(135deg, #0a0a14 80%, #00D4FF0D 100%) !important;
+                                                                          border-radius: 1.1rem !important;
+                                                                          box-shadow: 0 0 24px #00D4FF55, 0 0 32px #FF006455, 0 2px 12px #00D4FF22, 0 1.5px 8px #FF006422 !important;
+                                                                          color: #e0eaff !important;
+                                                                          margin-bottom: 1.3rem !important;
+                                                                          border: 2.5px solid #00D4FF33 !important;
+                                                                          padding: 1.1rem !important;
+                                                                        }
+                                                                        .project-card-featured {
+                                                                          border: 2.5px solid #FF006433 !important;
+                                                                          box-shadow: 0 0 32px #FF006455, 0 0 48px #00D4FF55 !important;
+                                                                        }
+                                                                        .footer, footer {
+                                                                          background: linear-gradient(to top, #000 85%, #00D4FF0D 100%) !important;
+                                                                          box-shadow: 0 -2px 18px 0 #00D4FF33, 0 -1.5px 10px 0 #FF006433 !important;
+                                                                          color: #e0eaff !important;
+                                                                          padding: 1.2rem 0.7rem !important;
+                                                                          border-radius: 1.1rem 1.1rem 0 0 !important;
+                                                                          margin-top: 2.2rem !important;
+                                                                        }
+                                                                  /* Mobile About Me and Featured Section visual polish */
+                                                                  .about-summary {
+                                                                    background: linear-gradient(180deg, #000 80%, #00D4FF0D 100%) !important;
+                                                                    border-radius: 1.25rem !important;
+                                                                    box-shadow: 0 0 24px #00D4FF33, 0 0 32px #FF006433 !important;
+                                                                    padding: 1.2rem 0.7rem !important;
+                                                                    margin-bottom: 2.2rem !important;
+                                                                  }
+                                                                  .about-summary .about-me-summary {
+                                                                    background: linear-gradient(90deg, #0a0a14 60%, #00D4FF0D 100%) !important;
+                                                                    border-left: 3.5px solid #00D4FF !important;
+                                                                    border-radius: 0.9rem !important;
+                                                                    color: #e0eaff !important;
+                                                                    box-shadow: 0 0 12px #00D4FF33 !important;
+                                                                    margin-bottom: 1.1rem !important;
+                                                                  }
+                                                                  .about-summary .about-me-summary:last-child {
+                                                                    border-left: 3.5px solid #FF0064 !important;
+                                                                    box-shadow: 0 0 12px #FF006433 !important;
+                                                                  }
+                                                                  .about-summary h2, .featured-section h2 {
+                                                                    color: #00D4FF !important;
+                                                                    background: none !important;
+                                                                    text-shadow: 0 0 12px #00D4FF99 !important;
+                                                                    font-size: 2rem !important;
+                                                                    margin-bottom: 1.2rem !important;
+                                                                  }
+                                                                  .about-summary h2 .absolute, .featured-section h2 .absolute {
+                                                                    background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
+                                                                    height: 5px !important;
+                                                                    border-radius: 8px !important;
+                                                                    box-shadow: 0 0 12px #00D4FF55, 0 0 18px #FF006455 !important;
+                                                                  }
+                                                                  .featured-section {
+                                                                    background: linear-gradient(180deg, #000 80%, #FF00640D 100%) !important;
+                                                                    border-radius: 1.25rem !important;
+                                                                    box-shadow: 0 0 24px #FF006433, 0 0 32px #00D4FF33 !important;
+                                                                    padding: 1.2rem 0.7rem !important;
+                                                                    margin-bottom: 2.2rem !important;
+                                                                  }
+                                                                  .facts-grid .micro-interact {
+                                                                    background: linear-gradient(135deg, #0a0a14 80%, #00D4FF0D 100%) !important;
+                                                                    border-radius: 1rem !important;
+                                                                    box-shadow: 0 0 16px #00D4FF33, 0 0 24px #FF006433 !important;
+                                                                    color: #e0eaff !important;
+                                                                    margin-bottom: 1.1rem !important;
+                                                                    border: 2.5px solid #00D4FF33 !important;
+                                                                  }
+                                                                  .facts-grid .micro-interact:last-child {
+                                                                    border: 2.5px solid #FF006433 !important;
+                                                                  }
+                                                            /* Mobile neon text and accent fixes for hero section */
+                                                            .text-neon-cyan {
+                                                              color: #00D4FF !important;
+                                                              background: linear-gradient(90deg, #00D4FF 40%, #00FFF0 100%) !important;
+                                                              -webkit-background-clip: text !important;
+                                                              -webkit-text-fill-color: transparent !important;
+                                                              background-clip: text !important;
+                                                              text-fill-color: transparent !important;
+                                                              text-shadow: 0 0 12px #00D4FF99, 0 0 18px #00FFF099 !important;
+                                                            }
+                                                            .text-neon-magenta {
+                                                              color: #FF0064 !important;
+                                                              background: linear-gradient(90deg, #FF0064 40%, #FF80BF 100%) !important;
+                                                              -webkit-background-clip: text !important;
+                                                              -webkit-text-fill-color: transparent !important;
+                                                              background-clip: text !important;
+                                                              text-fill-color: transparent !important;
+                                                              text-shadow: 0 0 12px #FF006499, 0 0 18px #FF80BF99 !important;
+                                                            }
+                                                            .hero-accent {
+                                                              width: 80px !important;
+                                                              height: 6px !important;
+                                                              margin: 0.5rem auto 0 auto !important;
+                                                              border-radius: 8px !important;
+                                                              background: linear-gradient(90deg, #00D4FF 0%, #FF0064 100%) !important;
+                                                              box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                              display: block !important;
+                                                            }
+                                                      /* Absolute override for Continue button in bonus game on mobile */
+                                                      #dodgeContinueBtn,
+                                                      #dodgeContinueBtn[style],
+                                                      #dodgeContinueBtn.micro-interact,
+                                                      #dodgeContinueBtn.micro-interact[style] {
+                                                        background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                                                        color: #000 !important;
+                                                        border: none !important;
+                                                        box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                        font-weight: bold !important;
+                                                      }
+                                                /* Absolute override for Next Question button on mobile, even if inline style is present */
+                                                #nextBtn.game-button[style],
+                                                #nextBtn.game-button.micro-interact[style] {
+                                                  background: linear-gradient(135deg, #00D4FF 60%, #FF0064 100%) !important;
+                                                  color: #000 !important;
+                                                  border: none !important;
+                                                  box-shadow: 0 0 16px #00D4FF55, 0 0 24px #FF006455 !important;
+                                                  font-weight: bold !important;
+                                                }
                                           /* Absolute override for Next Question button on mobile */
                                           #nextBtn.game-button,
                                           #nextBtn.game-button.micro-interact {
