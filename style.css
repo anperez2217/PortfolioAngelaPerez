@@ -69,8 +69,6 @@
                                                                   /* On mobile, prevent the "Continued Learning" h2 from overlapping the text below it */
                                                                   .introduction.featured-section h2 {
                                                                     transform: none !important; /* Reset the transform that pushes it down */
-                                                                    margin-top: 1rem !important; /* Add space above the heading */
-                                                                    margin-bottom: 2.5rem !important; /* Increased space to push paragraph down */
                                                                     margin-bottom: 1rem !important; /* Add a small space below the heading */
                                                                   }
                                                                   /* Add significant space above the paragraph to push it down */
